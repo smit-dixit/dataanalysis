@@ -1,0 +1,41 @@
+cookie:
+  expiry_days: 1
+  key: random_signature_key
+  name: random_cookie_name
+credentials:
+  usernames:
+    admin:
+      email: admin@gmail.com
+      failed_login_attempts: 0
+      forgot_password: false
+      isactive: true
+      logged_in: false
+      name: Admin
+      password: $2b$12$ySgIxyZNb4fwhxlvaazjtunfJGLN7wFsrd1NXipTGf3wSLONbdCUC
+    operator:
+      email: op@mail.com
+      failed_login_attempts: 0
+      forgot_password: null
+      isactive: true
+      logged_in: null
+      name: Test2
+      password: qwerty
+    timekeeper:
+      email: secondtimekeeper@mail.com
+      failed_login_attempts: 0
+      forgot_password: true
+      isactive: true
+      logged_in: null
+      name: Test
+      password: $2b$12$8MswqgomRidB18L4VKJPLO1J4aK43pnVDfMm0f5qdDKHv52pi24z6
+    timekeeper2:
+      email: test@mil.com
+      failed_login_attempts: 0
+      forgot_password: null
+      isactive: true
+      logged_in: null
+      name: Test3
+      password: $2b$12$8MswqgomRidB18L4VKJPLO1J4aK43pnVDfMm0f5qdDKHv52pi24z6
+preauthorized:
+  emails:
+  - super_admin@gmail.com
