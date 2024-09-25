@@ -11,7 +11,7 @@ import base64
 import requests
 import random
 import hashlib
-from datetime import datetime,timedelta
+from datetime import datetime,timedelta,date
 from reportlab.lib.pagesizes import letter
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Spacer
 from reportlab.lib import colors
@@ -74,15 +74,40 @@ def reset_password(username):
 name, authentication_status, username = authenticator.login()
 
 
-def generate_pdf_report(start_date=None, end_date=None, title='Madhur Dairy Coupon Report'):
+def generate_pdf_report(start_date=None, end_date=None, summ=False):
     c_df = pd.read_pickle('coupon.pkl')
     
     c_df = c_df.drop(columns=['OTP'])
+
+    c_df = c_df[c_df['Redeemed'] == True]
+
+    if start_date and end_date:
+        # Ensure 'Date' column is datetime type
+        c_df['Date'] = pd.to_datetime(c_df['Date'])
+
+        # Convert start_date and end_date to datetime if they are date objects
+        if isinstance(start_date, date):
+            start_date = datetime.combine(start_date, datetime.min.time())
+        if isinstance(end_date, date):
+            end_date = datetime.combine(end_date, datetime.max.time())
+
+        c_df = c_df[(c_df['Date'] >= start_date) & (c_df['Date'] <= end_date)]
     
+    if summ:
+        title = "Madhur Dairy Coupon Summary from " + start_date.strftime('%B %d, %Y') + " to " + end_date.strftime('%B %d, %Y')
+        summ_df = c_df.groupby('Type of dish').agg({'Type of dish':'count', 'Rupees of items':'sum'}).rename(columns={'Type of dish':'Count', 'Rupees of items':'Total Amount'}).reset_index()
+    else:
+        title = "Madhur Dairy Coupon Report from " + start_date.strftime('%B %d, %Y') + " to " + end_date.strftime('%B %d, %Y')
+
     # Prepare data for the table
-    table_data = [[Paragraph(str(val), getSampleStyleSheet()["BodyText"]) for val in c_df.columns]]  # Header row
-    for _, row in c_df.iterrows():
-        table_data.append([Paragraph(str(val), getSampleStyleSheet()["BodyText"]) for val in row])
+    if summ:
+        table_data = [[Paragraph(str(val), getSampleStyleSheet()["BodyText"]) for val in summ_df.columns]]  # Header row
+        for _, row in summ_df.iterrows():
+            table_data.append([Paragraph(str(val), getSampleStyleSheet()["BodyText"]) for val in row])
+    else:
+        table_data = [[Paragraph(str(val), getSampleStyleSheet()["BodyText"]) for val in c_df.columns]]  # Header row
+        for _, row in c_df.iterrows():
+            table_data.append([Paragraph(str(val), getSampleStyleSheet()["BodyText"]) for val in row])
 
     # Calculate totals
     price_total = c_df.iloc[:, -2].sum()  # Assuming 'Rupees of Item' is the second-last column
@@ -219,9 +244,15 @@ def admin_dashboard():
       return hashlib.sha256(password.encode()).hexdigest()
 
     # Button to generate PDF report
-    if st.sidebar.button("Generate PDF"):
+    if st.sidebar.button("Generate Full Report"):
     
-        pdf_bytes = generate_pdf_report(start_date=start_date, end_date=end_date)
+        pdf_bytes = generate_pdf_report(start_date=start_date, end_date=end_date, summ = False)
+        st.sidebar.download_button(label="Download PDF", data=pdf_bytes, file_name="report.pdf", mime="application/pdf")
+        st.sidebar.success("PDF report generated successfully!")
+        
+    if st.sidebar.button("Generate Summary"):
+    
+        pdf_bytes = generate_pdf_report(start_date=start_date, end_date=end_date, summ = True)
         st.sidebar.download_button(label="Download PDF", data=pdf_bytes, file_name="report.pdf", mime="application/pdf")
         st.sidebar.success("PDF report generated successfully!")
     
@@ -229,7 +260,6 @@ def admin_dashboard():
                     <p>© 2024 Madhur Dairy | All Rights Reserved</p>
                     </div>"""
     st.sidebar.markdown(footer_html, unsafe_allow_html=True)
-
     
     if page == "Home":
         admin_dashboard_home()
@@ -328,9 +358,15 @@ def user_dashboard():
     end_date = st.sidebar.date_input("End Date")
 
     # Button to generate PDF report
-    if st.sidebar.button("Generate PDF"):
+    if st.sidebar.button("Generate Full Report"):
     
-        pdf_bytes = generate_pdf_report(start_date=start_date, end_date=end_date)
+        pdf_bytes = generate_pdf_report(start_date=start_date, end_date=end_date, summ = False)
+        st.sidebar.download_button(label="Download PDF", data=pdf_bytes, file_name="report.pdf", mime="application/pdf")
+        st.sidebar.success("PDF report generated successfully!")
+        
+    if st.sidebar.button("Generate Summary"):
+    
+        pdf_bytes = generate_pdf_report(start_date=start_date, end_date=end_date, summ = True)
         st.sidebar.download_button(label="Download PDF", data=pdf_bytes, file_name="report.pdf", mime="application/pdf")
         st.sidebar.success("PDF report generated successfully!")
     # Read menu data
@@ -449,9 +485,15 @@ def user2_dashboard():
     end_date = st.sidebar.date_input("End Date")
 
     # Button to generate PDF report
-    if st.sidebar.button("Generate PDF"):
+    if st.sidebar.button("Generate Full Report"):
     
-        pdf_bytes = generate_pdf_report(start_date=start_date, end_date=end_date)
+        pdf_bytes = generate_pdf_report(start_date=start_date, end_date=end_date, summ = False)
+        st.sidebar.download_button(label="Download PDF", data=pdf_bytes, file_name="report.pdf", mime="application/pdf")
+        st.sidebar.success("PDF report generated successfully!")
+        
+    if st.sidebar.button("Generate Summary"):
+    
+        pdf_bytes = generate_pdf_report(start_date=start_date, end_date=end_date, summ = True)
         st.sidebar.download_button(label="Download PDF", data=pdf_bytes, file_name="report.pdf", mime="application/pdf")
         st.sidebar.success("PDF report generated successfully!")
         

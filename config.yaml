@@ -12,6 +12,22 @@ credentials:
       logged_in: false
       name: Admin
       password: $2b$12$ySgIxyZNb4fwhxlvaazjtunfJGLN7wFsrd1NXipTGf3wSLONbdCUC
+    admin2:
+      email: admin@gmail.com
+      failed_login_attempts: 0
+      forgot_password: true
+      isactive: true
+      logged_in: null
+      name: sarvagna
+      password: $2b$12$ySgIxyZNb4fwhxlvaazjtunfJGLN7wFsrd1NXipTGf3wSLONbdCUC
+    op2:
+      email: test
+      failed_login_attempts: 0
+      forgot_password: null
+      isactive: null
+      logged_in: null
+      name: test4
+      password: abcde
     operator:
       email: op@mail.com
       failed_login_attempts: 0
@@ -19,7 +35,7 @@ credentials:
       isactive: true
       logged_in: null
       name: Test2
-      password: qwerty
+      password: $2b$12$JmqhD8ykMoJXpnGpcMo0VuSP/ZGyEipo6kJg9Iz8nnrL0Ilwr4FSW
     timekeeper:
       email: secondtimekeeper@mail.com
       failed_login_attempts: 0
