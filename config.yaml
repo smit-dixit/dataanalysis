@@ -27,7 +27,7 @@ credentials:
       isactive: null
       logged_in: null
       name: test4
-      password: abcde
+      password: $2b$12$ySgIxyZNb4fwhxlvaazjtunfJGLN7wFsrd1NXipTGf3wSLONbdCUC
     operator:
       email: op@mail.com
       failed_login_attempts: 0
@@ -36,6 +36,14 @@ credentials:
       logged_in: null
       name: Test2
       password: $2b$12$JmqhD8ykMoJXpnGpcMo0VuSP/ZGyEipo6kJg9Iz8nnrL0Ilwr4FSW
+    pos:
+      email: pos@gmail.com
+      failed_login_attempts: 0
+      forgot_password: true
+      isactive: true
+      logged_in: null
+      name: sarvagna
+      password: $2b$12$ySgIxyZNb4fwhxlvaazjtunfJGLN7wFsrd1NXipTGf3wSLONbdCUC
     timekeeper:
       email: secondtimekeeper@mail.com
       failed_login_attempts: 0
@@ -43,7 +51,7 @@ credentials:
       isactive: true
       logged_in: null
       name: Test
-      password: $2b$12$8MswqgomRidB18L4VKJPLO1J4aK43pnVDfMm0f5qdDKHv52pi24z6
+      password: def
     timekeeper2:
       email: test@mil.com
       failed_login_attempts: 0
