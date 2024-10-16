@@ -18,6 +18,8 @@ from reportlab.lib import colors
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.platypus import Paragraph
 from reportlab.lib.styles import getSampleStyleSheet
+import smtplib
+from email.mime.text import MIMEText
 
 
 
@@ -255,6 +257,12 @@ def admin_dashboard():
         pdf_bytes = generate_pdf_report(start_date=start_date, end_date=end_date, summ = True)
         st.sidebar.download_button(label="Download PDF", data=pdf_bytes, file_name="report.pdf", mime="application/pdf")
         st.sidebar.success("PDF report generated successfully!")
+        
+    if st.sidebar.button("Generate Sweets Report"):
+    
+        pdf_bytes = generate_pdf_report(start_date=start_date, end_date=end_date, summ = False)
+        st.sidebar.download_button(label="Download PDF", data=pdf_bytes, file_name="report.pdf", mime="application/pdf")
+        st.sidebar.success("PDF report generated successfully!")
     
     footer_html = """<div style='text-align: center;'>
                     <p>© 2024 Madhur Dairy | All Rights Reserved</p>
@@ -267,21 +275,10 @@ def admin_dashboard():
         
     elif page == "User Management":
         st.title("User Management")
-        
-        df_transposed = pd.DataFrame(config['credentials']['usernames']).T
-        st.markdown(
-        f"""<style>
-            .reportview-container .main .block-container{{
-                max-width: 100%;
-                padding-top: 0rem;
-                padding-right: 0rem;
-                padding-left: 0rem;
-                padding-bottom: 0rem;
-            }}
-        </style>""",
-        unsafe_allow_html=True
-        )
-        edited_users = st.data_editor(df_transposed, num_rows="dynamic")
+        if 'usernames' not in st.session_state:
+            st.session_state.usernames = pd.DataFrame(config['credentials']['usernames']).T
+            
+        edited_users = st.data_editor(st.session_state.usernames, num_rows="dynamic")
         
         if st.button('Save', key="unique5"):
         
@@ -289,7 +286,7 @@ def admin_dashboard():
                 if row['password'] != edited_users.loc[index, 'password']:  # Check for password change
                     row['password'] = hash_password(row['password'])  # Hash password if changed
             # Check if there are new users added
-            new_users = edited_users.index.difference(df_transposed.index)
+            new_users = edited_users.index.difference(st.session_state.usernames.index)
             
             # If there are new users, append them to the configuration
             if not new_users.empty:
@@ -320,9 +317,17 @@ def admin_dashboard():
         if st.button('Save', key="unique4"):
             edited_df.to_pickle('employee.pkl')
             st.success('Changes Saved')
+            
+        df_menu = pd.read_pickle('email.pkl')
+        edited_menu = st.data_editor(df_menu, num_rows="dynamic", 
+                           use_container_width=True, 
+                           column_config={
+                               "Personal No": st.column_config.NumberColumn(format="%f")
+                           })
+        if st.button('Save', key="unique5"):
+            edited_menu.to_pickle('email.pkl')
         
         uploaded = st.file_uploader("Choose a file")
-        # Add content for the Customer Management page
         
     elif page == "Menu Management":
         st.title("Canteen Menu")
@@ -330,6 +335,11 @@ def admin_dashboard():
         edited_menu = st.data_editor(df_menu, num_rows="dynamic")
         if st.button('Save', key="unique3"):
             edited_menu.to_pickle('menu.pkl')
+            
+        df_menu = pd.read_pickle('price.pkl')
+        edited_menu = st.data_editor(df_menu, num_rows="dynamic")
+        if st.button('Save', key="unique4"):
+            edited_menu.to_pickle('price.pkl')
             
     elif page == "Support":
         st.title('Support')
@@ -532,7 +542,129 @@ def user2_dashboard():
         else:
             st.error("Invalid OTP. Please try again.")
         
+def send_email(recipient_email, otp, employee_name, bill_details):
+    # Set your SMTP server details
+    smtp_server = "smtp.madhurdairy.org"
+    smtp_port = 465
+    sender_email = "info@madhurdairy.org"
+    sender_password = "Madhur@123"  # Use environment variables in production
 
+    # Create email content
+    subject = "Madhur Dairy Sweets OTP"
+    body = f"""
+    Hello {employee_name},
+
+    Your OTP for Madhur Dairy Sweets is: {otp}
+
+    Bill Details:
+    {bill_details}
+
+    Thank you!
+    """
+    
+    msg = MIMEText(body)
+    msg['Subject'] = subject
+    msg['From'] = sender_email
+    msg['To'] = "smitdixit96@gmail.com"
+
+    # Sending the email
+    with smtplib.SMTP(smtp_server, smtp_port) as server:
+        server.starttls()  # Use TLS
+        server.login(sender_email, sender_password)
+        server.send_message(msg)
+
+def user_dashboard3():
+    st.write("Welcome to the Timekeeper Dashboard")
+
+    # Sidebar for report generation
+    st.sidebar.title("Generate Report")
+    start_date = st.sidebar.date_input("Start Date")
+    end_date = st.sidebar.date_input("End Date")
+
+    # Button to generate PDF report
+    if st.sidebar.button("Generate Full Report"):
+        pdf_bytes = generate_pdf_report(start_date=start_date, end_date=end_date, summ=False)
+        st.sidebar.download_button(label="Download PDF", data=pdf_bytes, file_name="report.pdf", mime="application/pdf")
+        st.sidebar.success("PDF report generated successfully!")
+
+    if st.sidebar.button("Generate Summary"):
+        pdf_bytes = generate_pdf_report(start_date=start_date, end_date=end_date, summ=True)
+        st.sidebar.download_button(label="Download PDF", data=pdf_bytes, file_name="report.pdf", mime="application/pdf")
+        st.sidebar.success("PDF report generated successfully!")
+
+    # Read menu data
+    menu_df = pd.read_pickle('price.pkl')
+    employee_df = pd.read_pickle('email.pkl')
+
+    # Employee selection
+    selected_employee_code = st.selectbox("Select Employee Code:", [int(code) for code in employee_df['Personal No'].tolist()])
+    employee_info = employee_df[employee_df['Personal No'] == selected_employee_code]
+    
+    if not employee_info.empty:
+        employee_name = employee_info.iloc[0]['EMPLOYEE NAME.']
+        recipient_email = " "
+    else:
+        employee_name = "Not Found"
+
+    # Menu items selection with quantity input
+    selected_items = st.selectbox("Select items from the menu:", menu_df['Material Description'].tolist())
+    # Enhanced layout for quantity input
+    col1, col2 = st.columns([1, 2])
+    with col1:
+        quantity = st.number_input("Quantity: ", min_value=1, value=1)
+        
+
+    # Initialize bill in session state
+    if 'bill' not in st.session_state:
+        st.session_state.bill = []
+    
+    # Calculate total weight
+    total_weight = sum(item['weight'] * item['quantity'] for item in st.session_state.bill)
+
+    if st.button("Add to Bill"):
+        item_data = menu_df.loc[menu_df['Material Description'] == selected_items]
+        if not item_data.empty:
+            discounted_price = item_data['Price'].iloc[0]
+            mrp_price = item_data['MRP'].iloc[0]
+            weight = item_data['Weight'].iloc[0]
+            total_price = discounted_price * quantity
+            
+            # Check if adding this item exceeds the weight limit
+            if total_weight + (weight * quantity) > 5000:
+                st.error("Adding this item would exceed the weight limit of 5000 grams.")
+            else:
+                st.session_state.bill.append({
+                    'item': selected_items,
+                    'quantity': quantity,
+                    'total_price': total_price,
+                    'mrp': mrp_price,
+                    'discounted': discounted_price,
+                    'weight': weight
+                })
+
+    # Display the bill
+    st.write("### Bill")
+    st.write(f"**Employee Name:** {employee_name}")  # Show the employee name
+    if st.session_state.bill:
+        bill_details = ""
+        for idx, bill_item in enumerate(st.session_state.bill):
+            bill_details += f"- {bill_item['quantity']} x **{bill_item['item']}**: ~~₹{bill_item['mrp']:.2f}~~ ₹{bill_item['discounted']:.2f} (Total: ₹{bill_item['total_price']:.2f})\n"
+            col_a, col_b = st.columns([3, 1])  # Create two columns for item details and remove button
+            with col_a:
+                st.markdown(f"- {bill_item['quantity']} x **{bill_item['item']}**: ~~₹{bill_item['mrp']:.2f}~~ ₹{bill_item['discounted']:.2f} (Total: ₹{bill_item['total_price']:.2f})")
+            with col_b:
+                if st.button("🗑️", key=f"remove_{idx}", help="Remove item"):
+                    st.session_state.bill.pop(idx)
+                    st.experimental_rerun()    # Refresh the app to show updated bill
+    else:
+        st.write("No items added to the bill.")
+
+    # Total price calculation
+    total_bill_price = sum(item['total_price'] for item in st.session_state.bill)
+    st.write(f"**Total Price:** ₹{total_bill_price:.2f}")
+
+    if st.button('Generate OTP'):
+        st.error("No email address found for the selected employee.")
 
 # Display dashboard if authenticated
 if authentication_status:
@@ -545,6 +677,8 @@ if authentication_status:
         user2_dashboard()
     elif username.startswith('ti'):
         user_dashboard()
+    elif username.startswith('po'):
+        user_dashboard3()
 
 st.markdown("""
     <style>
@@ -557,5 +691,4 @@ st.markdown("""
         #stDecoration {display:none;}
     </style>
 """, unsafe_allow_html=True)
-
 
