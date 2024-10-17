@@ -488,86 +488,55 @@ def user_dashboard():
 
     
 def user2_dashboard():
-    st.write("Welcome to the Operator Dashboard")
-
     sweet_records_df = pd.read_pickle('sweet_records.pkl')
-    if 'redeemed' not in sweet_records_df.columns:
-        sweet_records_df['redeemed'] = False  # Default value as False for non-redeemed sweets
-        sweet_records_df.to_pickle('sweet_records.pkl')  # Save updated DataFrame back to file
-    
+    coupons_df = pd.read_pickle('coupon.pkl')  # Load coupons DataFrame
+
+    st.write("Welcome to Operator Dashboard")
+
     otp_input = st.text_input("Enter OTP/Temporary Code")
 
-    st.sidebar.title("Generate Report")
-    start_date = st.sidebar.date_input("Start Date")
-    end_date = st.sidebar.date_input("End Date")
-
-    # Button to generate PDF report
-    if st.sidebar.button("Generate Full Report"):
-    
-        pdf_bytes = generate_pdf_report(start_date=start_date, end_date=end_date, summ = False)
-        st.sidebar.download_button(label="Download PDF", data=pdf_bytes, file_name="report.pdf", mime="application/pdf")
-        st.sidebar.success("PDF report generated successfully!")
-        
-    if st.sidebar.button("Generate Summary"):
-    
-        pdf_bytes = generate_pdf_report(start_date=start_date, end_date=end_date, summ = True)
-        st.sidebar.download_button(label="Download PDF", data=pdf_bytes, file_name="report.pdf", mime="application/pdf")
-        st.sidebar.success("PDF report generated successfully!")
-        
-    # Button to fetch details associated with OTP
     if st.button("Redeem", key="unique8"):
-        otp_found = False
-        redeemed_status = None
-        
-        # Check if OTP exists in coupons_df
-        if (otp_input in coupons_df['OTP'].values) | (otp_input in coupons_df['Coupon unique code no.'].values):
-            otp_found = True
-            # Retrieve details associated with OTP in coupons_df
-            if otp_input in coupons_df['OTP'].values:
-                otp_details = coupons_df[coupons_df['OTP'] == otp_input].iloc[0]
-                otp_index = coupons_df.index[coupons_df['OTP'] == otp_input].tolist()[0]
-            else:
-                otp_details = coupons_df[coupons_df['Coupon unique code no.'] == otp_input].iloc[0]
-                otp_index = coupons_df.index[coupons_df['Coupon unique code no.'] == otp_input].tolist()[0]
-            
-            redeemed_status = otp_details['Redeemed']
-            
-            # Display coupon-related details before redeeming
-            employee_name = otp_details['Employee name']
-            dish_type = otp_details['Type of dish']
-            amount = otp_details['Rupees of items']
-            
-            st.write(f"Employee Name: {employee_name}")
-            st.write(f"Type of Dish: {dish_type}")
-            st.write(f"Amount: {amount}")
-            
-        # Check if OTP exists in sweet_records_df
-        elif otp_input in sweet_records_df['otp'].values:
-            otp_found = True
-            # Retrieve details associated with OTP in sweet_records_df
-            otp_details = sweet_records_df[sweet_records_df['otp'] == otp_input].iloc[0]
-            st.write(f"Employee Name: {otp_details['employee_name']}")
-            st.write(f"Bill Details: {otp_details['bill_details']}")
-            
-            redeemed_status = otp_details.get('redeemed', False)
+        otp_input_str = str(otp_input).strip()
 
-        if otp_found:
-            # Check if the coupon has already been redeemed
+        # Check for OTP in sweet_records_df
+        sweet_filtered = sweet_records_df[sweet_records_df['otp'].astype(str) == otp_input_str]
+
+        if not sweet_filtered.empty:
+            otp_details = sweet_filtered.iloc[0]
+            redeemed_status = otp_details['redeemed']
+
             if not redeemed_status:
-                # Redeem the coupon
-                if otp_input in coupons_df['OTP'].values or otp_input in coupons_df['Coupon unique code no.'].values:
-                    # Update redeemed status in coupon data
-                    coupons_df.at[otp_index, 'Redeemed'] = True
-                    coupons_df.to_pickle('coupon.pkl')
-                else:
-                    # Update redeemed status in sweet_records_df
-                    sweet_index = sweet_records_df.index[sweet_records_df['otp'] == otp_input].tolist()[0]
-                    sweet_records_df.at[sweet_index, 'redeemed'] = True
-                    sweet_records_df.to_pickle('sweet_records.pkl')
-                
+                sweet_index = sweet_filtered.index[0]
+                st.write(f"Employee Name: {otp_details['employee_name']}")
+                st.write(f"Bill Details: {otp_details['bill_details']}")
+                sweet_records_df.at[sweet_index, 'redeemed'] = True
+                sweet_records_df.to_pickle('sweet_records.pkl')
                 st.success('Coupon Redeemed')
             else:
-                st.warning("Coupon already redeemed.")
+                st.warning("Coupon already redeemed from sweet_records.")
+            return  # Exit after handling the sweet_records case
+
+        # Check for OTP in coupons_df
+        coupon_filtered = coupons_df[(coupons_df['OTP'] == otp_input_str) | (coupons_df['Coupon unique code no.'] == otp_input_str)]
+
+        if not coupon_filtered.empty:
+            otp_details = coupon_filtered.iloc[0]
+            redeemed_status = otp_details['Redeemed']
+
+            if not redeemed_status:
+                coupon_index = coupon_filtered.index[0]
+                employee_name = otp_details['Employee name']
+                dish_type = otp_details['Type of dish']
+                amount = otp_details['Rupees of items']
+                
+                st.write(f"Employee Name: {employee_name}")
+                st.write(f"Type of Dish: {dish_type}")
+                st.write(f"Amount: {amount}")
+                coupons_df.at[coupon_index, 'Redeemed'] = True
+                coupons_df.to_pickle('coupon.pkl')
+                st.success('Coupon Redeemed')
+            else:
+                st.warning("Coupon already redeemed from coupons.")
         else:
             st.error("Invalid OTP. Please try again.")
         
