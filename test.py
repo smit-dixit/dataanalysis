@@ -489,6 +489,12 @@ def user_dashboard():
     
 def user2_dashboard():
     st.write("Welcome to the Operator Dashboard")
+
+    sweet_records_df = pd.read_pickle('sweet_records.pkl')
+    if 'redeemed' not in sweet_records_df.columns:
+        sweet_records_df['redeemed'] = False  # Default value as False for non-redeemed sweets
+        sweet_records_df.to_pickle('sweet_records.pkl')  # Save updated DataFrame back to file
+    
     otp_input = st.text_input("Enter OTP/Temporary Code")
 
     st.sidebar.title("Generate Report")
@@ -510,33 +516,55 @@ def user2_dashboard():
         
     # Button to fetch details associated with OTP
     if st.button("Redeem", key="unique8"):
-        # Check if OTP exists in the coupon data
+        otp_found = False
+        redeemed_status = None
+        
+        # Check if OTP exists in coupons_df
         if (otp_input in coupons_df['OTP'].values) | (otp_input in coupons_df['Coupon unique code no.'].values):
-            # Retrieve details associated with OTP
+            otp_found = True
+            # Retrieve details associated with OTP in coupons_df
             if otp_input in coupons_df['OTP'].values:
                 otp_details = coupons_df[coupons_df['OTP'] == otp_input].iloc[0]
                 otp_index = coupons_df.index[coupons_df['OTP'] == otp_input].tolist()[0]
-            # Otherwise, retrieve details based on Unique Code
             else:
                 otp_details = coupons_df[coupons_df['Coupon unique code no.'] == otp_input].iloc[0]
                 otp_index = coupons_df.index[coupons_df['Coupon unique code no.'] == otp_input].tolist()[0]
+            
             redeemed_status = otp_details['Redeemed']
+            
+            # Display coupon-related details before redeeming
+            employee_name = otp_details['Employee name']
+            dish_type = otp_details['Type of dish']
+            amount = otp_details['Rupees of items']
+            
+            st.write(f"Employee Name: {employee_name}")
+            st.write(f"Type of Dish: {dish_type}")
+            st.write(f"Amount: {amount}")
+            
+        # Check if OTP exists in sweet_records_df
+        elif otp_input in sweet_records_df['otp'].values:
+            otp_found = True
+            # Retrieve details associated with OTP in sweet_records_df
+            otp_details = sweet_records_df[sweet_records_df['otp'] == otp_input].iloc[0]
+            st.write(f"Employee Name: {otp_details['employee_name']}")
+            st.write(f"Bill Details: {otp_details['bill_details']}")
+            
+            redeemed_status = otp_details.get('redeemed', False)
+
+        if otp_found:
             # Check if the coupon has already been redeemed
             if not redeemed_status:
-                employee_name = otp_details['Employee name']
-                dish_type = otp_details['Type of dish']
-                amount = otp_details['Rupees of items']
-
-                # Display details
-                st.write(f"Employee Name: {employee_name}")
-                st.write(f"Type of Dish: {dish_type}")
-                st.write(f"Amount: {amount}")
-
-                # Update redeemed status in coupon data
-                coupons_df.at[otp_index, 'Redeemed'] = True
-
-                # Write updated coupon data back to file
-                coupons_df.to_pickle('coupon.pkl')
+                # Redeem the coupon
+                if otp_input in coupons_df['OTP'].values or otp_input in coupons_df['Coupon unique code no.'].values:
+                    # Update redeemed status in coupon data
+                    coupons_df.at[otp_index, 'Redeemed'] = True
+                    coupons_df.to_pickle('coupon.pkl')
+                else:
+                    # Update redeemed status in sweet_records_df
+                    sweet_index = sweet_records_df.index[sweet_records_df['otp'] == otp_input].tolist()[0]
+                    sweet_records_df.at[sweet_index, 'redeemed'] = True
+                    sweet_records_df.to_pickle('sweet_records.pkl')
+                
                 st.success('Coupon Redeemed')
             else:
                 st.warning("Coupon already redeemed.")
