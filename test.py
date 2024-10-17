@@ -544,10 +544,10 @@ def user2_dashboard():
         
 def send_email(recipient_email, otp, employee_name, bill_details):
     # Set your SMTP server details
-    smtp_server = "smtp.madhurdairy.org"
-    smtp_port = 465
-    sender_email = "info@madhurdairy.org"
-    sender_password = "Madhur@123"  # Use environment variables in production
+    smtp_server = "smtp.mailersend.net"
+    smtp_port = 587
+    sender_email = "MS_MMGyDX@trial-z3m5jgr22wxldpyo.mlsender.net"
+    sender_password = "MiHcFp255Blyz2wy"  # Use environment variables in production
 
     # Create email content
     subject = "Madhur Dairy Sweets OTP"
@@ -572,6 +572,30 @@ def send_email(recipient_email, otp, employee_name, bill_details):
         server.starttls()  # Use TLS
         server.login(sender_email, sender_password)
         server.send_message(msg)
+
+def save_email_details(employee_name, otp, bill_details):
+    filename = 'sweet_records.pkl'
+    
+    # Check if the file exists
+    if os.path.exists(filename):
+        # Load existing records
+        records_df = pd.read_pickle(filename)
+    else:
+        # Create a new DataFrame if the file doesn't exist
+        records_df = pd.DataFrame(columns=['employee_name', 'otp', 'bill_details'])
+
+    # Create a new record
+    new_record = pd.DataFrame({
+        'employee_name': [employee_name],
+        'otp': [otp],
+        'bill_details': [bill_details]
+    })
+
+    # Append the new record
+    records_df = pd.concat([records_df, new_record], ignore_index=True)
+
+    # Save the updated DataFrame back to the pickle file
+    records_df.to_pickle(filename)
 
 def user_dashboard3():
     st.write("Welcome to the Timekeeper Dashboard")
@@ -602,7 +626,7 @@ def user_dashboard3():
     
     if not employee_info.empty:
         employee_name = employee_info.iloc[0]['EMPLOYEE NAME.']
-        recipient_email = " "
+        recipient_email = employee_info.iloc[0]['Email Id ']
     else:
         employee_name = "Not Found"
 
@@ -627,6 +651,7 @@ def user_dashboard3():
             discounted_price = item_data['Price'].iloc[0]
             mrp_price = item_data['MRP'].iloc[0]
             weight = item_data['Weight'].iloc[0]
+            
             total_price = discounted_price * quantity
             
             # Check if adding this item exceeds the weight limit
@@ -664,7 +689,14 @@ def user_dashboard3():
     st.write(f"**Total Price:** ₹{total_bill_price:.2f}")
 
     if st.button('Generate OTP'):
-        st.error("No email address found for the selected employee.")
+        if recipient_email:
+            otp = random.randint(1000000, 9999999)  # Generate a 7-digit OTP
+            bill_details = f"**Bill Details:**\n{bill_details}\n**Total Price:** ₹{total_bill_price:.2f}"
+            send_email(recipient_email, otp, employee_name, bill_details)
+            save_email_details(employee_name, otp, bill_details)
+            st.success(f"OTP has been sent.")
+        else:
+            st.error("No email address found for the selected employee.")
 
 # Display dashboard if authenticated
 if authentication_status:
