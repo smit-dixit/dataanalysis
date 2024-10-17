@@ -1,0 +1,2091 @@
+
+Collecting usage statistics. To deactivate, set browser.gatherUsageStats to false.
+
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://172.31.43.229:8501
+  External URL: http://13.127.80.226:8501
+
+2024-06-13 17:54:01.960 Session with id c9c66b5d-bbfe-4766-87b9-83ca15a683ab is already connected! Connecting to a new session.
+2024-06-14 07:17:57.175 Session with id 6f68c6c2-bb27-430b-a797-984e41fe5c26 is already connected! Connecting to a new session.
+'random_cookie_name'
+  Stopping...
+
+Collecting usage statistics. To deactivate, set browser.gatherUsageStats to false.
+
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://172.31.43.229:8501
+  External URL: http://3.111.169.91:8501
+
+
+Collecting usage statistics. To deactivate, set browser.gatherUsageStats to false.
+
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8502
+  Network URL: http://172.31.43.229:8502
+  External URL: http://3.111.169.91:8502
+
+'random_cookie_name'
+  Stopping...
+  Stopping...
+
+Collecting usage statistics. To deactivate, set browser.gatherUsageStats to false.
+
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://172.31.43.229:8501
+  External URL: http://3.111.169.91:8501
+
+  Stopping...
+
+Collecting usage statistics. To deactivate, set browser.gatherUsageStats to false.
+
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://172.31.43.229:8501
+  External URL: http://3.111.169.91:8501
+
+2024-06-24 06:58:33.491 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 600, in _run_script
+    exec(code, module.__dict__)
+  File "/home/ubuntu/dataanalysis/test.py", line 505, in <module>
+    user_dashboard()
+  File "/home/ubuntu/dataanalysis/test.py", line 431, in user_dashboard
+    querystring = {"authorization":"pPAR7SgKnuwyOvcxzUN3BhFfsaILJG142HWYjle8Zd6tXoVkDigXoLnctFQWVZI0PAUjDx31rl2SfhkJ","sender_id":"GDCCMS","message":"169006","variables_values":f"{str(variable)}","route":"dlt","numbers": str(int(employee_mobile))}
+ValueError: cannot convert float NaN to integer
+2024-06-24 06:58:53.122 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 600, in _run_script
+    exec(code, module.__dict__)
+  File "/home/ubuntu/dataanalysis/test.py", line 505, in <module>
+    user_dashboard()
+  File "/home/ubuntu/dataanalysis/test.py", line 431, in user_dashboard
+    querystring = {"authorization":"pPAR7SgKnuwyOvcxzUN3BhFfsaILJG142HWYjle8Zd6tXoVkDigXoLnctFQWVZI0PAUjDx31rl2SfhkJ","sender_id":"GDCCMS","message":"169006","variables_values":f"{str(variable)}","route":"dlt","numbers": str(int(employee_mobile))}
+ValueError: cannot convert float NaN to integer
+2024-06-24 07:56:37.689 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 600, in _run_script
+    exec(code, module.__dict__)
+  File "/home/ubuntu/dataanalysis/test.py", line 505, in <module>
+    user_dashboard()
+  File "/home/ubuntu/dataanalysis/test.py", line 431, in user_dashboard
+    querystring = {"authorization":"pPAR7SgKnuwyOvcxzUN3BhFfsaILJG142HWYjle8Zd6tXoVkDigXoLnctFQWVZI0PAUjDx31rl2SfhkJ","sender_id":"GDCCMS","message":"169006","variables_values":f"{str(variable)}","route":"dlt","numbers": str(int(employee_mobile))}
+ValueError: cannot convert float NaN to integer
+2024-06-24 09:18:41.652 Session with id bd6404ff-5771-425a-95c0-02488664cd4a is already connected! Connecting to a new session.
+2024-06-24 09:38:45.628 Session with id c0f1a767-d3f0-44d6-a0e0-7380cdef2fc2 is already connected! Connecting to a new session.
+2024-06-25 06:31:48.905 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 600, in _run_script
+    exec(code, module.__dict__)
+  File "/home/ubuntu/dataanalysis/test.py", line 505, in <module>
+    user_dashboard()
+  File "/home/ubuntu/dataanalysis/test.py", line 431, in user_dashboard
+    querystring = {"authorization":"pPAR7SgKnuwyOvcxzUN3BhFfsaILJG142HWYjle8Zd6tXoVkDigXoLnctFQWVZI0PAUjDx31rl2SfhkJ","sender_id":"GDCCMS","message":"169006","variables_values":f"{str(variable)}","route":"dlt","numbers": str(int(employee_mobile))}
+ValueError: cannot convert float NaN to integer
+2024-06-25 06:37:43.585 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 600, in _run_script
+    exec(code, module.__dict__)
+  File "/home/ubuntu/dataanalysis/test.py", line 505, in <module>
+    user_dashboard()
+  File "/home/ubuntu/dataanalysis/test.py", line 431, in user_dashboard
+    querystring = {"authorization":"pPAR7SgKnuwyOvcxzUN3BhFfsaILJG142HWYjle8Zd6tXoVkDigXoLnctFQWVZI0PAUjDx31rl2SfhkJ","sender_id":"GDCCMS","message":"169006","variables_values":f"{str(variable)}","route":"dlt","numbers": str(int(employee_mobile))}
+ValueError: cannot convert float NaN to integer
+2024-06-25 08:41:02.427 Session with id 342a4df6-f0ba-4087-8551-a4729143abc2 is already connected! Connecting to a new session.
+2024-06-25 08:41:05.479 Session with id 825f078b-2bc2-4cce-ac7e-1c65d1f2068b is already connected! Connecting to a new session.
+2024-06-25 09:10:42.798 Session with id 8fd9262e-91ef-42e5-8e57-39f475a18b57 is already connected! Connecting to a new session.
+2024-07-01 03:04:07.710 MediaFileHandler: Missing file .git/config
+2024-07-01 05:33:30.958 Session with id d99d6619-b0b9-48de-8002-b10713b0fb45 is already connected! Connecting to a new session.
+2024-07-01 05:33:51.030 Session with id ad2daaa8-4a5a-4c24-ad67-64dbc3d6fda8 is already connected! Connecting to a new session.
+2024-07-01 12:07:51.404 Session with id 8003904d-0851-442b-b15c-ef7c3790b091 is already connected! Connecting to a new session.
+2024-07-01 12:07:51.646 Session with id 367f1141-0995-41f7-a522-0db9a0c6281e is already connected! Connecting to a new session.
+2024-07-04 12:36:52.119 Session with id ccc7aff9-6a52-4a07-a57e-292374863785 is already connected! Connecting to a new session.
+2024-07-04 12:36:52.264 Session with id 86638982-f1d1-439f-a595-a67d0485824e is already connected! Connecting to a new session.
+2024-07-04 12:36:52.610 Session with id 15f423c3-6cac-448f-b93d-31489762526d is already connected! Connecting to a new session.
+2024-07-04 12:36:53.243 Session with id a701de44-a90a-4e73-98ea-95c9c4aada24 is already connected! Connecting to a new session.
+2024-07-04 15:06:14.418 MediaFileHandler: Missing file .env
+2024-07-04 15:15:24.984 MediaFileHandler: Missing file remote-sync.json
+2024-07-04 15:15:31.593 MediaFileHandler: Missing file .vscode/sftp.json
+2024-07-04 15:15:39.221 MediaFileHandler: Missing file web.config
+2024-07-04 15:15:42.498 MediaFileHandler: Missing file .gitlab-ci.yml
+2024-07-04 15:16:00.858 MediaFileHandler: Missing file .ftpconfig
+2024-07-04 15:16:21.059 MediaFileHandler: Missing file App_Config/ConnectionStrings.config
+2024-07-04 15:17:21.819 MediaFileHandler: Missing file .vscode/ftp-sync.json
+2024-07-04 15:17:31.172 MediaFileHandler: Missing file .ssh/authorized_keys
+2024-07-04 15:17:55.206 MediaFileHandler: Missing file .git/config
+2024-07-04 15:18:12.072 MediaFileHandler: Missing file jenkinsFile
+2024-07-04 15:18:15.754 MediaFileHandler: Missing file config.yaml
+2024-07-04 15:18:33.749 MediaFileHandler: Missing file laravel.log
+2024-07-04 15:18:38.861 MediaFileHandler: Missing file api-config.ini
+2024-07-04 15:23:05.023 MediaFileHandler: Missing file .env.bak
+2024-07-04 15:23:05.670 MediaFileHandler: Missing file config.env
+2024-07-04 15:23:05.854 MediaFileHandler: Missing file .env.dist
+2024-07-04 15:23:06.036 MediaFileHandler: Missing file .env.dev
+2024-07-04 15:23:06.217 MediaFileHandler: Missing file .env.local
+2024-07-04 15:39:11.201 MediaFileHandler: Missing file xampp/info.php
+2024-07-04 15:39:11.396 MediaFileHandler: Missing file xampp/phpinfo
+2024-07-04 15:39:11.591 MediaFileHandler: Missing file _profiler/phpinfo
+2024-07-04 15:39:11.789 MediaFileHandler: Missing file phpinfo.php
+2024-07-04 15:39:12.450 MediaFileHandler: Missing file phpinfo
+2024-07-04 15:39:12.810 MediaFileHandler: Missing file info.php
+2024-07-04 15:39:13.763 MediaFileHandler: Missing file php.ini
+2024-07-04 15:39:13.968 MediaFileHandler: Missing file php.php
+2024-07-04 15:39:14.453 MediaFileHandler: Missing file infophp.php
+2024-07-04 15:39:14.704 MediaFileHandler: Missing file test.php
+2024-07-04 15:39:14.901 MediaFileHandler: Missing file dashboard/phpinfo.php
+2024-07-04 15:39:15.189 MediaFileHandler: Missing file api/phpinfo.php
+2024-07-04 15:39:15.370 MediaFileHandler: Missing file backend/phpinfo.php
+2024-07-04 15:39:15.819 MediaFileHandler: Missing file backup/phpinfo.php
+2024-07-04 15:39:16.812 MediaFileHandler: Missing file crm/phpinfo.php
+2024-07-04 15:39:17.385 MediaFileHandler: Missing file current/phpinfo.php
+2024-07-04 15:39:18.251 MediaFileHandler: Missing file dev/phpinfo.php
+2024-07-04 15:39:18.582 MediaFileHandler: Missing file develop/phpinfo.php
+2024-07-04 15:39:18.817 MediaFileHandler: Missing file development/phpinfo.php
+2024-07-04 15:39:19.622 MediaFileHandler: Missing file help/phpinfo.php
+2024-07-04 15:39:19.946 MediaFileHandler: Missing file helper/phpinfo.php
+2024-07-04 15:39:20.212 MediaFileHandler: Missing file lara/phpinfo.php
+2024-07-04 15:39:20.368 MediaFileHandler: Missing file laravel/phpinfo.php
+2024-07-04 15:39:20.675 MediaFileHandler: Missing file server/phpinfo.php
+2024-07-04 15:39:21.194 MediaFileHandler: Missing file service/phpinfo.php
+2024-07-04 15:39:21.558 MediaFileHandler: Missing file services/phpinfo.php
+2024-07-04 15:39:21.771 MediaFileHandler: Missing file xampp/phpinfo.php
+2024-07-04 15:39:21.954 MediaFileHandler: Missing file api/info.php
+2024-07-04 15:39:22.170 MediaFileHandler: Missing file backend/info.php
+2024-07-04 15:39:22.366 MediaFileHandler: Missing file backup/info.php
+2024-07-04 15:39:22.784 MediaFileHandler: Missing file crm/info.php
+2024-07-04 15:39:23.086 MediaFileHandler: Missing file current/info.php
+2024-07-04 15:39:23.245 MediaFileHandler: Missing file dev/info.php
+2024-07-04 15:39:23.438 MediaFileHandler: Missing file develop/info.php
+2024-07-04 15:39:23.657 MediaFileHandler: Missing file development/iinfo.php
+2024-07-04 15:39:23.826 MediaFileHandler: Missing file help/info.php
+2024-07-04 15:39:24.087 MediaFileHandler: Missing file helper/info.php
+2024-07-04 15:39:24.289 MediaFileHandler: Missing file lara/info.php
+2024-07-04 15:39:24.484 MediaFileHandler: Missing file laravel/info.php
+2024-07-04 15:39:24.751 MediaFileHandler: Missing file server/info.php
+2024-07-04 15:39:25.141 MediaFileHandler: Missing file service/info.php
+2024-07-04 15:39:26.658 MediaFileHandler: Missing file services/info.php
+2024-07-04 15:39:27.058 MediaFileHandler: Missing file php-info.php
+2024-07-04 15:39:27.358 MediaFileHandler: Missing file linusadmin-phpinfo.php
+2024-07-04 15:39:27.562 MediaFileHandler: Missing file infos.php
+2024-07-04 15:39:27.766 MediaFileHandler: Missing file old_phpinfo.php
+2024-07-04 15:39:27.982 MediaFileHandler: Missing file temp.php
+2024-07-04 15:39:28.155 MediaFileHandler: Missing file time.php
+2024-07-04 15:39:28.333 MediaFileHandler: Missing file phpversion.php
+2024-07-04 15:39:28.508 MediaFileHandler: Missing file pinfo.php
+2024-07-04 15:39:28.740 MediaFileHandler: Missing file i.php
+2024-07-04 15:39:28.943 MediaFileHandler: Missing file asdf.php
+2024-07-06 06:53:15.597 Session with id d1c22755-79b9-460d-a167-aeac4e92ffb9 is already connected! Connecting to a new session.
+2024-07-06 07:19:42.546 Session with id ff3b8f63-89c9-46d2-b022-ce3f373793e3 is already connected! Connecting to a new session.
+2024-07-06 07:19:47.629 Session with id 8730afed-8df9-405a-9c2e-75d458bb1ef4 is already connected! Connecting to a new session.
+2024-07-06 07:41:20.951 Session with id 0a112fd0-1ee8-4fe9-89f2-d4a0a97c7172 is already connected! Connecting to a new session.
+2024-07-06 07:41:21.066 Session with id 5066faf2-98f2-494e-a70f-3a074043b4fb is already connected! Connecting to a new session.
+'random_cookie_name'
+'random_cookie_name'
+'random_cookie_name'
+'random_cookie_name'
+'random_cookie_name'
+'random_cookie_name'
+'random_cookie_name'
+'random_cookie_name'
+'random_cookie_name'
+'random_cookie_name'
+'random_cookie_name'
+  Stopping...
+
+Collecting usage statistics. To deactivate, set browser.gatherUsageStats to false.
+
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://172.31.43.229:8501
+  External URL: http://3.111.169.91:8501
+
+2024-07-06 10:33:32.635 Session with id 7e63f633-beb2-46ac-8e5f-dd28689b4690 is already connected! Connecting to a new session.
+2024-07-11 09:34:07.623 Session with id b30f4367-9555-4f00-bc82-c998149abb9e is already connected! Connecting to a new session.
+2024-07-11 09:34:12.764 Session with id eee61acd-36ac-4cc3-bb43-e02ec4e86e0e is already connected! Connecting to a new session.
+2024-07-13 13:07:00.680 MediaFileHandler: Missing file .env
+2024-07-13 13:25:11.877 MediaFileHandler: Missing file remote-sync.json
+2024-07-13 13:25:24.759 MediaFileHandler: Missing file .vscode/sftp.json
+2024-07-13 13:25:40.841 MediaFileHandler: Missing file web.config
+2024-07-13 13:25:46.086 MediaFileHandler: Missing file .gitlab-ci.yml
+2024-07-13 13:26:22.958 MediaFileHandler: Missing file .ftpconfig
+2024-07-13 13:26:55.395 MediaFileHandler: Missing file App_Config/ConnectionStrings.config
+2024-07-13 13:27:46.883 MediaFileHandler: Missing file .vscode/ftp-sync.json
+2024-07-13 13:27:58.729 MediaFileHandler: Missing file .ssh/authorized_keys
+2024-07-13 13:28:15.600 MediaFileHandler: Missing file .git/config
+2024-07-13 13:28:29.052 MediaFileHandler: Missing file jenkinsFile
+2024-07-13 13:28:37.782 MediaFileHandler: Missing file config.yaml
+2024-07-13 13:28:59.940 MediaFileHandler: Missing file laravel.log
+2024-07-13 13:29:08.578 MediaFileHandler: Missing file api-config.ini
+2024-07-13 13:37:19.771 MediaFileHandler: Missing file .env.bak
+2024-07-13 13:37:21.184 MediaFileHandler: Missing file config.env
+2024-07-13 13:37:21.478 MediaFileHandler: Missing file .env.dist
+2024-07-13 13:37:21.888 MediaFileHandler: Missing file .env.dev
+2024-07-13 13:37:22.789 MediaFileHandler: Missing file .env.local
+2024-07-13 14:04:18.055 MediaFileHandler: Missing file xampp/info.php
+2024-07-13 14:04:19.539 MediaFileHandler: Missing file xampp/phpinfo
+2024-07-13 14:04:19.739 MediaFileHandler: Missing file _profiler/phpinfo
+2024-07-13 14:04:19.941 MediaFileHandler: Missing file phpinfo.php
+2024-07-13 14:04:20.145 MediaFileHandler: Missing file phpinfo
+2024-07-13 14:04:20.955 MediaFileHandler: Missing file info.php
+2024-07-13 14:04:21.154 MediaFileHandler: Missing file php.ini
+2024-07-13 14:04:21.353 MediaFileHandler: Missing file php.php
+2024-07-13 14:04:21.562 MediaFileHandler: Missing file infophp.php
+2024-07-13 14:04:22.366 MediaFileHandler: Missing file test.php
+2024-07-13 14:04:23.160 MediaFileHandler: Missing file dashboard/phpinfo.php
+2024-07-13 14:04:23.860 MediaFileHandler: Missing file api/phpinfo.php
+2024-07-13 14:04:24.367 MediaFileHandler: Missing file backend/phpinfo.php
+2024-07-13 14:04:24.678 MediaFileHandler: Missing file backup/phpinfo.php
+2024-07-13 14:04:25.378 MediaFileHandler: Missing file crm/phpinfo.php
+2024-07-13 14:04:26.280 MediaFileHandler: Missing file current/phpinfo.php
+2024-07-13 14:04:27.175 MediaFileHandler: Missing file dev/phpinfo.php
+2024-07-13 14:04:27.585 MediaFileHandler: Missing file develop/phpinfo.php
+2024-07-13 14:04:28.387 MediaFileHandler: Missing file development/phpinfo.php
+2024-07-13 14:04:29.292 MediaFileHandler: Missing file help/phpinfo.php
+2024-07-13 14:04:29.577 MediaFileHandler: Missing file helper/phpinfo.php
+2024-07-13 14:04:29.783 MediaFileHandler: Missing file lara/phpinfo.php
+2024-07-13 14:04:30.591 MediaFileHandler: Missing file laravel/phpinfo.php
+2024-07-13 14:04:30.794 MediaFileHandler: Missing file server/phpinfo.php
+2024-07-13 14:04:30.992 MediaFileHandler: Missing file service/phpinfo.php
+2024-07-13 14:04:31.497 MediaFileHandler: Missing file services/phpinfo.php
+2024-07-13 14:04:31.995 MediaFileHandler: Missing file xampp/phpinfo.php
+2024-07-13 14:04:32.396 MediaFileHandler: Missing file api/info.php
+2024-07-13 14:04:32.700 MediaFileHandler: Missing file backend/info.php
+2024-07-13 14:04:33.100 MediaFileHandler: Missing file backup/info.php
+2024-07-13 14:04:33.597 MediaFileHandler: Missing file crm/info.php
+2024-07-13 14:04:33.996 MediaFileHandler: Missing file current/info.php
+2024-07-13 14:04:34.796 MediaFileHandler: Missing file dev/info.php
+2024-07-13 14:04:35.298 MediaFileHandler: Missing file develop/info.php
+2024-07-13 14:04:37.113 MediaFileHandler: Missing file development/iinfo.php
+2024-07-13 14:04:37.499 MediaFileHandler: Missing file help/info.php
+2024-07-13 14:04:37.700 MediaFileHandler: Missing file helper/info.php
+2024-07-13 14:04:38.709 MediaFileHandler: Missing file lara/info.php
+2024-07-13 14:04:38.910 MediaFileHandler: Missing file laravel/info.php
+2024-07-13 14:04:49.137 MediaFileHandler: Missing file server/info.php
+2024-07-13 14:04:49.339 MediaFileHandler: Missing file service/info.php
+2024-07-13 14:04:49.540 MediaFileHandler: Missing file services/info.php
+2024-07-13 14:04:49.743 MediaFileHandler: Missing file php-info.php
+2024-07-13 14:04:49.942 MediaFileHandler: Missing file linusadmin-phpinfo.php
+2024-07-13 14:04:50.854 MediaFileHandler: Missing file infos.php
+2024-07-13 14:04:51.452 MediaFileHandler: Missing file old_phpinfo.php
+2024-07-13 14:04:52.252 MediaFileHandler: Missing file temp.php
+2024-07-13 14:04:52.961 MediaFileHandler: Missing file time.php
+2024-07-13 14:04:53.364 MediaFileHandler: Missing file phpversion.php
+2024-07-13 14:04:53.977 MediaFileHandler: Missing file pinfo.php
+2024-07-13 14:04:54.559 MediaFileHandler: Missing file i.php
+2024-07-13 14:04:55.067 MediaFileHandler: Missing file asdf.php
+2024-07-15 05:41:36.727 MediaFileHandler: Missing file .env
+2024-07-15 05:49:04.786 MediaFileHandler: Missing file remote-sync.json
+2024-07-15 05:49:12.771 MediaFileHandler: Missing file .vscode/sftp.json
+2024-07-15 05:49:18.120 MediaFileHandler: Missing file web.config
+2024-07-15 05:49:20.416 MediaFileHandler: Missing file .gitlab-ci.yml
+2024-07-15 05:49:33.696 MediaFileHandler: Missing file .ftpconfig
+2024-07-15 05:49:51.219 MediaFileHandler: Missing file App_Config/ConnectionStrings.config
+2024-07-15 05:50:26.933 MediaFileHandler: Missing file .vscode/ftp-sync.json
+2024-07-15 05:50:31.906 MediaFileHandler: Missing file .ssh/authorized_keys
+2024-07-15 05:50:41.019 MediaFileHandler: Missing file .git/config
+2024-07-15 05:50:46.882 MediaFileHandler: Missing file jenkinsFile
+2024-07-15 05:50:49.998 MediaFileHandler: Missing file config.yaml
+2024-07-15 05:51:00.098 MediaFileHandler: Missing file laravel.log
+2024-07-15 05:51:03.242 MediaFileHandler: Missing file api-config.ini
+2024-07-15 05:54:08.202 MediaFileHandler: Missing file .env.bak
+2024-07-15 05:54:08.514 MediaFileHandler: Missing file config.env
+2024-07-15 05:54:08.828 MediaFileHandler: Missing file .env.dist
+2024-07-15 05:54:09.142 MediaFileHandler: Missing file .env.dev
+2024-07-15 05:54:09.451 MediaFileHandler: Missing file .env.local
+2024-07-15 06:03:52.568 MediaFileHandler: Missing file xampp/info.php
+2024-07-15 06:03:52.798 MediaFileHandler: Missing file xampp/phpinfo
+2024-07-15 06:03:53.027 MediaFileHandler: Missing file _profiler/phpinfo
+2024-07-15 06:03:53.260 MediaFileHandler: Missing file phpinfo.php
+2024-07-15 06:03:53.490 MediaFileHandler: Missing file phpinfo
+2024-07-15 06:03:53.726 MediaFileHandler: Missing file info.php
+2024-07-15 06:03:53.958 MediaFileHandler: Missing file php.ini
+2024-07-15 06:03:54.198 MediaFileHandler: Missing file php.php
+2024-07-15 06:03:54.429 MediaFileHandler: Missing file infophp.php
+2024-07-15 06:03:54.669 MediaFileHandler: Missing file test.php
+2024-07-15 06:03:54.909 MediaFileHandler: Missing file dashboard/phpinfo.php
+2024-07-15 06:03:55.139 MediaFileHandler: Missing file api/phpinfo.php
+2024-07-15 06:03:55.757 MediaFileHandler: Missing file backend/phpinfo.php
+2024-07-15 06:03:56.072 MediaFileHandler: Missing file backup/phpinfo.php
+2024-07-15 06:03:56.387 MediaFileHandler: Missing file crm/phpinfo.php
+2024-07-15 06:03:56.699 MediaFileHandler: Missing file current/phpinfo.php
+2024-07-15 06:03:57.011 MediaFileHandler: Missing file dev/phpinfo.php
+2024-07-15 06:03:57.320 MediaFileHandler: Missing file develop/phpinfo.php
+2024-07-15 06:03:57.633 MediaFileHandler: Missing file development/phpinfo.php
+2024-07-15 06:03:57.944 MediaFileHandler: Missing file help/phpinfo.php
+2024-07-15 06:03:58.260 MediaFileHandler: Missing file helper/phpinfo.php
+2024-07-15 06:03:58.569 MediaFileHandler: Missing file lara/phpinfo.php
+2024-07-15 06:03:58.884 MediaFileHandler: Missing file laravel/phpinfo.php
+2024-07-15 06:03:59.198 MediaFileHandler: Missing file server/phpinfo.php
+2024-07-15 06:03:59.508 MediaFileHandler: Missing file service/phpinfo.php
+2024-07-15 06:03:59.823 MediaFileHandler: Missing file services/phpinfo.php
+2024-07-15 06:04:00.134 MediaFileHandler: Missing file xampp/phpinfo.php
+2024-07-15 06:04:00.445 MediaFileHandler: Missing file api/info.php
+2024-07-15 06:04:00.757 MediaFileHandler: Missing file backend/info.php
+2024-07-15 06:04:01.068 MediaFileHandler: Missing file backup/info.php
+2024-07-15 06:04:01.925 MediaFileHandler: Missing file crm/info.php
+2024-07-15 06:04:02.239 MediaFileHandler: Missing file current/info.php
+2024-07-15 06:04:02.549 MediaFileHandler: Missing file dev/info.php
+2024-07-15 06:04:02.864 MediaFileHandler: Missing file develop/info.php
+2024-07-15 06:04:03.176 MediaFileHandler: Missing file development/iinfo.php
+2024-07-15 06:04:03.489 MediaFileHandler: Missing file help/info.php
+2024-07-15 06:04:04.328 MediaFileHandler: Missing file helper/info.php
+2024-07-15 06:04:04.644 MediaFileHandler: Missing file lara/info.php
+2024-07-15 06:04:04.955 MediaFileHandler: Missing file laravel/info.php
+2024-07-15 06:04:05.798 MediaFileHandler: Missing file server/info.php
+2024-07-15 06:04:06.113 MediaFileHandler: Missing file service/info.php
+2024-07-15 06:04:06.424 MediaFileHandler: Missing file services/info.php
+2024-07-15 06:04:06.738 MediaFileHandler: Missing file php-info.php
+2024-07-15 06:04:07.048 MediaFileHandler: Missing file linusadmin-phpinfo.php
+2024-07-15 06:04:07.360 MediaFileHandler: Missing file infos.php
+2024-07-15 06:04:08.199 MediaFileHandler: Missing file old_phpinfo.php
+2024-07-15 06:04:08.513 MediaFileHandler: Missing file temp.php
+2024-07-15 06:04:08.829 MediaFileHandler: Missing file time.php
+2024-07-15 06:04:09.142 MediaFileHandler: Missing file phpversion.php
+2024-07-15 06:04:09.453 MediaFileHandler: Missing file pinfo.php
+2024-07-15 06:04:09.766 MediaFileHandler: Missing file i.php
+2024-07-15 06:04:10.081 MediaFileHandler: Missing file asdf.php
+2024-07-16 10:54:32.465 Session with id 95432838-cffb-4b4f-9782-dfbf4e87c417 is already connected! Connecting to a new session.
+2024-07-16 11:19:03.558 Session with id 83556748-e2d0-4e97-ba97-f0b6670fd0ac is already connected! Connecting to a new session.
+2024-07-21 17:52:55.215 MediaFileHandler: Missing file .env
+2024-07-21 17:52:55.226 MediaFileHandler: Missing file .env.production
+2024-07-23 04:04:39.788 Session with id db4c294c-e3cd-4ba8-a27c-d6a7d0c84f2e is already connected! Connecting to a new session.
+2024-07-24 13:45:40.612 Session with id b6726680-8f77-492a-be0f-ccd6f38a57b9 is already connected! Connecting to a new session.
+2024-07-24 13:45:41.355 Session with id efde1143-8213-481b-9ca8-25e39ccaf100 is already connected! Connecting to a new session.
+2024-07-27 05:31:50.860 Session with id 770da9b0-1f1b-4cfb-8555-99f43b6c2ddd is already connected! Connecting to a new session.
+2024-07-27 19:35:47.639 MediaFileHandler: Missing file .env
+2024-07-27 19:42:41.358 MediaFileHandler: Missing file remote-sync.json
+2024-07-27 19:42:47.214 MediaFileHandler: Missing file .vscode/sftp.json
+2024-07-27 19:42:50.204 MediaFileHandler: Missing file web.config
+2024-07-27 19:42:51.686 MediaFileHandler: Missing file .gitlab-ci.yml
+2024-07-27 19:42:59.264 MediaFileHandler: Missing file .ftpconfig
+2024-07-27 19:43:06.218 MediaFileHandler: Missing file App_Config/ConnectionStrings.config
+2024-07-27 19:43:22.408 MediaFileHandler: Missing file .vscode/ftp-sync.json
+2024-07-27 19:43:25.576 MediaFileHandler: Missing file .ssh/authorized_keys
+2024-07-27 19:43:32.356 MediaFileHandler: Missing file .git/config
+2024-07-27 19:43:39.656 MediaFileHandler: Missing file jenkinsFile
+2024-07-27 19:43:41.832 MediaFileHandler: Missing file config.yaml
+2024-07-27 19:43:48.484 MediaFileHandler: Missing file laravel.log
+2024-07-27 19:43:50.912 MediaFileHandler: Missing file api-config.ini
+2024-07-27 19:46:06.552 MediaFileHandler: Missing file .env.bak
+2024-07-27 19:46:06.679 MediaFileHandler: Missing file config.env
+2024-07-27 19:46:06.805 MediaFileHandler: Missing file .env.dist
+2024-07-27 19:46:06.932 MediaFileHandler: Missing file .env.dev
+2024-07-27 19:46:07.060 MediaFileHandler: Missing file .env.local
+2024-07-27 19:54:08.691 MediaFileHandler: Missing file xampp/info.php
+2024-07-27 19:54:08.820 MediaFileHandler: Missing file xampp/phpinfo
+2024-07-27 19:54:08.949 MediaFileHandler: Missing file _profiler/phpinfo
+2024-07-27 19:54:09.078 MediaFileHandler: Missing file phpinfo.php
+2024-07-27 19:54:09.207 MediaFileHandler: Missing file phpinfo
+2024-07-27 19:54:09.336 MediaFileHandler: Missing file info.php
+2024-07-27 19:54:09.465 MediaFileHandler: Missing file php.ini
+2024-07-27 19:54:09.594 MediaFileHandler: Missing file php.php
+2024-07-27 19:54:09.722 MediaFileHandler: Missing file infophp.php
+2024-07-27 19:54:09.851 MediaFileHandler: Missing file test.php
+2024-07-27 19:54:09.980 MediaFileHandler: Missing file dashboard/phpinfo.php
+2024-07-27 19:54:10.108 MediaFileHandler: Missing file api/phpinfo.php
+2024-07-27 19:54:10.236 MediaFileHandler: Missing file backend/phpinfo.php
+2024-07-27 19:54:10.365 MediaFileHandler: Missing file backup/phpinfo.php
+2024-07-27 19:54:10.789 MediaFileHandler: Missing file crm/phpinfo.php
+2024-07-27 19:54:10.920 MediaFileHandler: Missing file current/phpinfo.php
+2024-07-27 19:54:11.050 MediaFileHandler: Missing file dev/phpinfo.php
+2024-07-27 19:54:11.180 MediaFileHandler: Missing file develop/phpinfo.php
+2024-07-27 19:54:11.310 MediaFileHandler: Missing file development/phpinfo.php
+2024-07-27 19:54:11.447 MediaFileHandler: Missing file help/phpinfo.php
+2024-07-27 19:54:11.577 MediaFileHandler: Missing file helper/phpinfo.php
+2024-07-27 19:54:11.707 MediaFileHandler: Missing file lara/phpinfo.php
+2024-07-27 19:54:11.837 MediaFileHandler: Missing file laravel/phpinfo.php
+2024-07-27 19:54:12.338 MediaFileHandler: Missing file server/phpinfo.php
+2024-07-27 19:54:12.468 MediaFileHandler: Missing file service/phpinfo.php
+2024-07-27 19:54:12.598 MediaFileHandler: Missing file services/phpinfo.php
+2024-07-27 19:54:12.729 MediaFileHandler: Missing file xampp/phpinfo.php
+2024-07-27 19:54:12.868 MediaFileHandler: Missing file api/info.php
+2024-07-27 19:54:12.999 MediaFileHandler: Missing file backend/info.php
+2024-07-27 19:54:13.129 MediaFileHandler: Missing file backup/info.php
+2024-07-27 19:54:13.260 MediaFileHandler: Missing file crm/info.php
+2024-07-27 19:54:13.390 MediaFileHandler: Missing file current/info.php
+2024-07-27 19:54:13.521 MediaFileHandler: Missing file dev/info.php
+2024-07-27 19:54:13.652 MediaFileHandler: Missing file develop/info.php
+2024-07-27 19:54:13.782 MediaFileHandler: Missing file development/iinfo.php
+2024-07-27 19:54:13.913 MediaFileHandler: Missing file help/info.php
+2024-07-27 19:54:14.044 MediaFileHandler: Missing file helper/info.php
+2024-07-27 19:54:14.175 MediaFileHandler: Missing file lara/info.php
+2024-07-27 19:54:14.305 MediaFileHandler: Missing file laravel/info.php
+2024-07-27 19:54:14.436 MediaFileHandler: Missing file server/info.php
+2024-07-27 19:54:14.567 MediaFileHandler: Missing file service/info.php
+2024-07-27 19:54:14.698 MediaFileHandler: Missing file services/info.php
+2024-07-27 19:54:14.828 MediaFileHandler: Missing file php-info.php
+2024-07-27 19:54:14.959 MediaFileHandler: Missing file linusadmin-phpinfo.php
+2024-07-27 19:54:15.442 MediaFileHandler: Missing file infos.php
+2024-07-27 19:54:15.572 MediaFileHandler: Missing file old_phpinfo.php
+2024-07-27 19:54:15.702 MediaFileHandler: Missing file temp.php
+2024-07-27 19:54:16.178 MediaFileHandler: Missing file time.php
+2024-07-27 19:54:16.308 MediaFileHandler: Missing file phpversion.php
+2024-07-27 19:54:16.438 MediaFileHandler: Missing file pinfo.php
+2024-07-27 19:54:16.569 MediaFileHandler: Missing file i.php
+2024-07-27 19:54:16.699 MediaFileHandler: Missing file asdf.php
+2024-07-27 22:48:18.002 MediaFileHandler: Missing file .env
+2024-07-30 12:04:49.221 MediaFileHandler: Missing file .env
+2024-07-30 12:09:43.398 MediaFileHandler: Missing file remote-sync.json
+2024-07-30 12:09:48.712 MediaFileHandler: Missing file .vscode/sftp.json
+2024-07-30 12:09:53.384 MediaFileHandler: Missing file web.config
+2024-07-30 12:09:55.386 MediaFileHandler: Missing file .gitlab-ci.yml
+2024-07-30 12:10:06.962 MediaFileHandler: Missing file .ftpconfig
+2024-07-30 12:10:17.653 MediaFileHandler: Missing file App_Config/ConnectionStrings.config
+2024-07-30 12:10:39.789 MediaFileHandler: Missing file .vscode/ftp-sync.json
+2024-07-30 12:10:44.172 MediaFileHandler: Missing file .ssh/authorized_keys
+2024-07-30 12:10:52.504 MediaFileHandler: Missing file .git/config
+2024-07-30 12:10:58.260 MediaFileHandler: Missing file jenkinsFile
+2024-07-30 12:11:00.932 MediaFileHandler: Missing file config.yaml
+2024-07-30 12:11:09.175 MediaFileHandler: Missing file laravel.log
+2024-07-30 12:11:12.293 MediaFileHandler: Missing file api-config.ini
+2024-07-30 12:13:32.029 MediaFileHandler: Missing file .env.bak
+2024-07-30 12:13:32.252 MediaFileHandler: Missing file config.env
+2024-07-30 12:13:32.474 MediaFileHandler: Missing file .env.dist
+2024-07-30 12:13:32.698 MediaFileHandler: Missing file .env.dev
+2024-07-30 12:13:32.920 MediaFileHandler: Missing file .env.local
+2024-07-30 12:21:41.390 MediaFileHandler: Missing file xampp/info.php
+2024-07-30 12:21:41.612 MediaFileHandler: Missing file xampp/phpinfo
+2024-07-30 12:21:41.835 MediaFileHandler: Missing file _profiler/phpinfo
+2024-07-30 12:21:42.058 MediaFileHandler: Missing file phpinfo.php
+2024-07-30 12:21:42.280 MediaFileHandler: Missing file phpinfo
+2024-07-30 12:21:42.503 MediaFileHandler: Missing file info.php
+2024-07-30 12:21:42.725 MediaFileHandler: Missing file php.ini
+2024-07-30 12:21:42.947 MediaFileHandler: Missing file php.php
+2024-07-30 12:21:43.170 MediaFileHandler: Missing file infophp.php
+2024-07-30 12:21:43.393 MediaFileHandler: Missing file test.php
+2024-07-30 12:21:43.615 MediaFileHandler: Missing file dashboard/phpinfo.php
+2024-07-30 12:21:43.838 MediaFileHandler: Missing file api/phpinfo.php
+2024-07-30 12:21:44.278 MediaFileHandler: Missing file backend/phpinfo.php
+2024-07-30 12:21:44.499 MediaFileHandler: Missing file backup/phpinfo.php
+2024-07-30 12:21:44.720 MediaFileHandler: Missing file crm/phpinfo.php
+2024-07-30 12:21:44.942 MediaFileHandler: Missing file current/phpinfo.php
+2024-07-30 12:21:45.163 MediaFileHandler: Missing file dev/phpinfo.php
+2024-07-30 12:21:45.384 MediaFileHandler: Missing file develop/phpinfo.php
+2024-07-30 12:21:45.605 MediaFileHandler: Missing file development/phpinfo.php
+2024-07-30 12:21:45.826 MediaFileHandler: Missing file help/phpinfo.php
+2024-07-30 12:21:46.048 MediaFileHandler: Missing file helper/phpinfo.php
+2024-07-30 12:21:46.269 MediaFileHandler: Missing file lara/phpinfo.php
+2024-07-30 12:21:46.490 MediaFileHandler: Missing file laravel/phpinfo.php
+2024-07-30 12:21:46.711 MediaFileHandler: Missing file server/phpinfo.php
+2024-07-30 12:21:46.932 MediaFileHandler: Missing file service/phpinfo.php
+2024-07-30 12:21:47.153 MediaFileHandler: Missing file services/phpinfo.php
+2024-07-30 12:21:47.375 MediaFileHandler: Missing file xampp/phpinfo.php
+2024-07-30 12:21:47.596 MediaFileHandler: Missing file api/info.php
+2024-07-30 12:21:47.817 MediaFileHandler: Missing file backend/info.php
+2024-07-30 12:21:48.038 MediaFileHandler: Missing file backup/info.php
+2024-07-30 12:21:48.259 MediaFileHandler: Missing file crm/info.php
+2024-07-30 12:21:48.481 MediaFileHandler: Missing file current/info.php
+2024-07-30 12:21:48.702 MediaFileHandler: Missing file dev/info.php
+2024-07-30 12:21:48.923 MediaFileHandler: Missing file develop/info.php
+2024-07-30 12:21:49.144 MediaFileHandler: Missing file development/iinfo.php
+2024-07-30 12:21:49.365 MediaFileHandler: Missing file help/info.php
+2024-07-30 12:21:49.586 MediaFileHandler: Missing file helper/info.php
+2024-07-30 12:21:49.807 MediaFileHandler: Missing file lara/info.php
+2024-07-30 12:21:50.028 MediaFileHandler: Missing file laravel/info.php
+2024-07-30 12:21:50.250 MediaFileHandler: Missing file server/info.php
+2024-07-30 12:21:50.471 MediaFileHandler: Missing file service/info.php
+2024-07-30 12:21:50.692 MediaFileHandler: Missing file services/info.php
+2024-07-30 12:21:50.913 MediaFileHandler: Missing file php-info.php
+2024-07-30 12:21:51.135 MediaFileHandler: Missing file linusadmin-phpinfo.php
+2024-07-30 12:21:51.356 MediaFileHandler: Missing file infos.php
+2024-07-30 12:21:51.577 MediaFileHandler: Missing file old_phpinfo.php
+2024-07-30 12:21:51.798 MediaFileHandler: Missing file temp.php
+2024-07-30 12:21:52.019 MediaFileHandler: Missing file time.php
+2024-07-30 12:21:52.241 MediaFileHandler: Missing file phpversion.php
+2024-07-30 12:21:52.462 MediaFileHandler: Missing file pinfo.php
+2024-07-30 12:21:52.683 MediaFileHandler: Missing file i.php
+2024-07-30 12:21:52.904 MediaFileHandler: Missing file asdf.php
+2024-07-31 05:48:25.382 Session with id ca7f2eca-7d8b-487f-837e-8d9144885d2d is already connected! Connecting to a new session.
+2024-08-04 23:32:44.509 MediaFileHandler: Missing file .env
+2024-08-06 09:45:17.578 Session with id b63ab851-2c5d-4793-9ccb-2162742e6c99 is already connected! Connecting to a new session.
+2024-08-07 10:20:21.241 MediaFileHandler: Missing file .env
+2024-08-07 10:24:38.679 MediaFileHandler: Missing file remote-sync.json
+2024-08-07 10:24:42.917 MediaFileHandler: Missing file .vscode/sftp.json
+2024-08-07 10:24:47.050 MediaFileHandler: Missing file web.config
+2024-08-07 10:24:49.073 MediaFileHandler: Missing file .gitlab-ci.yml
+2024-08-07 10:24:58.209 MediaFileHandler: Missing file .ftpconfig
+2024-08-07 10:25:08.763 MediaFileHandler: Missing file App_Config/ConnectionStrings.config
+2024-08-07 10:25:27.887 MediaFileHandler: Missing file .vscode/ftp-sync.json
+2024-08-07 10:25:31.446 MediaFileHandler: Missing file .ssh/authorized_keys
+2024-08-07 10:25:38.556 MediaFileHandler: Missing file .git/config
+2024-08-07 10:25:43.587 MediaFileHandler: Missing file jenkinsFile
+2024-08-07 10:25:46.185 MediaFileHandler: Missing file config.yaml
+2024-08-07 10:25:53.694 MediaFileHandler: Missing file laravel.log
+2024-08-07 10:25:56.251 MediaFileHandler: Missing file api-config.ini
+2024-08-07 10:27:55.691 MediaFileHandler: Missing file .env.bak
+2024-08-07 10:27:55.884 MediaFileHandler: Missing file config.env
+2024-08-07 10:27:56.067 MediaFileHandler: Missing file .env.dist
+2024-08-07 10:27:56.262 MediaFileHandler: Missing file .env.dev
+2024-08-07 10:27:56.454 MediaFileHandler: Missing file .env.local
+2024-08-07 10:35:11.291 MediaFileHandler: Missing file xampp/info.php
+2024-08-07 10:35:11.470 MediaFileHandler: Missing file xampp/phpinfo
+2024-08-07 10:35:11.658 MediaFileHandler: Missing file _profiler/phpinfo
+2024-08-07 10:35:11.847 MediaFileHandler: Missing file phpinfo.php
+2024-08-07 10:35:12.034 MediaFileHandler: Missing file phpinfo
+2024-08-07 10:35:12.221 MediaFileHandler: Missing file info.php
+2024-08-07 10:35:12.419 MediaFileHandler: Missing file php.ini
+2024-08-07 10:35:12.617 MediaFileHandler: Missing file php.php
+2024-08-07 10:35:12.814 MediaFileHandler: Missing file infophp.php
+2024-08-07 10:35:12.988 MediaFileHandler: Missing file test.php
+2024-08-07 10:35:13.182 MediaFileHandler: Missing file dashboard/phpinfo.php
+2024-08-07 10:35:13.369 MediaFileHandler: Missing file api/phpinfo.php
+2024-08-07 10:35:13.719 MediaFileHandler: Missing file backend/phpinfo.php
+2024-08-07 10:35:13.910 MediaFileHandler: Missing file backup/phpinfo.php
+2024-08-07 10:35:14.102 MediaFileHandler: Missing file crm/phpinfo.php
+2024-08-07 10:35:14.289 MediaFileHandler: Missing file current/phpinfo.php
+2024-08-07 10:35:14.478 MediaFileHandler: Missing file dev/phpinfo.php
+2024-08-07 10:35:14.661 MediaFileHandler: Missing file develop/phpinfo.php
+2024-08-07 10:35:14.848 MediaFileHandler: Missing file development/phpinfo.php
+2024-08-07 10:35:15.035 MediaFileHandler: Missing file help/phpinfo.php
+2024-08-07 10:35:15.213 MediaFileHandler: Missing file helper/phpinfo.php
+2024-08-07 10:35:15.402 MediaFileHandler: Missing file lara/phpinfo.php
+2024-08-07 10:35:15.597 MediaFileHandler: Missing file laravel/phpinfo.php
+2024-08-07 10:35:15.782 MediaFileHandler: Missing file server/phpinfo.php
+2024-08-07 10:35:15.955 MediaFileHandler: Missing file service/phpinfo.php
+2024-08-07 10:35:16.142 MediaFileHandler: Missing file services/phpinfo.php
+2024-08-07 10:35:16.318 MediaFileHandler: Missing file xampp/phpinfo.php
+2024-08-07 10:35:16.508 MediaFileHandler: Missing file api/info.php
+2024-08-07 10:35:16.704 MediaFileHandler: Missing file backend/info.php
+2024-08-07 10:35:16.880 MediaFileHandler: Missing file backup/info.php
+2024-08-07 10:35:17.057 MediaFileHandler: Missing file crm/info.php
+2024-08-07 10:35:17.245 MediaFileHandler: Missing file current/info.php
+2024-08-07 10:35:17.428 MediaFileHandler: Missing file dev/info.php
+2024-08-07 10:35:17.614 MediaFileHandler: Missing file develop/info.php
+2024-08-07 10:35:17.790 MediaFileHandler: Missing file development/iinfo.php
+2024-08-07 10:35:17.971 MediaFileHandler: Missing file help/info.php
+2024-08-07 10:35:18.140 MediaFileHandler: Missing file helper/info.php
+2024-08-07 10:35:18.326 MediaFileHandler: Missing file lara/info.php
+2024-08-07 10:35:18.499 MediaFileHandler: Missing file laravel/info.php
+2024-08-07 10:35:18.679 MediaFileHandler: Missing file server/info.php
+2024-08-07 10:35:18.855 MediaFileHandler: Missing file service/info.php
+2024-08-07 10:35:19.041 MediaFileHandler: Missing file services/info.php
+2024-08-07 10:35:19.229 MediaFileHandler: Missing file php-info.php
+2024-08-07 10:35:19.426 MediaFileHandler: Missing file linusadmin-phpinfo.php
+2024-08-07 10:35:19.586 MediaFileHandler: Missing file infos.php
+2024-08-07 10:35:19.758 MediaFileHandler: Missing file old_phpinfo.php
+2024-08-07 10:35:19.936 MediaFileHandler: Missing file temp.php
+2024-08-07 10:35:20.118 MediaFileHandler: Missing file time.php
+2024-08-07 10:35:20.297 MediaFileHandler: Missing file phpversion.php
+2024-08-07 10:35:20.486 MediaFileHandler: Missing file pinfo.php
+2024-08-07 10:35:20.672 MediaFileHandler: Missing file i.php
+2024-08-07 10:35:20.860 MediaFileHandler: Missing file asdf.php
+2024-08-08 14:25:02.184 MediaFileHandler: Missing file .env
+2024-08-08 14:34:30.553 MediaFileHandler: Missing file remote-sync.json
+2024-08-08 14:34:38.691 MediaFileHandler: Missing file .vscode/sftp.json
+2024-08-08 14:34:46.223 MediaFileHandler: Missing file web.config
+2024-08-08 14:34:51.543 MediaFileHandler: Missing file .gitlab-ci.yml
+2024-08-08 14:35:06.393 MediaFileHandler: Missing file .ftpconfig
+2024-08-08 14:35:25.564 MediaFileHandler: Missing file App_Config/ConnectionStrings.config
+2024-08-08 14:35:52.456 MediaFileHandler: Missing file .vscode/ftp-sync.json
+2024-08-08 14:35:57.270 MediaFileHandler: Missing file .ssh/authorized_keys
+2024-08-08 14:36:07.516 MediaFileHandler: Missing file .git/config
+2024-08-08 14:36:18.756 MediaFileHandler: Missing file jenkinsFile
+2024-08-08 14:36:22.061 MediaFileHandler: Missing file config.yaml
+2024-08-08 14:36:33.502 MediaFileHandler: Missing file laravel.log
+2024-08-08 14:36:36.307 MediaFileHandler: Missing file api-config.ini
+2024-08-08 14:40:22.598 MediaFileHandler: Missing file .env.bak
+2024-08-08 14:40:22.799 MediaFileHandler: Missing file config.env
+2024-08-08 14:40:23.306 MediaFileHandler: Missing file .env.dist
+2024-08-08 14:40:23.503 MediaFileHandler: Missing file .env.dev
+2024-08-08 14:40:23.705 MediaFileHandler: Missing file .env.local
+2024-08-08 14:51:53.739 MediaFileHandler: Missing file xampp/info.php
+2024-08-08 14:51:53.944 MediaFileHandler: Missing file xampp/phpinfo
+2024-08-08 14:51:54.142 MediaFileHandler: Missing file _profiler/phpinfo
+2024-08-08 14:51:54.342 MediaFileHandler: Missing file phpinfo.php
+2024-08-08 14:51:54.472 MediaFileHandler: Missing file phpinfo
+2024-08-08 14:51:55.063 MediaFileHandler: Missing file info.php
+2024-08-08 14:51:55.258 MediaFileHandler: Missing file php.ini
+2024-08-08 14:51:55.454 MediaFileHandler: Missing file php.php
+2024-08-08 14:51:55.655 MediaFileHandler: Missing file infophp.php
+2024-08-08 14:51:55.852 MediaFileHandler: Missing file test.php
+2024-08-08 14:51:56.053 MediaFileHandler: Missing file dashboard/phpinfo.php
+2024-08-08 14:51:56.252 MediaFileHandler: Missing file api/phpinfo.php
+2024-08-08 14:51:56.452 MediaFileHandler: Missing file backend/phpinfo.php
+2024-08-08 14:51:56.650 MediaFileHandler: Missing file backup/phpinfo.php
+2024-08-08 14:51:56.849 MediaFileHandler: Missing file crm/phpinfo.php
+2024-08-08 14:51:57.053 MediaFileHandler: Missing file current/phpinfo.php
+2024-08-08 14:51:57.254 MediaFileHandler: Missing file dev/phpinfo.php
+2024-08-08 14:51:57.454 MediaFileHandler: Missing file develop/phpinfo.php
+2024-08-08 14:51:57.663 MediaFileHandler: Missing file development/phpinfo.php
+2024-08-08 14:51:57.861 MediaFileHandler: Missing file help/phpinfo.php
+2024-08-08 14:51:58.063 MediaFileHandler: Missing file helper/phpinfo.php
+2024-08-08 14:51:58.263 MediaFileHandler: Missing file lara/phpinfo.php
+2024-08-08 14:51:58.466 MediaFileHandler: Missing file laravel/phpinfo.php
+2024-08-08 14:51:58.665 MediaFileHandler: Missing file server/phpinfo.php
+2024-08-08 14:51:58.867 MediaFileHandler: Missing file service/phpinfo.php
+2024-08-08 14:51:59.065 MediaFileHandler: Missing file services/phpinfo.php
+2024-08-08 14:51:59.268 MediaFileHandler: Missing file xampp/phpinfo.php
+2024-08-08 14:51:59.466 MediaFileHandler: Missing file api/info.php
+2024-08-08 14:51:59.672 MediaFileHandler: Missing file backend/info.php
+2024-08-08 14:51:59.868 MediaFileHandler: Missing file backup/info.php
+2024-08-08 14:52:00.068 MediaFileHandler: Missing file crm/info.php
+2024-08-08 14:52:00.269 MediaFileHandler: Missing file current/info.php
+2024-08-08 14:52:00.469 MediaFileHandler: Missing file dev/info.php
+2024-08-08 14:52:00.668 MediaFileHandler: Missing file develop/info.php
+2024-08-08 14:52:00.869 MediaFileHandler: Missing file development/iinfo.php
+2024-08-08 14:52:01.267 MediaFileHandler: Missing file help/info.php
+2024-08-08 14:52:01.483 MediaFileHandler: Missing file helper/info.php
+2024-08-08 14:52:01.675 MediaFileHandler: Missing file lara/info.php
+2024-08-08 14:52:01.893 MediaFileHandler: Missing file laravel/info.php
+2024-08-08 14:52:02.086 MediaFileHandler: Missing file server/info.php
+2024-08-08 14:52:02.276 MediaFileHandler: Missing file service/info.php
+2024-08-08 14:52:02.415 MediaFileHandler: Missing file services/info.php
+2024-08-08 14:52:02.596 MediaFileHandler: Missing file php-info.php
+2024-08-08 14:52:02.789 MediaFileHandler: Missing file linusadmin-phpinfo.php
+2024-08-08 14:52:02.921 MediaFileHandler: Missing file infos.php
+2024-08-08 14:52:03.080 MediaFileHandler: Missing file old_phpinfo.php
+2024-08-08 14:52:03.273 MediaFileHandler: Missing file temp.php
+2024-08-08 14:52:03.475 MediaFileHandler: Missing file time.php
+2024-08-08 14:52:03.676 MediaFileHandler: Missing file phpversion.php
+2024-08-08 14:52:03.881 MediaFileHandler: Missing file pinfo.php
+2024-08-08 14:52:04.079 MediaFileHandler: Missing file i.php
+2024-08-08 14:52:04.287 MediaFileHandler: Missing file asdf.php
+2024-08-10 09:47:34.099 Session with id 3971e404-6654-42d8-8488-df347362f935 is already connected! Connecting to a new session.
+2024-08-10 18:03:52.674 MediaFileHandler: Missing file .env
+2024-08-10 18:13:49.122 MediaFileHandler: Missing file remote-sync.json
+2024-08-10 18:14:00.095 MediaFileHandler: Missing file .vscode/sftp.json
+2024-08-10 18:14:14.947 MediaFileHandler: Missing file web.config
+2024-08-10 18:14:21.540 MediaFileHandler: Missing file .gitlab-ci.yml
+2024-08-10 18:14:45.192 MediaFileHandler: Missing file .ftpconfig
+2024-08-10 18:15:13.908 MediaFileHandler: Missing file App_Config/ConnectionStrings.config
+2024-08-10 18:15:47.405 MediaFileHandler: Missing file .vscode/ftp-sync.json
+2024-08-10 18:15:54.171 MediaFileHandler: Missing file .ssh/authorized_keys
+2024-08-10 18:16:22.216 MediaFileHandler: Missing file .git/config
+2024-08-10 18:16:29.873 MediaFileHandler: Missing file jenkinsFile
+2024-08-10 18:16:32.320 MediaFileHandler: Missing file config.yaml
+2024-08-10 18:16:42.413 MediaFileHandler: Missing file laravel.log
+2024-08-10 18:16:50.649 MediaFileHandler: Missing file api-config.ini
+2024-08-10 18:21:54.230 MediaFileHandler: Missing file .env.bak
+2024-08-10 18:21:54.437 MediaFileHandler: Missing file config.env
+2024-08-10 18:21:54.644 MediaFileHandler: Missing file .env.dist
+2024-08-10 18:21:54.851 MediaFileHandler: Missing file .env.dev
+2024-08-10 18:21:55.057 MediaFileHandler: Missing file .env.local
+2024-08-10 18:38:37.632 MediaFileHandler: Missing file xampp/info.php
+2024-08-10 18:38:37.838 MediaFileHandler: Missing file xampp/phpinfo
+2024-08-10 18:38:38.044 MediaFileHandler: Missing file _profiler/phpinfo
+2024-08-10 18:38:38.249 MediaFileHandler: Missing file phpinfo.php
+2024-08-10 18:38:38.455 MediaFileHandler: Missing file phpinfo
+2024-08-10 18:38:38.660 MediaFileHandler: Missing file info.php
+2024-08-10 18:38:38.866 MediaFileHandler: Missing file php.ini
+2024-08-10 18:38:39.071 MediaFileHandler: Missing file php.php
+2024-08-10 18:38:39.277 MediaFileHandler: Missing file infophp.php
+2024-08-10 18:38:39.483 MediaFileHandler: Missing file test.php
+2024-08-10 18:38:40.120 MediaFileHandler: Missing file dashboard/phpinfo.php
+2024-08-10 18:38:40.326 MediaFileHandler: Missing file api/phpinfo.php
+2024-08-10 18:38:40.948 MediaFileHandler: Missing file backend/phpinfo.php
+2024-08-10 18:38:41.154 MediaFileHandler: Missing file backup/phpinfo.php
+2024-08-10 18:38:41.359 MediaFileHandler: Missing file crm/phpinfo.php
+2024-08-10 18:38:42.004 MediaFileHandler: Missing file current/phpinfo.php
+2024-08-10 18:38:42.652 MediaFileHandler: Missing file dev/phpinfo.php
+2024-08-10 18:38:42.858 MediaFileHandler: Missing file develop/phpinfo.php
+2024-08-10 18:38:43.063 MediaFileHandler: Missing file development/phpinfo.php
+2024-08-10 18:38:43.269 MediaFileHandler: Missing file help/phpinfo.php
+2024-08-10 18:38:43.475 MediaFileHandler: Missing file helper/phpinfo.php
+2024-08-10 18:38:43.680 MediaFileHandler: Missing file lara/phpinfo.php
+2024-08-10 18:38:43.885 MediaFileHandler: Missing file laravel/phpinfo.php
+2024-08-10 18:38:44.500 MediaFileHandler: Missing file server/phpinfo.php
+2024-08-10 18:38:44.707 MediaFileHandler: Missing file service/phpinfo.php
+2024-08-10 18:38:46.580 MediaFileHandler: Missing file services/phpinfo.php
+2024-08-10 18:38:47.220 MediaFileHandler: Missing file xampp/phpinfo.php
+2024-08-10 18:38:47.426 MediaFileHandler: Missing file api/info.php
+2024-08-10 18:38:47.632 MediaFileHandler: Missing file backend/info.php
+2024-08-10 18:38:48.692 MediaFileHandler: Missing file backup/info.php
+2024-08-10 18:38:49.332 MediaFileHandler: Missing file crm/info.php
+2024-08-10 18:38:49.539 MediaFileHandler: Missing file current/info.php
+2024-08-10 18:38:50.165 MediaFileHandler: Missing file dev/info.php
+2024-08-10 18:38:50.370 MediaFileHandler: Missing file develop/info.php
+2024-08-10 18:38:50.576 MediaFileHandler: Missing file development/iinfo.php
+2024-08-10 18:38:50.782 MediaFileHandler: Missing file help/info.php
+2024-08-10 18:38:50.988 MediaFileHandler: Missing file helper/info.php
+2024-08-10 18:38:51.193 MediaFileHandler: Missing file lara/info.php
+2024-08-10 18:38:51.832 MediaFileHandler: Missing file laravel/info.php
+2024-08-10 18:38:52.038 MediaFileHandler: Missing file server/info.php
+2024-08-10 18:38:52.244 MediaFileHandler: Missing file service/info.php
+2024-08-10 18:38:52.449 MediaFileHandler: Missing file services/info.php
+2024-08-10 18:38:52.655 MediaFileHandler: Missing file php-info.php
+2024-08-10 18:38:52.861 MediaFileHandler: Missing file linusadmin-phpinfo.php
+2024-08-10 18:38:53.496 MediaFileHandler: Missing file infos.php
+2024-08-10 18:38:53.702 MediaFileHandler: Missing file old_phpinfo.php
+2024-08-10 18:38:53.908 MediaFileHandler: Missing file temp.php
+2024-08-10 18:38:54.548 MediaFileHandler: Missing file time.php
+2024-08-10 18:38:54.755 MediaFileHandler: Missing file phpversion.php
+2024-08-10 18:38:54.960 MediaFileHandler: Missing file pinfo.php
+2024-08-10 18:38:55.166 MediaFileHandler: Missing file i.php
+2024-08-10 18:38:55.571 MediaFileHandler: Missing file asdf.php
+2024-08-11 10:00:12.199 MediaFileHandler: Missing file .env
+2024-08-12 05:32:35.842 MediaFileHandler: Missing file .env
+'random_cookie_name'
+'random_cookie_name'
+'random_cookie_name'
+  Stopping...
+
+Collecting usage statistics. To deactivate, set browser.gatherUsageStats to false.
+
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://172.31.43.229:8501
+  External URL: http://3.111.169.91:8501
+
+  Stopping...
+
+Collecting usage statistics. To deactivate, set browser.gatherUsageStats to false.
+
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://172.31.43.229:8501
+  External URL: http://3.111.169.91:8501
+
+2024-08-19 01:27:35.551 MediaFileHandler: Missing file .env
+2024-08-19 01:32:25.632 MediaFileHandler: Missing file remote-sync.json
+2024-08-19 01:32:31.936 MediaFileHandler: Missing file .vscode/sftp.json
+2024-08-19 01:32:34.644 MediaFileHandler: Missing file web.config
+2024-08-19 01:32:35.803 MediaFileHandler: Missing file .gitlab-ci.yml
+2024-08-19 01:32:43.170 MediaFileHandler: Missing file .ftpconfig
+2024-08-19 01:32:51.453 MediaFileHandler: Missing file App_Config/ConnectionStrings.config
+2024-08-19 01:33:09.228 MediaFileHandler: Missing file .vscode/ftp-sync.json
+2024-08-19 01:33:14.987 MediaFileHandler: Missing file .ssh/authorized_keys
+2024-08-19 01:33:25.642 MediaFileHandler: Missing file .git/config
+2024-08-19 01:33:33.214 MediaFileHandler: Missing file jenkinsFile
+2024-08-19 01:33:37.570 MediaFileHandler: Missing file config.yaml
+2024-08-19 01:33:50.887 MediaFileHandler: Missing file laravel.log
+2024-08-19 01:33:55.275 MediaFileHandler: Missing file api-config.ini
+2024-08-19 01:36:51.510 MediaFileHandler: Missing file .env.bak
+2024-08-19 01:36:51.645 MediaFileHandler: Missing file config.env
+2024-08-19 01:36:51.782 MediaFileHandler: Missing file .env.dist
+2024-08-19 01:36:51.917 MediaFileHandler: Missing file .env.dev
+2024-08-19 01:36:52.052 MediaFileHandler: Missing file .env.local
+2024-08-19 01:44:17.154 MediaFileHandler: Missing file xampp/info.php
+2024-08-19 01:44:17.280 MediaFileHandler: Missing file xampp/phpinfo
+2024-08-19 01:44:17.406 MediaFileHandler: Missing file _profiler/phpinfo
+2024-08-19 01:44:17.533 MediaFileHandler: Missing file phpinfo.php
+2024-08-19 01:44:17.659 MediaFileHandler: Missing file phpinfo
+2024-08-19 01:44:17.786 MediaFileHandler: Missing file info.php
+2024-08-19 01:44:17.914 MediaFileHandler: Missing file php.ini
+2024-08-19 01:44:18.040 MediaFileHandler: Missing file php.php
+2024-08-19 01:44:18.167 MediaFileHandler: Missing file infophp.php
+2024-08-19 01:44:18.293 MediaFileHandler: Missing file test.php
+2024-08-19 01:44:18.419 MediaFileHandler: Missing file dashboard/phpinfo.php
+2024-08-19 01:44:18.546 MediaFileHandler: Missing file api/phpinfo.php
+2024-08-19 01:44:18.800 MediaFileHandler: Missing file backend/phpinfo.php
+2024-08-19 01:44:18.928 MediaFileHandler: Missing file backup/phpinfo.php
+2024-08-19 01:44:19.056 MediaFileHandler: Missing file crm/phpinfo.php
+2024-08-19 01:44:19.184 MediaFileHandler: Missing file current/phpinfo.php
+2024-08-19 01:44:19.695 MediaFileHandler: Missing file dev/phpinfo.php
+2024-08-19 01:44:19.823 MediaFileHandler: Missing file develop/phpinfo.php
+2024-08-19 01:44:19.951 MediaFileHandler: Missing file development/phpinfo.php
+2024-08-19 01:44:20.079 MediaFileHandler: Missing file help/phpinfo.php
+2024-08-19 01:44:20.207 MediaFileHandler: Missing file helper/phpinfo.php
+2024-08-19 01:44:20.334 MediaFileHandler: Missing file lara/phpinfo.php
+2024-08-19 01:44:20.462 MediaFileHandler: Missing file laravel/phpinfo.php
+2024-08-19 01:44:20.590 MediaFileHandler: Missing file server/phpinfo.php
+2024-08-19 01:44:21.072 MediaFileHandler: Missing file service/phpinfo.php
+2024-08-19 01:44:21.200 MediaFileHandler: Missing file services/phpinfo.php
+2024-08-19 01:44:21.328 MediaFileHandler: Missing file xampp/phpinfo.php
+2024-08-19 01:44:21.455 MediaFileHandler: Missing file api/info.php
+2024-08-19 01:44:21.583 MediaFileHandler: Missing file backend/info.php
+2024-08-19 01:44:21.711 MediaFileHandler: Missing file backup/info.php
+2024-08-19 01:44:22.191 MediaFileHandler: Missing file crm/info.php
+2024-08-19 01:44:22.319 MediaFileHandler: Missing file current/info.php
+2024-08-19 01:44:22.449 MediaFileHandler: Missing file dev/info.php
+2024-08-19 01:44:22.577 MediaFileHandler: Missing file develop/info.php
+2024-08-19 01:44:22.704 MediaFileHandler: Missing file development/iinfo.php
+2024-08-19 01:44:22.832 MediaFileHandler: Missing file help/info.php
+2024-08-19 01:44:22.960 MediaFileHandler: Missing file helper/info.php
+2024-08-19 01:44:23.440 MediaFileHandler: Missing file lara/info.php
+2024-08-19 01:44:23.569 MediaFileHandler: Missing file laravel/info.php
+2024-08-19 01:44:23.697 MediaFileHandler: Missing file server/info.php
+2024-08-19 01:44:23.824 MediaFileHandler: Missing file service/info.php
+2024-08-19 01:44:24.303 MediaFileHandler: Missing file services/info.php
+2024-08-19 01:44:24.431 MediaFileHandler: Missing file php-info.php
+2024-08-19 01:44:24.911 MediaFileHandler: Missing file linusadmin-phpinfo.php
+2024-08-19 01:44:25.039 MediaFileHandler: Missing file infos.php
+2024-08-19 01:44:25.167 MediaFileHandler: Missing file old_phpinfo.php
+2024-08-19 01:44:25.295 MediaFileHandler: Missing file temp.php
+2024-08-19 01:44:25.423 MediaFileHandler: Missing file time.php
+2024-08-19 01:44:25.550 MediaFileHandler: Missing file phpversion.php
+2024-08-19 01:44:25.678 MediaFileHandler: Missing file pinfo.php
+2024-08-19 01:44:26.159 MediaFileHandler: Missing file i.php
+2024-08-19 01:44:26.287 MediaFileHandler: Missing file asdf.php
+2024-08-19 18:17:21.047 MediaFileHandler: Missing file .env
+2024-08-20 10:00:30.245 Session with id 318c6cbe-e21d-44aa-a3a1-85beb33d0c47 is already connected! Connecting to a new session.
+2024-08-21 08:47:30.217 HTTP request for cached message is missing the hash attribute.
+2024-08-21 19:40:28.100 HTTP request for cached message is missing the hash attribute.
+2024-08-28 04:16:36.383 MediaFileHandler: Missing file .env
+2024-08-28 04:26:54.678 MediaFileHandler: Missing file remote-sync.json
+2024-08-28 04:27:11.345 MediaFileHandler: Missing file .vscode/sftp.json
+2024-08-28 04:27:23.313 MediaFileHandler: Missing file web.config
+2024-08-28 04:27:26.454 MediaFileHandler: Missing file .gitlab-ci.yml
+2024-08-28 04:27:53.028 MediaFileHandler: Missing file .ftpconfig
+2024-08-28 04:28:16.865 MediaFileHandler: Missing file App_Config/ConnectionStrings.config
+2024-08-28 04:29:02.792 MediaFileHandler: Missing file .vscode/ftp-sync.json
+2024-08-28 04:29:10.213 MediaFileHandler: Missing file .ssh/authorized_keys
+2024-08-28 04:29:24.961 MediaFileHandler: Missing file .git/config
+2024-08-28 04:29:36.585 MediaFileHandler: Missing file jenkinsFile
+2024-08-28 04:29:42.686 MediaFileHandler: Missing file config.yaml
+2024-08-28 04:30:02.217 MediaFileHandler: Missing file laravel.log
+2024-08-28 04:30:09.860 MediaFileHandler: Missing file api-config.ini
+2024-08-28 04:35:30.355 MediaFileHandler: Missing file .env.bak
+2024-08-28 04:35:30.659 MediaFileHandler: Missing file config.env
+2024-08-28 04:35:30.950 MediaFileHandler: Missing file .env.dist
+2024-08-28 04:35:31.249 MediaFileHandler: Missing file .env.dev
+2024-08-28 04:35:31.553 MediaFileHandler: Missing file .env.local
+2024-08-28 04:54:40.094 MediaFileHandler: Missing file xampp/info.php
+2024-08-28 04:54:40.303 MediaFileHandler: Missing file xampp/phpinfo
+2024-08-28 04:54:40.513 MediaFileHandler: Missing file _profiler/phpinfo
+2024-08-28 04:54:40.721 MediaFileHandler: Missing file phpinfo.php
+2024-08-28 04:54:51.138 MediaFileHandler: Missing file phpinfo
+2024-08-28 04:54:51.144 MediaFileHandler: Missing file info.php
+2024-08-28 04:54:51.989 MediaFileHandler: Missing file php.ini
+2024-08-28 04:54:52.201 MediaFileHandler: Missing file php.php
+2024-08-28 04:54:52.413 MediaFileHandler: Missing file infophp.php
+2024-08-28 04:54:52.624 MediaFileHandler: Missing file test.php
+2024-08-28 04:54:52.836 MediaFileHandler: Missing file dashboard/phpinfo.php
+2024-08-28 04:54:53.521 MediaFileHandler: Missing file api/phpinfo.php
+2024-08-28 04:54:53.733 MediaFileHandler: Missing file backend/phpinfo.php
+2024-08-28 04:54:53.944 MediaFileHandler: Missing file backup/phpinfo.php
+2024-08-28 04:54:54.613 MediaFileHandler: Missing file crm/phpinfo.php
+2024-08-28 04:54:55.289 MediaFileHandler: Missing file current/phpinfo.php
+2024-08-28 04:54:55.499 MediaFileHandler: Missing file dev/phpinfo.php
+2024-08-28 04:54:57.457 MediaFileHandler: Missing file develop/phpinfo.php
+2024-08-28 04:54:57.669 MediaFileHandler: Missing file development/phpinfo.php
+2024-08-28 04:54:58.321 MediaFileHandler: Missing file help/phpinfo.php
+2024-08-28 04:54:58.533 MediaFileHandler: Missing file helper/phpinfo.php
+2024-08-28 04:54:58.743 MediaFileHandler: Missing file lara/phpinfo.php
+2024-08-28 04:54:58.956 MediaFileHandler: Missing file laravel/phpinfo.php
+2024-08-28 04:54:59.168 MediaFileHandler: Missing file server/phpinfo.php
+2024-08-28 04:54:59.825 MediaFileHandler: Missing file service/phpinfo.php
+2024-08-28 04:55:00.037 MediaFileHandler: Missing file services/phpinfo.php
+2024-08-28 04:55:00.249 MediaFileHandler: Missing file xampp/phpinfo.php
+2024-08-28 04:55:00.461 MediaFileHandler: Missing file api/info.php
+2024-08-28 04:55:00.673 MediaFileHandler: Missing file backend/info.php
+2024-08-28 04:55:04.611 MediaFileHandler: Missing file backup/info.php
+2024-08-28 04:55:04.824 MediaFileHandler: Missing file crm/info.php
+2024-08-28 04:55:05.036 MediaFileHandler: Missing file current/info.php
+2024-08-28 04:55:05.248 MediaFileHandler: Missing file dev/info.php
+2024-08-28 04:55:05.460 MediaFileHandler: Missing file develop/info.php
+2024-08-28 04:55:05.672 MediaFileHandler: Missing file development/iinfo.php
+2024-08-28 04:55:05.883 MediaFileHandler: Missing file help/info.php
+2024-08-28 04:55:06.722 MediaFileHandler: Missing file helper/info.php
+2024-08-28 04:55:06.934 MediaFileHandler: Missing file lara/info.php
+2024-08-28 04:55:07.146 MediaFileHandler: Missing file laravel/info.php
+2024-08-28 04:55:07.358 MediaFileHandler: Missing file server/info.php
+2024-08-28 04:55:07.570 MediaFileHandler: Missing file service/info.php
+2024-08-28 04:55:07.782 MediaFileHandler: Missing file services/info.php
+2024-08-28 04:55:07.995 MediaFileHandler: Missing file php-info.php
+2024-08-28 04:55:08.208 MediaFileHandler: Missing file linusadmin-phpinfo.php
+2024-08-28 04:55:08.420 MediaFileHandler: Missing file infos.php
+2024-08-28 04:55:08.631 MediaFileHandler: Missing file old_phpinfo.php
+2024-08-28 04:55:09.269 MediaFileHandler: Missing file temp.php
+2024-08-28 04:55:09.481 MediaFileHandler: Missing file time.php
+2024-08-28 04:55:10.865 MediaFileHandler: Missing file phpversion.php
+2024-08-28 04:55:11.077 MediaFileHandler: Missing file pinfo.php
+2024-08-28 04:55:11.289 MediaFileHandler: Missing file i.php
+2024-08-28 04:55:11.500 MediaFileHandler: Missing file asdf.php
+2024-08-31 10:31:26.397 HTTP request for cached message is missing the hash attribute.
+2024-08-31 21:05:35.592 MediaFileHandler: Missing file .env
+2024-08-31 21:17:07.883 MediaFileHandler: Missing file remote-sync.json
+2024-08-31 21:17:25.564 MediaFileHandler: Missing file .vscode/sftp.json
+2024-08-31 21:17:32.939 MediaFileHandler: Missing file web.config
+2024-08-31 21:17:34.756 MediaFileHandler: Missing file .gitlab-ci.yml
+2024-08-31 21:18:15.979 MediaFileHandler: Missing file .ftpconfig
+2024-08-31 21:18:47.512 MediaFileHandler: Missing file App_Config/ConnectionStrings.config
+2024-08-31 21:20:14.101 MediaFileHandler: Missing file .vscode/ftp-sync.json
+2024-08-31 21:20:27.955 MediaFileHandler: Missing file .ssh/authorized_keys
+2024-08-31 21:20:44.026 MediaFileHandler: Missing file .git/config
+2024-08-31 21:20:52.003 MediaFileHandler: Missing file jenkinsFile
+2024-08-31 21:20:56.539 MediaFileHandler: Missing file config.yaml
+2024-08-31 21:21:12.002 MediaFileHandler: Missing file laravel.log
+2024-08-31 21:21:15.036 MediaFileHandler: Missing file api-config.ini
+2024-08-31 21:26:48.679 MediaFileHandler: Missing file .env.bak
+2024-08-31 21:26:48.885 MediaFileHandler: Missing file config.env
+2024-08-31 21:26:49.184 MediaFileHandler: Missing file .env.dist
+2024-08-31 21:26:49.485 MediaFileHandler: Missing file .env.dev
+2024-08-31 21:26:49.690 MediaFileHandler: Missing file .env.local
+2024-08-31 21:46:09.796 MediaFileHandler: Missing file xampp/info.php
+2024-08-31 21:46:09.996 MediaFileHandler: Missing file xampp/phpinfo
+2024-08-31 21:46:10.200 MediaFileHandler: Missing file _profiler/phpinfo
+2024-08-31 21:46:10.404 MediaFileHandler: Missing file phpinfo.php
+2024-08-31 21:46:10.607 MediaFileHandler: Missing file phpinfo
+2024-08-31 21:46:10.809 MediaFileHandler: Missing file info.php
+2024-08-31 21:46:11.009 MediaFileHandler: Missing file php.ini
+2024-08-31 21:46:11.210 MediaFileHandler: Missing file php.php
+2024-08-31 21:46:11.414 MediaFileHandler: Missing file infophp.php
+2024-08-31 21:46:11.615 MediaFileHandler: Missing file test.php
+2024-08-31 21:46:11.820 MediaFileHandler: Missing file dashboard/phpinfo.php
+2024-08-31 21:46:12.119 MediaFileHandler: Missing file api/phpinfo.php
+2024-08-31 21:46:12.322 MediaFileHandler: Missing file backend/phpinfo.php
+2024-08-31 21:46:12.720 MediaFileHandler: Missing file backup/phpinfo.php
+2024-08-31 21:46:12.921 MediaFileHandler: Missing file crm/phpinfo.php
+2024-08-31 21:46:13.123 MediaFileHandler: Missing file current/phpinfo.php
+2024-08-31 21:46:13.324 MediaFileHandler: Missing file dev/phpinfo.php
+2024-08-31 21:46:13.526 MediaFileHandler: Missing file develop/phpinfo.php
+2024-08-31 21:46:13.730 MediaFileHandler: Missing file development/phpinfo.php
+2024-08-31 21:46:13.937 MediaFileHandler: Missing file help/phpinfo.php
+2024-08-31 21:46:14.138 MediaFileHandler: Missing file helper/phpinfo.php
+2024-08-31 21:46:14.340 MediaFileHandler: Missing file lara/phpinfo.php
+2024-08-31 21:46:14.538 MediaFileHandler: Missing file laravel/phpinfo.php
+2024-08-31 21:46:14.739 MediaFileHandler: Missing file server/phpinfo.php
+2024-08-31 21:46:14.942 MediaFileHandler: Missing file service/phpinfo.php
+2024-08-31 21:46:15.147 MediaFileHandler: Missing file services/phpinfo.php
+2024-08-31 21:46:15.347 MediaFileHandler: Missing file xampp/phpinfo.php
+2024-08-31 21:46:15.547 MediaFileHandler: Missing file api/info.php
+2024-08-31 21:46:15.750 MediaFileHandler: Missing file backend/info.php
+2024-08-31 21:46:15.958 MediaFileHandler: Missing file backup/info.php
+2024-08-31 21:46:16.159 MediaFileHandler: Missing file crm/info.php
+2024-08-31 21:46:16.359 MediaFileHandler: Missing file current/info.php
+2024-08-31 21:46:16.560 MediaFileHandler: Missing file dev/info.php
+2024-08-31 21:46:16.767 MediaFileHandler: Missing file develop/info.php
+2024-08-31 21:46:16.968 MediaFileHandler: Missing file development/iinfo.php
+2024-08-31 21:46:17.170 MediaFileHandler: Missing file help/info.php
+2024-08-31 21:46:17.371 MediaFileHandler: Missing file helper/info.php
+2024-08-31 21:46:17.574 MediaFileHandler: Missing file lara/info.php
+2024-08-31 21:46:17.771 MediaFileHandler: Missing file laravel/info.php
+2024-08-31 21:46:17.971 MediaFileHandler: Missing file server/info.php
+2024-08-31 21:46:18.173 MediaFileHandler: Missing file service/info.php
+2024-08-31 21:46:18.375 MediaFileHandler: Missing file services/info.php
+2024-08-31 21:46:18.577 MediaFileHandler: Missing file php-info.php
+2024-08-31 21:46:18.779 MediaFileHandler: Missing file linusadmin-phpinfo.php
+2024-08-31 21:46:18.981 MediaFileHandler: Missing file infos.php
+2024-08-31 21:46:19.183 MediaFileHandler: Missing file old_phpinfo.php
+2024-08-31 21:46:19.385 MediaFileHandler: Missing file temp.php
+2024-08-31 21:46:19.589 MediaFileHandler: Missing file time.php
+2024-08-31 21:46:19.789 MediaFileHandler: Missing file phpversion.php
+2024-08-31 21:46:19.991 MediaFileHandler: Missing file pinfo.php
+2024-08-31 21:46:20.193 MediaFileHandler: Missing file i.php
+2024-08-31 21:46:20.395 MediaFileHandler: Missing file asdf.php
+2024-09-02 06:57:01.574 MediaFileHandler: Missing file .env
+2024-09-02 19:55:10.074 HTTP request for cached message is missing the hash attribute.
+2024-09-04 15:16:24.390 Session with id fc61a4a4-c6e6-499b-acfe-cef09bbe1c4f is already connected! Connecting to a new session.
+2024-09-16 08:30:06.487 MediaFileHandler: Missing file .env
+2024-09-16 12:25:27.150 MediaFileHandler: Missing file .env
+2024-09-16 12:29:39.264 MediaFileHandler: Missing file remote-sync.json
+2024-09-16 12:29:44.129 MediaFileHandler: Missing file .vscode/sftp.json
+2024-09-16 12:29:48.325 MediaFileHandler: Missing file web.config
+2024-09-16 12:29:49.928 MediaFileHandler: Missing file .gitlab-ci.yml
+2024-09-16 12:29:59.728 MediaFileHandler: Missing file .ftpconfig
+2024-09-16 12:30:08.804 MediaFileHandler: Missing file App_Config/ConnectionStrings.config
+2024-09-16 12:30:27.341 MediaFileHandler: Missing file .vscode/ftp-sync.json
+2024-09-16 12:30:31.034 MediaFileHandler: Missing file .ssh/authorized_keys
+2024-09-16 12:30:38.797 MediaFileHandler: Missing file .git/config
+2024-09-16 12:30:43.890 MediaFileHandler: Missing file jenkinsFile
+2024-09-16 12:30:46.425 MediaFileHandler: Missing file config.yaml
+2024-09-16 12:30:53.499 MediaFileHandler: Missing file laravel.log
+2024-09-16 12:30:55.990 MediaFileHandler: Missing file api-config.ini
+2024-09-16 12:32:56.091 MediaFileHandler: Missing file .env.bak
+2024-09-16 12:32:56.283 MediaFileHandler: Missing file config.env
+2024-09-16 12:32:56.479 MediaFileHandler: Missing file .env.dist
+2024-09-16 12:32:56.653 MediaFileHandler: Missing file .env.dev
+2024-09-16 12:32:56.813 MediaFileHandler: Missing file .env.local
+2024-09-16 12:39:59.534 MediaFileHandler: Missing file xampp/info.php
+2024-09-16 12:39:59.707 MediaFileHandler: Missing file xampp/phpinfo
+2024-09-16 12:39:59.887 MediaFileHandler: Missing file _profiler/phpinfo
+2024-09-16 12:40:00.059 MediaFileHandler: Missing file phpinfo.php
+2024-09-16 12:40:00.237 MediaFileHandler: Missing file phpinfo
+2024-09-16 12:40:00.415 MediaFileHandler: Missing file info.php
+2024-09-16 12:40:00.581 MediaFileHandler: Missing file php.ini
+2024-09-16 12:40:00.762 MediaFileHandler: Missing file php.php
+2024-09-16 12:40:01.351 MediaFileHandler: Missing file infophp.php
+2024-09-16 12:40:01.501 MediaFileHandler: Missing file test.php
+2024-09-16 12:40:01.638 MediaFileHandler: Missing file dashboard/phpinfo.php
+2024-09-16 12:40:01.811 MediaFileHandler: Missing file api/phpinfo.php
+2024-09-16 12:40:02.510 MediaFileHandler: Missing file backend/phpinfo.php
+2024-09-16 12:40:02.704 MediaFileHandler: Missing file backup/phpinfo.php
+2024-09-16 12:40:02.900 MediaFileHandler: Missing file crm/phpinfo.php
+2024-09-16 12:40:03.036 MediaFileHandler: Missing file current/phpinfo.php
+2024-09-16 12:40:03.725 MediaFileHandler: Missing file dev/phpinfo.php
+2024-09-16 12:40:04.413 MediaFileHandler: Missing file develop/phpinfo.php
+2024-09-16 12:40:04.606 MediaFileHandler: Missing file development/phpinfo.php
+2024-09-16 12:40:04.749 MediaFileHandler: Missing file help/phpinfo.php
+2024-09-16 12:40:04.938 MediaFileHandler: Missing file helper/phpinfo.php
+2024-09-16 12:40:05.129 MediaFileHandler: Missing file lara/phpinfo.php
+2024-09-16 12:40:05.332 MediaFileHandler: Missing file laravel/phpinfo.php
+2024-09-16 12:40:05.525 MediaFileHandler: Missing file server/phpinfo.php
+2024-09-16 12:40:05.712 MediaFileHandler: Missing file service/phpinfo.php
+2024-09-16 12:40:05.867 MediaFileHandler: Missing file services/phpinfo.php
+2024-09-16 12:40:06.043 MediaFileHandler: Missing file xampp/phpinfo.php
+2024-09-16 12:40:06.225 MediaFileHandler: Missing file api/info.php
+2024-09-16 12:40:06.401 MediaFileHandler: Missing file backend/info.php
+2024-09-16 12:40:06.584 MediaFileHandler: Missing file backup/info.php
+2024-09-16 12:40:06.764 MediaFileHandler: Missing file crm/info.php
+2024-09-16 12:40:06.946 MediaFileHandler: Missing file current/info.php
+2024-09-16 12:40:07.130 MediaFileHandler: Missing file dev/info.php
+2024-09-16 12:40:07.314 MediaFileHandler: Missing file develop/info.php
+2024-09-16 12:40:07.501 MediaFileHandler: Missing file development/iinfo.php
+2024-09-16 12:40:07.663 MediaFileHandler: Missing file help/info.php
+2024-09-16 12:40:07.843 MediaFileHandler: Missing file helper/info.php
+2024-09-16 12:40:08.034 MediaFileHandler: Missing file lara/info.php
+2024-09-16 12:40:08.223 MediaFileHandler: Missing file laravel/info.php
+2024-09-16 12:40:08.404 MediaFileHandler: Missing file server/info.php
+2024-09-16 12:40:08.574 MediaFileHandler: Missing file service/info.php
+2024-09-16 12:40:09.147 MediaFileHandler: Missing file services/info.php
+2024-09-16 12:40:09.315 MediaFileHandler: Missing file php-info.php
+2024-09-16 12:40:09.500 MediaFileHandler: Missing file linusadmin-phpinfo.php
+2024-09-16 12:40:09.683 MediaFileHandler: Missing file infos.php
+2024-09-16 12:40:09.867 MediaFileHandler: Missing file old_phpinfo.php
+2024-09-16 12:40:10.049 MediaFileHandler: Missing file temp.php
+2024-09-16 12:40:10.239 MediaFileHandler: Missing file time.php
+2024-09-16 12:40:10.422 MediaFileHandler: Missing file phpversion.php
+2024-09-16 12:40:10.589 MediaFileHandler: Missing file pinfo.php
+2024-09-16 12:40:10.768 MediaFileHandler: Missing file i.php
+2024-09-16 12:40:10.955 MediaFileHandler: Missing file asdf.php
+2024-09-16 12:47:33.398 MediaFileHandler: Missing file .env
+2024-09-16 12:51:50.965 MediaFileHandler: Missing file remote-sync.json
+2024-09-16 12:51:55.540 MediaFileHandler: Missing file .vscode/sftp.json
+2024-09-16 12:51:59.441 MediaFileHandler: Missing file web.config
+2024-09-16 12:52:01.096 MediaFileHandler: Missing file .gitlab-ci.yml
+2024-09-16 12:52:12.449 MediaFileHandler: Missing file .ftpconfig
+2024-09-16 12:52:21.229 MediaFileHandler: Missing file App_Config/ConnectionStrings.config
+2024-09-16 12:52:39.600 MediaFileHandler: Missing file .vscode/ftp-sync.json
+2024-09-16 12:52:43.232 MediaFileHandler: Missing file .ssh/authorized_keys
+2024-09-16 12:52:50.134 MediaFileHandler: Missing file .git/config
+2024-09-16 12:52:54.973 MediaFileHandler: Missing file jenkinsFile
+2024-09-16 12:52:57.038 MediaFileHandler: Missing file config.yaml
+2024-09-16 12:53:04.105 MediaFileHandler: Missing file laravel.log
+2024-09-16 12:53:06.655 MediaFileHandler: Missing file api-config.ini
+2024-09-16 12:55:04.706 MediaFileHandler: Missing file .env.bak
+2024-09-16 12:55:04.883 MediaFileHandler: Missing file config.env
+2024-09-16 12:55:05.051 MediaFileHandler: Missing file .env.dist
+2024-09-16 12:55:05.228 MediaFileHandler: Missing file .env.dev
+2024-09-16 12:55:05.407 MediaFileHandler: Missing file .env.local
+2024-09-16 13:02:16.966 MediaFileHandler: Missing file xampp/info.php
+2024-09-16 13:02:17.127 MediaFileHandler: Missing file xampp/phpinfo
+2024-09-16 13:02:17.302 MediaFileHandler: Missing file _profiler/phpinfo
+2024-09-16 13:02:17.493 MediaFileHandler: Missing file phpinfo.php
+2024-09-16 13:02:17.674 MediaFileHandler: Missing file phpinfo
+2024-09-16 13:02:17.837 MediaFileHandler: Missing file info.php
+2024-09-16 13:02:17.998 MediaFileHandler: Missing file php.ini
+2024-09-16 13:02:18.167 MediaFileHandler: Missing file php.php
+2024-09-16 13:02:18.359 MediaFileHandler: Missing file infophp.php
+2024-09-16 13:02:18.541 MediaFileHandler: Missing file test.php
+2024-09-16 13:02:18.724 MediaFileHandler: Missing file dashboard/phpinfo.php
+2024-09-16 13:02:18.898 MediaFileHandler: Missing file api/phpinfo.php
+2024-09-16 13:02:19.450 MediaFileHandler: Missing file backend/phpinfo.php
+2024-09-16 13:02:19.636 MediaFileHandler: Missing file backup/phpinfo.php
+2024-09-16 13:02:19.820 MediaFileHandler: Missing file crm/phpinfo.php
+2024-09-16 13:02:20.015 MediaFileHandler: Missing file current/phpinfo.php
+2024-09-16 13:02:20.191 MediaFileHandler: Missing file dev/phpinfo.php
+2024-09-16 13:02:20.363 MediaFileHandler: Missing file develop/phpinfo.php
+2024-09-16 13:02:20.547 MediaFileHandler: Missing file development/phpinfo.php
+2024-09-16 13:02:20.730 MediaFileHandler: Missing file help/phpinfo.php
+2024-09-16 13:02:20.921 MediaFileHandler: Missing file helper/phpinfo.php
+2024-09-16 13:02:21.111 MediaFileHandler: Missing file lara/phpinfo.php
+2024-09-16 13:02:21.703 MediaFileHandler: Missing file laravel/phpinfo.php
+2024-09-16 13:02:21.871 MediaFileHandler: Missing file server/phpinfo.php
+2024-09-16 13:02:22.045 MediaFileHandler: Missing file service/phpinfo.php
+2024-09-16 13:02:22.224 MediaFileHandler: Missing file services/phpinfo.php
+2024-09-16 13:02:22.412 MediaFileHandler: Missing file xampp/phpinfo.php
+2024-09-16 13:02:22.592 MediaFileHandler: Missing file api/info.php
+2024-09-16 13:02:22.780 MediaFileHandler: Missing file backend/info.php
+2024-09-16 13:02:22.974 MediaFileHandler: Missing file backup/info.php
+2024-09-16 13:02:23.175 MediaFileHandler: Missing file crm/info.php
+2024-09-16 13:02:23.371 MediaFileHandler: Missing file current/info.php
+2024-09-16 13:02:23.529 MediaFileHandler: Missing file dev/info.php
+2024-09-16 13:02:23.701 MediaFileHandler: Missing file develop/info.php
+2024-09-16 13:02:23.880 MediaFileHandler: Missing file development/iinfo.php
+2024-09-16 13:02:24.063 MediaFileHandler: Missing file help/info.php
+2024-09-16 13:02:24.250 MediaFileHandler: Missing file helper/info.php
+2024-09-16 13:02:24.434 MediaFileHandler: Missing file lara/info.php
+2024-09-16 13:02:24.617 MediaFileHandler: Missing file laravel/info.php
+2024-09-16 13:02:24.802 MediaFileHandler: Missing file server/info.php
+2024-09-16 13:02:24.967 MediaFileHandler: Missing file service/info.php
+2024-09-16 13:02:25.143 MediaFileHandler: Missing file services/info.php
+2024-09-16 13:02:25.323 MediaFileHandler: Missing file php-info.php
+2024-09-16 13:02:25.511 MediaFileHandler: Missing file linusadmin-phpinfo.php
+2024-09-16 13:02:25.691 MediaFileHandler: Missing file infos.php
+2024-09-16 13:02:25.872 MediaFileHandler: Missing file old_phpinfo.php
+2024-09-16 13:02:26.053 MediaFileHandler: Missing file temp.php
+2024-09-16 13:02:26.232 MediaFileHandler: Missing file time.php
+2024-09-16 13:02:26.418 MediaFileHandler: Missing file phpversion.php
+2024-09-16 13:02:26.602 MediaFileHandler: Missing file pinfo.php
+2024-09-16 13:02:26.775 MediaFileHandler: Missing file i.php
+2024-09-16 13:02:26.951 MediaFileHandler: Missing file asdf.php
+2024-09-17 11:37:50.341 MediaFileHandler: Missing file .env
+2024-09-17 11:44:37.964 MediaFileHandler: Missing file remote-sync.json
+2024-09-17 11:44:43.852 MediaFileHandler: Missing file .vscode/sftp.json
+2024-09-17 11:44:49.013 MediaFileHandler: Missing file web.config
+2024-09-17 11:44:51.226 MediaFileHandler: Missing file .gitlab-ci.yml
+2024-09-17 11:45:04.012 MediaFileHandler: Missing file .ftpconfig
+2024-09-17 11:45:18.590 MediaFileHandler: Missing file App_Config/ConnectionStrings.config
+2024-09-17 11:45:52.011 MediaFileHandler: Missing file .vscode/ftp-sync.json
+2024-09-17 11:45:59.135 MediaFileHandler: Missing file .ssh/authorized_keys
+2024-09-17 11:46:12.664 MediaFileHandler: Missing file .git/config
+2024-09-17 11:46:19.941 MediaFileHandler: Missing file jenkinsFile
+2024-09-17 11:46:22.887 MediaFileHandler: Missing file config.yaml
+2024-09-17 11:46:31.980 MediaFileHandler: Missing file laravel.log
+2024-09-17 11:46:35.422 MediaFileHandler: Missing file api-config.ini
+2024-09-17 11:50:00.327 MediaFileHandler: Missing file .env.bak
+2024-09-17 11:50:00.588 MediaFileHandler: Missing file config.env
+2024-09-17 11:50:00.854 MediaFileHandler: Missing file .env.dist
+2024-09-17 11:50:01.118 MediaFileHandler: Missing file .env.dev
+2024-09-17 11:50:01.382 MediaFileHandler: Missing file .env.local
+2024-09-17 12:01:12.258 MediaFileHandler: Missing file xampp/info.php
+2024-09-17 12:01:12.593 MediaFileHandler: Missing file xampp/phpinfo
+2024-09-17 12:01:12.930 MediaFileHandler: Missing file _profiler/phpinfo
+2024-09-17 12:01:13.266 MediaFileHandler: Missing file phpinfo.php
+2024-09-17 12:01:13.601 MediaFileHandler: Missing file phpinfo
+2024-09-17 12:01:13.938 MediaFileHandler: Missing file info.php
+2024-09-17 12:01:14.272 MediaFileHandler: Missing file php.ini
+2024-09-17 12:01:14.610 MediaFileHandler: Missing file php.php
+2024-09-17 12:01:14.944 MediaFileHandler: Missing file infophp.php
+2024-09-17 12:01:15.280 MediaFileHandler: Missing file test.php
+2024-09-17 12:01:15.614 MediaFileHandler: Missing file dashboard/phpinfo.php
+2024-09-17 12:01:15.951 MediaFileHandler: Missing file api/phpinfo.php
+2024-09-17 12:01:16.473 MediaFileHandler: Missing file backend/phpinfo.php
+2024-09-17 12:01:16.733 MediaFileHandler: Missing file backup/phpinfo.php
+2024-09-17 12:01:16.994 MediaFileHandler: Missing file crm/phpinfo.php
+2024-09-17 12:01:17.254 MediaFileHandler: Missing file current/phpinfo.php
+2024-09-17 12:01:17.512 MediaFileHandler: Missing file dev/phpinfo.php
+2024-09-17 12:01:17.774 MediaFileHandler: Missing file develop/phpinfo.php
+2024-09-17 12:01:18.032 MediaFileHandler: Missing file development/phpinfo.php
+2024-09-17 12:01:18.289 MediaFileHandler: Missing file help/phpinfo.php
+2024-09-17 12:01:18.547 MediaFileHandler: Missing file helper/phpinfo.php
+2024-09-17 12:01:18.807 MediaFileHandler: Missing file lara/phpinfo.php
+2024-09-17 12:01:19.066 MediaFileHandler: Missing file laravel/phpinfo.php
+2024-09-17 12:01:19.325 MediaFileHandler: Missing file server/phpinfo.php
+2024-09-17 12:01:19.585 MediaFileHandler: Missing file service/phpinfo.php
+2024-09-17 12:01:19.844 MediaFileHandler: Missing file services/phpinfo.php
+2024-09-17 12:01:20.104 MediaFileHandler: Missing file xampp/phpinfo.php
+2024-09-17 12:01:20.364 MediaFileHandler: Missing file api/info.php
+2024-09-17 12:01:20.625 MediaFileHandler: Missing file backend/info.php
+2024-09-17 12:01:20.884 MediaFileHandler: Missing file backup/info.php
+2024-09-17 12:01:21.142 MediaFileHandler: Missing file crm/info.php
+2024-09-17 12:01:21.403 MediaFileHandler: Missing file current/info.php
+2024-09-17 12:01:21.660 MediaFileHandler: Missing file dev/info.php
+2024-09-17 12:01:21.919 MediaFileHandler: Missing file develop/info.php
+2024-09-17 12:01:22.178 MediaFileHandler: Missing file development/iinfo.php
+2024-09-17 12:01:22.437 MediaFileHandler: Missing file help/info.php
+2024-09-17 12:01:22.695 MediaFileHandler: Missing file helper/info.php
+2024-09-17 12:01:22.952 MediaFileHandler: Missing file lara/info.php
+2024-09-17 12:01:23.210 MediaFileHandler: Missing file laravel/info.php
+2024-09-17 12:01:23.470 MediaFileHandler: Missing file server/info.php
+2024-09-17 12:01:23.731 MediaFileHandler: Missing file service/info.php
+2024-09-17 12:01:23.988 MediaFileHandler: Missing file services/info.php
+2024-09-17 12:01:24.249 MediaFileHandler: Missing file php-info.php
+2024-09-17 12:01:24.509 MediaFileHandler: Missing file linusadmin-phpinfo.php
+2024-09-17 12:01:24.771 MediaFileHandler: Missing file infos.php
+2024-09-17 12:01:25.029 MediaFileHandler: Missing file old_phpinfo.php
+2024-09-17 12:01:25.287 MediaFileHandler: Missing file temp.php
+2024-09-17 12:01:25.544 MediaFileHandler: Missing file time.php
+2024-09-17 12:01:25.803 MediaFileHandler: Missing file phpversion.php
+2024-09-17 12:01:26.063 MediaFileHandler: Missing file pinfo.php
+2024-09-17 12:01:26.321 MediaFileHandler: Missing file i.php
+2024-09-17 12:01:26.579 MediaFileHandler: Missing file asdf.php
+2024-09-17 12:13:29.381 MediaFileHandler: Missing file .env
+2024-09-17 12:20:33.496 MediaFileHandler: Missing file remote-sync.json
+2024-09-17 12:20:40.333 MediaFileHandler: Missing file .vscode/sftp.json
+2024-09-17 12:20:47.303 MediaFileHandler: Missing file web.config
+2024-09-17 12:20:50.281 MediaFileHandler: Missing file .gitlab-ci.yml
+2024-09-17 12:21:07.522 MediaFileHandler: Missing file .ftpconfig
+2024-09-17 12:21:24.270 MediaFileHandler: Missing file App_Config/ConnectionStrings.config
+2024-09-17 12:21:55.607 MediaFileHandler: Missing file .vscode/ftp-sync.json
+2024-09-17 12:22:00.540 MediaFileHandler: Missing file .ssh/authorized_keys
+2024-09-17 12:22:09.909 MediaFileHandler: Missing file .git/config
+2024-09-17 12:22:18.180 MediaFileHandler: Missing file jenkinsFile
+2024-09-17 12:22:22.166 MediaFileHandler: Missing file config.yaml
+2024-09-17 12:22:34.459 MediaFileHandler: Missing file laravel.log
+2024-09-17 12:22:39.108 MediaFileHandler: Missing file api-config.ini
+2024-09-17 12:25:55.278 MediaFileHandler: Missing file .env.bak
+2024-09-17 12:25:55.541 MediaFileHandler: Missing file config.env
+2024-09-17 12:25:55.799 MediaFileHandler: Missing file .env.dist
+2024-09-17 12:25:56.061 MediaFileHandler: Missing file .env.dev
+2024-09-17 12:25:56.326 MediaFileHandler: Missing file .env.local
+2024-09-17 12:37:19.695 MediaFileHandler: Missing file xampp/info.php
+2024-09-17 12:37:20.046 MediaFileHandler: Missing file xampp/phpinfo
+2024-09-17 12:37:20.399 MediaFileHandler: Missing file _profiler/phpinfo
+2024-09-17 12:37:20.751 MediaFileHandler: Missing file phpinfo.php
+2024-09-17 12:37:21.105 MediaFileHandler: Missing file phpinfo
+2024-09-17 12:37:21.456 MediaFileHandler: Missing file info.php
+2024-09-17 12:37:21.811 MediaFileHandler: Missing file php.ini
+2024-09-17 12:37:22.163 MediaFileHandler: Missing file php.php
+2024-09-17 12:37:22.515 MediaFileHandler: Missing file infophp.php
+2024-09-17 12:37:22.865 MediaFileHandler: Missing file test.php
+2024-09-17 12:37:23.216 MediaFileHandler: Missing file dashboard/phpinfo.php
+2024-09-17 12:37:23.569 MediaFileHandler: Missing file api/phpinfo.php
+2024-09-17 12:37:24.342 MediaFileHandler: Missing file backend/phpinfo.php
+2024-09-17 12:37:24.599 MediaFileHandler: Missing file backup/phpinfo.php
+2024-09-17 12:37:24.858 MediaFileHandler: Missing file crm/phpinfo.php
+2024-09-17 12:37:25.116 MediaFileHandler: Missing file current/phpinfo.php
+2024-09-17 12:37:25.374 MediaFileHandler: Missing file dev/phpinfo.php
+2024-09-17 12:37:25.633 MediaFileHandler: Missing file develop/phpinfo.php
+2024-09-17 12:37:25.891 MediaFileHandler: Missing file development/phpinfo.php
+2024-09-17 12:37:26.148 MediaFileHandler: Missing file help/phpinfo.php
+2024-09-17 12:37:26.407 MediaFileHandler: Missing file helper/phpinfo.php
+2024-09-17 12:37:26.667 MediaFileHandler: Missing file lara/phpinfo.php
+2024-09-17 12:37:26.924 MediaFileHandler: Missing file laravel/phpinfo.php
+2024-09-17 12:37:27.181 MediaFileHandler: Missing file server/phpinfo.php
+2024-09-17 12:37:27.441 MediaFileHandler: Missing file service/phpinfo.php
+2024-09-17 12:37:27.698 MediaFileHandler: Missing file services/phpinfo.php
+2024-09-17 12:37:27.955 MediaFileHandler: Missing file xampp/phpinfo.php
+2024-09-17 12:37:28.214 MediaFileHandler: Missing file api/info.php
+2024-09-17 12:37:28.471 MediaFileHandler: Missing file backend/info.php
+2024-09-17 12:37:28.732 MediaFileHandler: Missing file backup/info.php
+2024-09-17 12:37:28.992 MediaFileHandler: Missing file crm/info.php
+2024-09-17 12:37:29.250 MediaFileHandler: Missing file current/info.php
+2024-09-17 12:37:29.511 MediaFileHandler: Missing file dev/info.php
+2024-09-17 12:37:29.769 MediaFileHandler: Missing file develop/info.php
+2024-09-17 12:37:30.030 MediaFileHandler: Missing file development/iinfo.php
+2024-09-17 12:37:30.289 MediaFileHandler: Missing file help/info.php
+2024-09-17 12:37:30.547 MediaFileHandler: Missing file helper/info.php
+2024-09-17 12:37:30.805 MediaFileHandler: Missing file lara/info.php
+2024-09-17 12:37:31.062 MediaFileHandler: Missing file laravel/info.php
+2024-09-17 12:37:31.319 MediaFileHandler: Missing file server/info.php
+2024-09-17 12:37:31.578 MediaFileHandler: Missing file service/info.php
+2024-09-17 12:37:31.837 MediaFileHandler: Missing file services/info.php
+2024-09-17 12:37:32.094 MediaFileHandler: Missing file php-info.php
+2024-09-17 12:37:32.351 MediaFileHandler: Missing file linusadmin-phpinfo.php
+2024-09-17 12:37:32.612 MediaFileHandler: Missing file infos.php
+2024-09-17 12:37:32.870 MediaFileHandler: Missing file old_phpinfo.php
+2024-09-17 12:37:33.127 MediaFileHandler: Missing file temp.php
+2024-09-17 12:37:33.384 MediaFileHandler: Missing file time.php
+2024-09-17 12:37:33.643 MediaFileHandler: Missing file phpversion.php
+2024-09-17 12:37:33.900 MediaFileHandler: Missing file pinfo.php
+2024-09-17 12:37:34.157 MediaFileHandler: Missing file i.php
+2024-09-17 12:37:34.415 MediaFileHandler: Missing file asdf.php
+2024-09-23 06:51:26.068 MediaFileHandler: Missing file .env
+2024-09-23 07:03:59.365 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 600, in _run_script
+    exec(code, module.__dict__)
+  File "/home/ubuntu/dataanalysis/test.py", line 547, in <module>
+    user_dashboard()
+  File "/home/ubuntu/dataanalysis/test.py", line 397, in user_dashboard
+    coupon_df = pd.read_pickle('coupon.pkl')
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/io/pickle.py", line 202, in read_pickle
+    return pickle.load(handles.handle)
+_pickle.UnpicklingError: pickle data was truncated
+2024-09-24 11:14:21.316 MediaFileHandler: Missing file .env
+2024-09-24 11:29:48.571 HTTP request for cached message is missing the hash attribute.
+2024-09-26 06:38:22.554 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 600, in _run_script
+    exec(code, module.__dict__)
+  File "/home/ubuntu/dataanalysis/test.py", line 148, in <module>
+    coupons_df = pd.read_pickle('coupon.pkl')
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/io/pickle.py", line 202, in read_pickle
+    return pickle.load(handles.handle)
+_pickle.UnpicklingError: pickle data was truncated
+2024-09-29 20:39:23.639 MediaFileHandler: Missing file .env
+2024-09-29 20:45:39.797 MediaFileHandler: Missing file remote-sync.json
+2024-09-29 20:45:45.259 MediaFileHandler: Missing file .vscode/sftp.json
+2024-09-29 20:45:53.573 MediaFileHandler: Missing file web.config
+2024-09-29 20:45:56.428 MediaFileHandler: Missing file .gitlab-ci.yml
+2024-09-29 20:46:10.509 MediaFileHandler: Missing file .ftpconfig
+2024-09-29 20:46:22.782 MediaFileHandler: Missing file App_Config/ConnectionStrings.config
+2024-09-29 20:46:41.255 MediaFileHandler: Missing file .vscode/ftp-sync.json
+2024-09-29 20:46:45.574 MediaFileHandler: Missing file .ssh/authorized_keys
+2024-09-29 20:46:53.657 MediaFileHandler: Missing file .git/config
+2024-09-29 20:47:07.562 MediaFileHandler: Missing file jenkinsFile
+2024-09-29 20:47:12.364 MediaFileHandler: Missing file config.yaml
+2024-09-29 20:47:24.505 MediaFileHandler: Missing file laravel.log
+2024-09-29 20:47:29.770 MediaFileHandler: Missing file api-config.ini
+2024-09-29 20:50:32.850 MediaFileHandler: Missing file .env.bak
+2024-09-29 20:50:33.707 MediaFileHandler: Missing file config.env
+2024-09-29 20:50:33.927 MediaFileHandler: Missing file .env.dist
+2024-09-29 20:50:34.699 MediaFileHandler: Missing file .env.dev
+2024-09-29 20:50:34.918 MediaFileHandler: Missing file .env.local
+2024-09-29 21:00:53.215 MediaFileHandler: Missing file xampp/info.php
+2024-09-29 21:00:53.350 MediaFileHandler: Missing file xampp/phpinfo
+2024-09-29 21:00:53.484 MediaFileHandler: Missing file _profiler/phpinfo
+2024-09-29 21:00:53.618 MediaFileHandler: Missing file phpinfo.php
+2024-09-29 21:00:54.453 MediaFileHandler: Missing file phpinfo
+2024-09-29 21:00:55.285 MediaFileHandler: Missing file info.php
+2024-09-29 21:00:55.419 MediaFileHandler: Missing file php.ini
+2024-09-29 21:00:55.553 MediaFileHandler: Missing file php.php
+2024-09-29 21:00:56.021 MediaFileHandler: Missing file infophp.php
+2024-09-29 21:00:56.509 MediaFileHandler: Missing file test.php
+2024-09-29 21:00:57.333 MediaFileHandler: Missing file dashboard/phpinfo.php
+2024-09-29 21:00:57.468 MediaFileHandler: Missing file api/phpinfo.php
+2024-09-29 21:00:57.603 MediaFileHandler: Missing file backend/phpinfo.php
+2024-09-29 21:00:57.737 MediaFileHandler: Missing file backup/phpinfo.php
+2024-09-29 21:00:58.223 MediaFileHandler: Missing file crm/phpinfo.php
+2024-09-29 21:00:58.468 MediaFileHandler: Missing file current/phpinfo.php
+2024-09-29 21:00:59.427 MediaFileHandler: Missing file dev/phpinfo.php
+2024-09-29 21:00:59.672 MediaFileHandler: Missing file develop/phpinfo.php
+2024-09-29 21:00:59.916 MediaFileHandler: Missing file development/phpinfo.php
+2024-09-29 21:01:00.739 MediaFileHandler: Missing file help/phpinfo.php
+2024-09-29 21:01:01.547 MediaFileHandler: Missing file helper/phpinfo.php
+2024-09-29 21:01:02.339 MediaFileHandler: Missing file lara/phpinfo.php
+2024-09-29 21:01:02.584 MediaFileHandler: Missing file laravel/phpinfo.php
+2024-09-29 21:01:02.828 MediaFileHandler: Missing file server/phpinfo.php
+2024-09-29 21:01:03.073 MediaFileHandler: Missing file service/phpinfo.php
+2024-09-29 21:01:03.317 MediaFileHandler: Missing file services/phpinfo.php
+2024-09-29 21:01:04.035 MediaFileHandler: Missing file xampp/phpinfo.php
+2024-09-29 21:01:04.281 MediaFileHandler: Missing file api/info.php
+2024-09-29 21:01:04.525 MediaFileHandler: Missing file backend/info.php
+2024-09-29 21:01:05.731 MediaFileHandler: Missing file backup/info.php
+2024-09-29 21:01:05.976 MediaFileHandler: Missing file crm/info.php
+2024-09-29 21:01:06.220 MediaFileHandler: Missing file current/info.php
+2024-09-29 21:01:06.465 MediaFileHandler: Missing file dev/info.php
+2024-09-29 21:01:06.710 MediaFileHandler: Missing file develop/info.php
+2024-09-29 21:01:06.954 MediaFileHandler: Missing file development/iinfo.php
+2024-09-29 21:01:07.199 MediaFileHandler: Missing file help/info.php
+2024-09-29 21:01:07.444 MediaFileHandler: Missing file helper/info.php
+2024-09-29 21:01:07.688 MediaFileHandler: Missing file lara/info.php
+2024-09-29 21:01:07.932 MediaFileHandler: Missing file laravel/info.php
+2024-09-29 21:01:08.177 MediaFileHandler: Missing file server/info.php
+2024-09-29 21:01:08.421 MediaFileHandler: Missing file service/info.php
+2024-09-29 21:01:08.670 MediaFileHandler: Missing file services/info.php
+2024-09-29 21:01:08.915 MediaFileHandler: Missing file php-info.php
+2024-09-29 21:01:09.159 MediaFileHandler: Missing file linusadmin-phpinfo.php
+2024-09-29 21:01:09.405 MediaFileHandler: Missing file infos.php
+2024-09-29 21:01:09.649 MediaFileHandler: Missing file old_phpinfo.php
+2024-09-29 21:01:09.894 MediaFileHandler: Missing file temp.php
+2024-09-29 21:01:10.138 MediaFileHandler: Missing file time.php
+2024-09-29 21:01:10.382 MediaFileHandler: Missing file phpversion.php
+2024-09-29 21:01:10.627 MediaFileHandler: Missing file pinfo.php
+2024-09-29 21:01:10.872 MediaFileHandler: Missing file i.php
+2024-09-29 21:01:11.587 MediaFileHandler: Missing file asdf.php
+2024-09-29 21:12:03.341 MediaFileHandler: Missing file .env
+2024-09-29 21:17:48.986 MediaFileHandler: Missing file remote-sync.json
+2024-09-29 21:17:55.249 MediaFileHandler: Missing file .vscode/sftp.json
+2024-09-29 21:17:59.354 MediaFileHandler: Missing file web.config
+2024-09-29 21:18:00.521 MediaFileHandler: Missing file .gitlab-ci.yml
+2024-09-29 21:18:10.389 MediaFileHandler: Missing file .ftpconfig
+2024-09-29 21:18:20.812 MediaFileHandler: Missing file App_Config/ConnectionStrings.config
+2024-09-29 21:18:45.237 MediaFileHandler: Missing file .vscode/ftp-sync.json
+2024-09-29 21:18:49.686 MediaFileHandler: Missing file .ssh/authorized_keys
+2024-09-29 21:18:57.011 MediaFileHandler: Missing file .git/config
+2024-09-29 21:19:08.181 MediaFileHandler: Missing file jenkinsFile
+2024-09-29 21:19:10.423 MediaFileHandler: Missing file config.yaml
+2024-09-29 21:19:19.731 MediaFileHandler: Missing file laravel.log
+2024-09-29 21:19:22.933 MediaFileHandler: Missing file api-config.ini
+2024-09-29 21:22:24.847 MediaFileHandler: Missing file .env.bak
+2024-09-29 21:22:26.502 MediaFileHandler: Missing file config.env
+2024-09-29 21:22:26.716 MediaFileHandler: Missing file .env.dist
+2024-09-29 21:22:27.525 MediaFileHandler: Missing file .env.dev
+2024-09-29 21:22:27.739 MediaFileHandler: Missing file .env.local
+2024-09-29 21:32:49.985 MediaFileHandler: Missing file xampp/info.php
+2024-09-29 21:32:50.113 MediaFileHandler: Missing file xampp/phpinfo
+2024-09-29 21:32:50.574 MediaFileHandler: Missing file _profiler/phpinfo
+2024-09-29 21:32:50.701 MediaFileHandler: Missing file phpinfo.php
+2024-09-29 21:32:50.828 MediaFileHandler: Missing file phpinfo
+2024-09-29 21:32:51.310 MediaFileHandler: Missing file info.php
+2024-09-29 21:32:51.438 MediaFileHandler: Missing file php.ini
+2024-09-29 21:32:51.565 MediaFileHandler: Missing file php.php
+2024-09-29 21:32:51.692 MediaFileHandler: Missing file infophp.php
+2024-09-29 21:32:51.820 MediaFileHandler: Missing file test.php
+2024-09-29 21:32:51.947 MediaFileHandler: Missing file dashboard/phpinfo.php
+2024-09-29 21:32:52.430 MediaFileHandler: Missing file api/phpinfo.php
+2024-09-29 21:32:52.557 MediaFileHandler: Missing file backend/phpinfo.php
+2024-09-29 21:32:53.390 MediaFileHandler: Missing file backup/phpinfo.php
+2024-09-29 21:32:53.517 MediaFileHandler: Missing file crm/phpinfo.php
+2024-09-29 21:32:53.645 MediaFileHandler: Missing file current/phpinfo.php
+2024-09-29 21:32:54.478 MediaFileHandler: Missing file dev/phpinfo.php
+2024-09-29 21:32:54.605 MediaFileHandler: Missing file develop/phpinfo.php
+2024-09-29 21:32:55.395 MediaFileHandler: Missing file development/phpinfo.php
+2024-09-29 21:32:55.607 MediaFileHandler: Missing file help/phpinfo.php
+2024-09-29 21:32:55.818 MediaFileHandler: Missing file helper/phpinfo.php
+2024-09-29 21:32:56.037 MediaFileHandler: Missing file lara/phpinfo.php
+2024-09-29 21:32:56.249 MediaFileHandler: Missing file laravel/phpinfo.php
+2024-09-29 21:32:56.461 MediaFileHandler: Missing file server/phpinfo.php
+2024-09-29 21:32:56.673 MediaFileHandler: Missing file service/phpinfo.php
+2024-09-29 21:32:56.885 MediaFileHandler: Missing file services/phpinfo.php
+2024-09-29 21:32:57.097 MediaFileHandler: Missing file xampp/phpinfo.php
+2024-09-29 21:32:57.309 MediaFileHandler: Missing file api/info.php
+2024-09-29 21:32:57.521 MediaFileHandler: Missing file backend/info.php
+2024-09-29 21:32:57.733 MediaFileHandler: Missing file backup/info.php
+2024-09-29 21:32:57.945 MediaFileHandler: Missing file crm/info.php
+2024-09-29 21:32:58.595 MediaFileHandler: Missing file current/info.php
+2024-09-29 21:32:58.807 MediaFileHandler: Missing file dev/info.php
+2024-09-29 21:32:59.019 MediaFileHandler: Missing file develop/info.php
+2024-09-29 21:32:59.232 MediaFileHandler: Missing file development/iinfo.php
+2024-09-29 21:32:59.444 MediaFileHandler: Missing file help/info.php
+2024-09-29 21:33:00.099 MediaFileHandler: Missing file helper/info.php
+2024-09-29 21:33:00.311 MediaFileHandler: Missing file lara/info.php
+2024-09-29 21:33:00.526 MediaFileHandler: Missing file laravel/info.php
+2024-09-29 21:33:00.738 MediaFileHandler: Missing file server/info.php
+2024-09-29 21:33:00.950 MediaFileHandler: Missing file service/info.php
+2024-09-29 21:33:01.162 MediaFileHandler: Missing file services/info.php
+2024-09-29 21:33:01.375 MediaFileHandler: Missing file php-info.php
+2024-09-29 21:33:01.587 MediaFileHandler: Missing file linusadmin-phpinfo.php
+2024-09-29 21:33:02.243 MediaFileHandler: Missing file infos.php
+2024-09-29 21:33:02.455 MediaFileHandler: Missing file old_phpinfo.php
+2024-09-29 21:33:02.667 MediaFileHandler: Missing file temp.php
+2024-09-29 21:33:02.879 MediaFileHandler: Missing file time.php
+2024-09-29 21:33:03.091 MediaFileHandler: Missing file phpversion.php
+2024-09-29 21:33:03.304 MediaFileHandler: Missing file pinfo.php
+2024-09-29 21:33:03.517 MediaFileHandler: Missing file i.php
+2024-09-29 21:33:03.729 MediaFileHandler: Missing file asdf.php
+2024-10-01 08:07:57.737 MediaFileHandler: Missing file system/js/core.js
+2024-10-01 11:12:16.845 MediaFileHandler: Missing file .env
+2024-10-04 10:15:43.007 MediaFileHandler: Missing file .env
+2024-10-05 05:31:48.077 MediaFileHandler: Missing file system/js/core.js
+2024-10-07 07:27:38.231 Session with id 7f33c2da-ae1f-4bf5-b0b4-c91110c6bfa3 is already connected! Connecting to a new session.
+2024-10-09 11:01:22.675 MediaFileHandler: Missing file .env
+2024-10-10 01:12:20.427 MediaFileHandler: Missing file .env
+2024-10-13 07:53:26.324 MediaFileHandler: Missing file .env
+2024-10-13 08:00:36.092 MediaFileHandler: Missing file remote-sync.json
+2024-10-13 08:00:44.835 MediaFileHandler: Missing file .vscode/sftp.json
+2024-10-13 08:00:49.056 MediaFileHandler: Missing file web.config
+2024-10-13 08:00:50.867 MediaFileHandler: Missing file .gitlab-ci.yml
+2024-10-13 08:01:01.720 MediaFileHandler: Missing file .ftpconfig
+2024-10-13 08:01:11.662 MediaFileHandler: Missing file App_Config/ConnectionStrings.config
+2024-10-13 08:01:36.802 MediaFileHandler: Missing file .vscode/ftp-sync.json
+2024-10-13 08:01:47.958 MediaFileHandler: Missing file .ssh/authorized_keys
+2024-10-13 08:01:55.801 MediaFileHandler: Missing file .git/config
+2024-10-13 08:02:01.026 MediaFileHandler: Missing file jenkinsFile
+2024-10-13 08:02:03.643 MediaFileHandler: Missing file config.yaml
+2024-10-13 08:02:19.331 MediaFileHandler: Missing file laravel.log
+2024-10-13 08:02:22.846 MediaFileHandler: Missing file api-config.ini
+2024-10-13 08:06:14.042 MediaFileHandler: Missing file .env.bak
+2024-10-13 08:06:14.341 MediaFileHandler: Missing file config.env
+2024-10-13 08:06:14.743 MediaFileHandler: Missing file .env.dist
+2024-10-13 08:06:14.942 MediaFileHandler: Missing file .env.dev
+2024-10-13 08:06:15.335 MediaFileHandler: Missing file .env.local
+2024-10-13 08:18:56.899 MediaFileHandler: Missing file xampp/info.php
+2024-10-13 08:18:57.104 MediaFileHandler: Missing file xampp/phpinfo
+2024-10-13 08:18:57.301 MediaFileHandler: Missing file _profiler/phpinfo
+2024-10-13 08:18:57.501 MediaFileHandler: Missing file phpinfo.php
+2024-10-13 08:18:57.803 MediaFileHandler: Missing file phpinfo
+2024-10-13 08:18:58.006 MediaFileHandler: Missing file info.php
+2024-10-13 08:18:58.208 MediaFileHandler: Missing file php.ini
+2024-10-13 08:18:58.716 MediaFileHandler: Missing file php.php
+2024-10-13 08:18:58.919 MediaFileHandler: Missing file infophp.php
+2024-10-13 08:18:59.119 MediaFileHandler: Missing file test.php
+2024-10-13 08:18:59.421 MediaFileHandler: Missing file dashboard/phpinfo.php
+2024-10-13 08:18:59.616 MediaFileHandler: Missing file api/phpinfo.php
+2024-10-13 08:18:59.817 MediaFileHandler: Missing file backend/phpinfo.php
+2024-10-13 08:19:00.016 MediaFileHandler: Missing file backup/phpinfo.php
+2024-10-13 08:19:00.221 MediaFileHandler: Missing file crm/phpinfo.php
+2024-10-13 08:19:00.419 MediaFileHandler: Missing file current/phpinfo.php
+2024-10-13 08:19:00.620 MediaFileHandler: Missing file dev/phpinfo.php
+2024-10-13 08:19:00.821 MediaFileHandler: Missing file develop/phpinfo.php
+2024-10-13 08:19:01.027 MediaFileHandler: Missing file development/phpinfo.php
+2024-10-13 08:19:01.232 MediaFileHandler: Missing file help/phpinfo.php
+2024-10-13 08:19:01.518 MediaFileHandler: Missing file helper/phpinfo.php
+2024-10-13 08:19:01.721 MediaFileHandler: Missing file lara/phpinfo.php
+2024-10-13 08:19:01.925 MediaFileHandler: Missing file laravel/phpinfo.php
+2024-10-13 08:19:02.420 MediaFileHandler: Missing file server/phpinfo.php
+2024-10-13 08:19:02.633 MediaFileHandler: Missing file service/phpinfo.php
+2024-10-13 08:19:02.825 MediaFileHandler: Missing file services/phpinfo.php
+2024-10-13 08:19:03.025 MediaFileHandler: Missing file xampp/phpinfo.php
+2024-10-13 08:19:03.228 MediaFileHandler: Missing file api/info.php
+2024-10-13 08:19:03.427 MediaFileHandler: Missing file backend/info.php
+2024-10-13 08:19:03.633 MediaFileHandler: Missing file backup/info.php
+2024-10-13 08:19:03.832 MediaFileHandler: Missing file crm/info.php
+2024-10-13 08:19:04.129 MediaFileHandler: Missing file current/info.php
+2024-10-13 08:19:04.429 MediaFileHandler: Missing file dev/info.php
+2024-10-13 08:19:04.633 MediaFileHandler: Missing file develop/info.php
+2024-10-13 08:19:04.845 MediaFileHandler: Missing file development/iinfo.php
+2024-10-13 08:19:05.041 MediaFileHandler: Missing file help/info.php
+2024-10-13 08:19:05.238 MediaFileHandler: Missing file helper/info.php
+2024-10-13 08:19:05.438 MediaFileHandler: Missing file lara/info.php
+2024-10-13 08:19:05.639 MediaFileHandler: Missing file laravel/info.php
+2024-10-13 08:19:05.840 MediaFileHandler: Missing file server/info.php
+2024-10-13 08:19:06.042 MediaFileHandler: Missing file service/info.php
+2024-10-13 08:19:06.243 MediaFileHandler: Missing file services/info.php
+2024-10-13 08:19:06.444 MediaFileHandler: Missing file php-info.php
+2024-10-13 08:19:07.249 MediaFileHandler: Missing file linusadmin-phpinfo.php
+2024-10-13 08:19:07.448 MediaFileHandler: Missing file infos.php
+2024-10-13 08:19:07.649 MediaFileHandler: Missing file old_phpinfo.php
+2024-10-13 08:19:07.849 MediaFileHandler: Missing file temp.php
+2024-10-13 08:19:08.051 MediaFileHandler: Missing file time.php
+2024-10-13 08:19:08.551 MediaFileHandler: Missing file phpversion.php
+2024-10-13 08:19:09.157 MediaFileHandler: Missing file pinfo.php
+2024-10-13 08:19:09.357 MediaFileHandler: Missing file i.php
+2024-10-13 08:19:09.558 MediaFileHandler: Missing file asdf.php
+2024-10-13 08:30:56.482 MediaFileHandler: Missing file .env
+2024-10-13 08:38:41.545 MediaFileHandler: Missing file remote-sync.json
+2024-10-13 08:38:51.091 MediaFileHandler: Missing file .vscode/sftp.json
+2024-10-13 08:39:00.242 MediaFileHandler: Missing file web.config
+2024-10-13 08:39:08.772 MediaFileHandler: Missing file .gitlab-ci.yml
+2024-10-13 08:39:20.439 MediaFileHandler: Missing file .ftpconfig
+2024-10-13 08:39:31.295 MediaFileHandler: Missing file App_Config/ConnectionStrings.config
+2024-10-13 08:39:53.506 MediaFileHandler: Missing file .vscode/ftp-sync.json
+2024-10-13 08:40:04.073 MediaFileHandler: Missing file .ssh/authorized_keys
+2024-10-13 08:40:16.132 MediaFileHandler: Missing file .git/config
+2024-10-13 08:40:24.077 MediaFileHandler: Missing file jenkinsFile
+2024-10-13 08:40:27.584 MediaFileHandler: Missing file config.yaml
+2024-10-13 08:40:38.238 MediaFileHandler: Missing file laravel.log
+2024-10-13 08:40:42.975 MediaFileHandler: Missing file api-config.ini
+2024-10-13 08:44:13.477 MediaFileHandler: Missing file .env.bak
+2024-10-13 08:44:14.686 MediaFileHandler: Missing file config.env
+2024-10-13 08:44:14.884 MediaFileHandler: Missing file .env.dist
+2024-10-13 08:44:15.084 MediaFileHandler: Missing file .env.dev
+2024-10-13 08:44:15.594 MediaFileHandler: Missing file .env.local
+2024-10-13 08:56:59.340 MediaFileHandler: Missing file xampp/info.php
+2024-10-13 08:56:59.730 MediaFileHandler: Missing file xampp/phpinfo
+2024-10-13 08:57:00.135 MediaFileHandler: Missing file _profiler/phpinfo
+2024-10-13 08:57:00.344 MediaFileHandler: Missing file phpinfo.php
+2024-10-13 08:57:00.745 MediaFileHandler: Missing file phpinfo
+2024-10-13 08:57:00.942 MediaFileHandler: Missing file info.php
+2024-10-13 08:57:01.142 MediaFileHandler: Missing file php.ini
+2024-10-13 08:57:01.347 MediaFileHandler: Missing file php.php
+2024-10-13 08:57:01.555 MediaFileHandler: Missing file infophp.php
+2024-10-13 08:57:02.249 MediaFileHandler: Missing file test.php
+2024-10-13 08:57:02.455 MediaFileHandler: Missing file dashboard/phpinfo.php
+2024-10-13 08:57:02.859 MediaFileHandler: Missing file api/phpinfo.php
+2024-10-13 08:57:04.467 MediaFileHandler: Missing file backend/phpinfo.php
+2024-10-13 08:57:04.666 MediaFileHandler: Missing file backup/phpinfo.php
+2024-10-13 08:57:04.868 MediaFileHandler: Missing file crm/phpinfo.php
+2024-10-13 08:57:05.067 MediaFileHandler: Missing file current/phpinfo.php
+2024-10-13 08:57:06.476 MediaFileHandler: Missing file dev/phpinfo.php
+2024-10-13 08:57:06.679 MediaFileHandler: Missing file develop/phpinfo.php
+2024-10-13 08:57:07.179 MediaFileHandler: Missing file development/phpinfo.php
+2024-10-13 08:57:08.688 MediaFileHandler: Missing file help/phpinfo.php
+2024-10-13 08:57:08.884 MediaFileHandler: Missing file helper/phpinfo.php
+2024-10-13 08:57:09.086 MediaFileHandler: Missing file lara/phpinfo.php
+2024-10-13 08:57:09.394 MediaFileHandler: Missing file laravel/phpinfo.php
+2024-10-13 08:57:09.695 MediaFileHandler: Missing file server/phpinfo.php
+2024-10-13 08:57:09.895 MediaFileHandler: Missing file service/phpinfo.php
+2024-10-13 08:57:10.094 MediaFileHandler: Missing file services/phpinfo.php
+2024-10-13 08:57:10.291 MediaFileHandler: Missing file xampp/phpinfo.php
+2024-10-13 08:57:10.698 MediaFileHandler: Missing file api/info.php
+2024-10-13 08:57:10.895 MediaFileHandler: Missing file backend/info.php
+2024-10-13 08:57:11.402 MediaFileHandler: Missing file backup/info.php
+2024-10-13 08:57:11.693 MediaFileHandler: Missing file crm/info.php
+2024-10-13 08:57:11.896 MediaFileHandler: Missing file current/info.php
+2024-10-13 08:57:12.295 MediaFileHandler: Missing file dev/info.php
+2024-10-13 08:57:12.500 MediaFileHandler: Missing file develop/info.php
+2024-10-13 08:57:12.699 MediaFileHandler: Missing file development/iinfo.php
+2024-10-13 08:57:13.103 MediaFileHandler: Missing file help/info.php
+2024-10-13 08:57:13.307 MediaFileHandler: Missing file helper/info.php
+2024-10-13 08:57:13.509 MediaFileHandler: Missing file lara/info.php
+2024-10-13 08:57:13.713 MediaFileHandler: Missing file laravel/info.php
+2024-10-13 08:57:14.115 MediaFileHandler: Missing file server/info.php
+2024-10-13 08:57:14.311 MediaFileHandler: Missing file service/info.php
+2024-10-13 08:57:14.516 MediaFileHandler: Missing file services/info.php
+2024-10-13 08:57:14.721 MediaFileHandler: Missing file php-info.php
+2024-10-13 08:57:15.111 MediaFileHandler: Missing file linusadmin-phpinfo.php
+2024-10-13 08:57:15.309 MediaFileHandler: Missing file infos.php
+2024-10-13 08:57:15.510 MediaFileHandler: Missing file old_phpinfo.php
+2024-10-13 08:57:15.723 MediaFileHandler: Missing file temp.php
+2024-10-13 08:57:16.114 MediaFileHandler: Missing file time.php
+2024-10-13 08:57:16.414 MediaFileHandler: Missing file phpversion.php
+2024-10-13 08:57:16.829 MediaFileHandler: Missing file pinfo.php
+2024-10-13 08:57:17.231 MediaFileHandler: Missing file i.php
+2024-10-13 08:57:17.635 MediaFileHandler: Missing file asdf.php
+2024-10-14 06:36:38.858 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 600, in _run_script
+    exec(code, module.__dict__)
+  File "/home/ubuntu/dataanalysis/test.py", line 547, in <module>
+    user_dashboard()
+  File "/home/ubuntu/dataanalysis/test.py", line 397, in user_dashboard
+    coupon_df = pd.read_pickle('coupon.pkl')
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/io/pickle.py", line 202, in read_pickle
+    return pickle.load(handles.handle)
+EOFError: Ran out of input
+2024-10-14 19:07:18.655 MediaFileHandler: Missing file .env
+'random_cookie_name'
+'random_cookie_name'
+'random_cookie_name'
+  Stopping...
+
+Collecting usage statistics. To deactivate, set browser.gatherUsageStats to false.
+
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://172.31.43.229:8501
+  External URL: http://3.111.169.91:8501
+
+2024-10-16 05:13:29.788 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/io/pickle.py", line 202, in read_pickle
+    return pickle.load(handles.handle)
+ModuleNotFoundError: No module named 'numpy._core.numeric'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 600, in _run_script
+    exec(code, module.__dict__)
+  File "/home/ubuntu/dataanalysis/test.py", line 681, in <module>
+    user_dashboard3()
+  File "/home/ubuntu/dataanalysis/test.py", line 596, in user_dashboard3
+    menu_df = pd.read_pickle('price.pkl')
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/io/pickle.py", line 207, in read_pickle
+    return pc.load(handles.handle, encoding=None)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/compat/pickle_compat.py", line 231, in load
+    return up.load()
+  File "/usr/lib/python3.10/pickle.py", line 1213, in load
+    dispatch[key[0]](self)
+  File "/usr/lib/python3.10/pickle.py", line 1538, in load_stack_global
+    self.append(self.find_class(module, name))
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/compat/pickle_compat.py", line 162, in find_class
+    return super().find_class(module, name)
+  File "/usr/lib/python3.10/pickle.py", line 1580, in find_class
+    __import__(module, level=0)
+ModuleNotFoundError: No module named 'numpy._core.numeric'
+2024-10-16 05:15:17.444 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/io/pickle.py", line 202, in read_pickle
+    return pickle.load(handles.handle)
+ModuleNotFoundError: No module named 'numpy._core.numeric'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 600, in _run_script
+    exec(code, module.__dict__)
+  File "/home/ubuntu/dataanalysis/test.py", line 681, in <module>
+    user_dashboard3()
+  File "/home/ubuntu/dataanalysis/test.py", line 596, in user_dashboard3
+    menu_df = pd.read_pickle('price.pkl')
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/io/pickle.py", line 207, in read_pickle
+    return pc.load(handles.handle, encoding=None)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/compat/pickle_compat.py", line 231, in load
+    return up.load()
+  File "/usr/lib/python3.10/pickle.py", line 1213, in load
+    dispatch[key[0]](self)
+  File "/usr/lib/python3.10/pickle.py", line 1538, in load_stack_global
+    self.append(self.find_class(module, name))
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/compat/pickle_compat.py", line 162, in find_class
+    return super().find_class(module, name)
+  File "/usr/lib/python3.10/pickle.py", line 1580, in find_class
+    __import__(module, level=0)
+ModuleNotFoundError: No module named 'numpy._core.numeric'
+
+Collecting usage statistics. To deactivate, set browser.gatherUsageStats to false.
+
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8502
+  Network URL: http://172.31.43.229:8502
+  External URL: http://3.111.169.91:8502
+
+2024-10-16 05:15:34.200 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/io/pickle.py", line 202, in read_pickle
+    return pickle.load(handles.handle)
+ModuleNotFoundError: No module named 'numpy._core.numeric'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 600, in _run_script
+    exec(code, module.__dict__)
+  File "/home/ubuntu/dataanalysis/test.py", line 681, in <module>
+    user_dashboard3()
+  File "/home/ubuntu/dataanalysis/test.py", line 596, in user_dashboard3
+    menu_df = pd.read_pickle('price.pkl')
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/io/pickle.py", line 207, in read_pickle
+    return pc.load(handles.handle, encoding=None)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/compat/pickle_compat.py", line 231, in load
+    return up.load()
+  File "/usr/lib/python3.10/pickle.py", line 1213, in load
+    dispatch[key[0]](self)
+  File "/usr/lib/python3.10/pickle.py", line 1538, in load_stack_global
+    self.append(self.find_class(module, name))
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/compat/pickle_compat.py", line 162, in find_class
+    return super().find_class(module, name)
+  File "/usr/lib/python3.10/pickle.py", line 1580, in find_class
+    __import__(module, level=0)
+ModuleNotFoundError: No module named 'numpy._core.numeric'
+  Stopping...
+  Stopping...
+
+Collecting usage statistics. To deactivate, set browser.gatherUsageStats to false.
+
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://172.31.43.229:8501
+  External URL: http://3.111.169.91:8501
+
+2024-10-16 05:16:57.785 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/io/pickle.py", line 202, in read_pickle
+    return pickle.load(handles.handle)
+ModuleNotFoundError: No module named 'numpy._core.numeric'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 600, in _run_script
+    exec(code, module.__dict__)
+  File "/home/ubuntu/dataanalysis/test.py", line 681, in <module>
+    user_dashboard3()
+  File "/home/ubuntu/dataanalysis/test.py", line 596, in user_dashboard3
+    menu_df = pd.read_pickle('price.pkl')
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/io/pickle.py", line 207, in read_pickle
+    return pc.load(handles.handle, encoding=None)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/compat/pickle_compat.py", line 231, in load
+    return up.load()
+  File "/usr/lib/python3.10/pickle.py", line 1213, in load
+    dispatch[key[0]](self)
+  File "/usr/lib/python3.10/pickle.py", line 1538, in load_stack_global
+    self.append(self.find_class(module, name))
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/compat/pickle_compat.py", line 162, in find_class
+    return super().find_class(module, name)
+  File "/usr/lib/python3.10/pickle.py", line 1580, in find_class
+    __import__(module, level=0)
+ModuleNotFoundError: No module named 'numpy._core.numeric'
+2024-10-16 05:18:24.615 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/io/pickle.py", line 202, in read_pickle
+    return pickle.load(handles.handle)
+ModuleNotFoundError: No module named 'numpy._core.numeric'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 600, in _run_script
+    exec(code, module.__dict__)
+  File "/home/ubuntu/dataanalysis/test.py", line 681, in <module>
+    user_dashboard3()
+  File "/home/ubuntu/dataanalysis/test.py", line 596, in user_dashboard3
+    menu_df = pd.read_pickle('price.pkl')
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/io/pickle.py", line 207, in read_pickle
+    return pc.load(handles.handle, encoding=None)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/compat/pickle_compat.py", line 231, in load
+    return up.load()
+  File "/usr/lib/python3.10/pickle.py", line 1213, in load
+    dispatch[key[0]](self)
+  File "/usr/lib/python3.10/pickle.py", line 1538, in load_stack_global
+    self.append(self.find_class(module, name))
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/compat/pickle_compat.py", line 162, in find_class
+    return super().find_class(module, name)
+  File "/usr/lib/python3.10/pickle.py", line 1580, in find_class
+    __import__(module, level=0)
+ModuleNotFoundError: No module named 'numpy._core.numeric'
+2024-10-16 05:18:27.781 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/io/pickle.py", line 202, in read_pickle
+    return pickle.load(handles.handle)
+ModuleNotFoundError: No module named 'numpy._core.numeric'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 600, in _run_script
+    exec(code, module.__dict__)
+  File "/home/ubuntu/dataanalysis/test.py", line 681, in <module>
+    user_dashboard3()
+  File "/home/ubuntu/dataanalysis/test.py", line 596, in user_dashboard3
+    menu_df = pd.read_pickle('price.pkl')
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/io/pickle.py", line 207, in read_pickle
+    return pc.load(handles.handle, encoding=None)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/compat/pickle_compat.py", line 231, in load
+    return up.load()
+  File "/usr/lib/python3.10/pickle.py", line 1213, in load
+    dispatch[key[0]](self)
+  File "/usr/lib/python3.10/pickle.py", line 1538, in load_stack_global
+    self.append(self.find_class(module, name))
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/compat/pickle_compat.py", line 162, in find_class
+    return super().find_class(module, name)
+  File "/usr/lib/python3.10/pickle.py", line 1580, in find_class
+    __import__(module, level=0)
+ModuleNotFoundError: No module named 'numpy._core.numeric'
+2024-10-16 05:18:40.372 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/io/pickle.py", line 202, in read_pickle
+    return pickle.load(handles.handle)
+ModuleNotFoundError: No module named 'numpy._core.numeric'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 600, in _run_script
+    exec(code, module.__dict__)
+  File "/home/ubuntu/dataanalysis/test.py", line 675, in <module>
+    admin_dashboard()
+  File "/home/ubuntu/dataanalysis/test.py", line 321, in admin_dashboard
+    df_menu = pd.read_pickle('email.pkl')
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/io/pickle.py", line 207, in read_pickle
+    return pc.load(handles.handle, encoding=None)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/compat/pickle_compat.py", line 231, in load
+    return up.load()
+  File "/usr/lib/python3.10/pickle.py", line 1213, in load
+    dispatch[key[0]](self)
+  File "/usr/lib/python3.10/pickle.py", line 1538, in load_stack_global
+    self.append(self.find_class(module, name))
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/compat/pickle_compat.py", line 162, in find_class
+    return super().find_class(module, name)
+  File "/usr/lib/python3.10/pickle.py", line 1580, in find_class
+    __import__(module, level=0)
+ModuleNotFoundError: No module named 'numpy._core.numeric'
+2024-10-16 05:18:41.651 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/io/pickle.py", line 202, in read_pickle
+    return pickle.load(handles.handle)
+ModuleNotFoundError: No module named 'numpy._core.numeric'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 600, in _run_script
+    exec(code, module.__dict__)
+  File "/home/ubuntu/dataanalysis/test.py", line 675, in <module>
+    admin_dashboard()
+  File "/home/ubuntu/dataanalysis/test.py", line 339, in admin_dashboard
+    df_menu = pd.read_pickle('price.pkl')
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/io/pickle.py", line 207, in read_pickle
+    return pc.load(handles.handle, encoding=None)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/compat/pickle_compat.py", line 231, in load
+    return up.load()
+  File "/usr/lib/python3.10/pickle.py", line 1213, in load
+    dispatch[key[0]](self)
+  File "/usr/lib/python3.10/pickle.py", line 1538, in load_stack_global
+    self.append(self.find_class(module, name))
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/compat/pickle_compat.py", line 162, in find_class
+    return super().find_class(module, name)
+  File "/usr/lib/python3.10/pickle.py", line 1580, in find_class
+    __import__(module, level=0)
+ModuleNotFoundError: No module named 'numpy._core.numeric'
+2024-10-16 05:19:20.888 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/io/pickle.py", line 202, in read_pickle
+    return pickle.load(handles.handle)
+ModuleNotFoundError: No module named 'numpy._core.numeric'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 600, in _run_script
+    exec(code, module.__dict__)
+  File "/home/ubuntu/dataanalysis/test.py", line 675, in <module>
+    admin_dashboard()
+  File "/home/ubuntu/dataanalysis/test.py", line 321, in admin_dashboard
+    df_menu = pd.read_pickle('email.pkl')
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/io/pickle.py", line 207, in read_pickle
+    return pc.load(handles.handle, encoding=None)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/compat/pickle_compat.py", line 231, in load
+    return up.load()
+  File "/usr/lib/python3.10/pickle.py", line 1213, in load
+    dispatch[key[0]](self)
+  File "/usr/lib/python3.10/pickle.py", line 1538, in load_stack_global
+    self.append(self.find_class(module, name))
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/compat/pickle_compat.py", line 162, in find_class
+    return super().find_class(module, name)
+  File "/usr/lib/python3.10/pickle.py", line 1580, in find_class
+    __import__(module, level=0)
+ModuleNotFoundError: No module named 'numpy._core.numeric'
+2024-10-16 05:19:22.091 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/io/pickle.py", line 202, in read_pickle
+    return pickle.load(handles.handle)
+ModuleNotFoundError: No module named 'numpy._core.numeric'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 600, in _run_script
+    exec(code, module.__dict__)
+  File "/home/ubuntu/dataanalysis/test.py", line 675, in <module>
+    admin_dashboard()
+  File "/home/ubuntu/dataanalysis/test.py", line 339, in admin_dashboard
+    df_menu = pd.read_pickle('price.pkl')
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/io/pickle.py", line 207, in read_pickle
+    return pc.load(handles.handle, encoding=None)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/compat/pickle_compat.py", line 231, in load
+    return up.load()
+  File "/usr/lib/python3.10/pickle.py", line 1213, in load
+    dispatch[key[0]](self)
+  File "/usr/lib/python3.10/pickle.py", line 1538, in load_stack_global
+    self.append(self.find_class(module, name))
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/compat/pickle_compat.py", line 162, in find_class
+    return super().find_class(module, name)
+  File "/usr/lib/python3.10/pickle.py", line 1580, in find_class
+    __import__(module, level=0)
+ModuleNotFoundError: No module named 'numpy._core.numeric'
+2024-10-16 05:22:06.445 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/io/pickle.py", line 202, in read_pickle
+    return pickle.load(handles.handle)
+ModuleNotFoundError: No module named 'numpy._core.numeric'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 600, in _run_script
+    exec(code, module.__dict__)
+  File "/home/ubuntu/dataanalysis/test.py", line 675, in <module>
+    admin_dashboard()
+  File "/home/ubuntu/dataanalysis/test.py", line 339, in admin_dashboard
+    df_menu = pd.read_pickle('price.pkl')
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/io/pickle.py", line 207, in read_pickle
+    return pc.load(handles.handle, encoding=None)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/compat/pickle_compat.py", line 231, in load
+    return up.load()
+  File "/usr/lib/python3.10/pickle.py", line 1213, in load
+    dispatch[key[0]](self)
+  File "/usr/lib/python3.10/pickle.py", line 1538, in load_stack_global
+    self.append(self.find_class(module, name))
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/compat/pickle_compat.py", line 162, in find_class
+    return super().find_class(module, name)
+  File "/usr/lib/python3.10/pickle.py", line 1580, in find_class
+    __import__(module, level=0)
+ModuleNotFoundError: No module named 'numpy._core.numeric'
+2024-10-16 05:24:10.491 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/io/pickle.py", line 202, in read_pickle
+    return pickle.load(handles.handle)
+ModuleNotFoundError: No module named 'numpy._core.numeric'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 600, in _run_script
+    exec(code, module.__dict__)
+  File "/home/ubuntu/dataanalysis/test.py", line 675, in <module>
+    admin_dashboard()
+  File "/home/ubuntu/dataanalysis/test.py", line 339, in admin_dashboard
+    df_menu = pd.read_pickle('price.pkl')
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/io/pickle.py", line 207, in read_pickle
+    return pc.load(handles.handle, encoding=None)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/compat/pickle_compat.py", line 231, in load
+    return up.load()
+  File "/usr/lib/python3.10/pickle.py", line 1213, in load
+    dispatch[key[0]](self)
+  File "/usr/lib/python3.10/pickle.py", line 1538, in load_stack_global
+    self.append(self.find_class(module, name))
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/compat/pickle_compat.py", line 162, in find_class
+    return super().find_class(module, name)
+  File "/usr/lib/python3.10/pickle.py", line 1580, in find_class
+    __import__(module, level=0)
+ModuleNotFoundError: No module named 'numpy._core.numeric'
+2024-10-16 05:24:21.257 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/io/pickle.py", line 202, in read_pickle
+    return pickle.load(handles.handle)
+ModuleNotFoundError: No module named 'numpy._core.numeric'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 600, in _run_script
+    exec(code, module.__dict__)
+  File "/home/ubuntu/dataanalysis/test.py", line 675, in <module>
+    admin_dashboard()
+  File "/home/ubuntu/dataanalysis/test.py", line 339, in admin_dashboard
+    df_menu = pd.read_pickle('price.pkl')
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/io/pickle.py", line 207, in read_pickle
+    return pc.load(handles.handle, encoding=None)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/compat/pickle_compat.py", line 231, in load
+    return up.load()
+  File "/usr/lib/python3.10/pickle.py", line 1213, in load
+    dispatch[key[0]](self)
+  File "/usr/lib/python3.10/pickle.py", line 1538, in load_stack_global
+    self.append(self.find_class(module, name))
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/compat/pickle_compat.py", line 162, in find_class
+    return super().find_class(module, name)
+  File "/usr/lib/python3.10/pickle.py", line 1580, in find_class
+    __import__(module, level=0)
+ModuleNotFoundError: No module named 'numpy._core.numeric'
+  Stopping...
+
+Collecting usage statistics. To deactivate, set browser.gatherUsageStats to false.
+
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://172.31.43.229:8501
+  External URL: http://3.111.169.91:8501
+
+2024-10-16 05:28:59.105 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 600, in _run_script
+    exec(code, module.__dict__)
+  File "/home/ubuntu/dataanalysis/test.py", line 675, in <module>
+    admin_dashboard()
+  File "/home/ubuntu/dataanalysis/test.py", line 300, in admin_dashboard
+    with open('config.yaml', 'w') as file:
+PermissionError: [Errno 13] Permission denied: 'config.yaml'
+2024-10-16 07:14:48.134 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3805, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'ti3522728e'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 600, in _run_script
+    exec(code, module.__dict__)
+  File "/home/ubuntu/dataanalysis/test.py", line 675, in <module>
+    admin_dashboard()
+  File "/home/ubuntu/dataanalysis/test.py", line 286, in admin_dashboard
+    if row['password'] != edited_users.loc[index, 'password']:  # Check for password change
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/core/indexing.py", line 1183, in __getitem__
+    return self.obj._get_value(*key, takeable=self._takeable)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/core/frame.py", line 4221, in _get_value
+    row = self.index.get_loc(index)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    raise KeyError(key) from err
+KeyError: 'ti3522728e'
+2024-10-16 07:15:12.016 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3805, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'ti3522728e'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 600, in _run_script
+    exec(code, module.__dict__)
+  File "/home/ubuntu/dataanalysis/test.py", line 675, in <module>
+    admin_dashboard()
+  File "/home/ubuntu/dataanalysis/test.py", line 286, in admin_dashboard
+    if row['password'] != edited_users.loc[index, 'password']:  # Check for password change
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/core/indexing.py", line 1183, in __getitem__
+    return self.obj._get_value(*key, takeable=self._takeable)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/core/frame.py", line 4221, in _get_value
+    row = self.index.get_loc(index)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    raise KeyError(key) from err
+KeyError: 'ti3522728e'
+
+Collecting usage statistics. To deactivate, set browser.gatherUsageStats to false.
+
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://172.31.43.229:8501
+  External URL: http://3.111.169.91:8501
+
+2024-10-16 07:21:38.385 Please replace `st.experimental_rerun` with `st.rerun`.
+
+`st.experimental_rerun` will be removed after 2024-04-01.
+2024-10-16 07:22:07.389 Please replace `st.experimental_rerun` with `st.rerun`.
+
+`st.experimental_rerun` will be removed after 2024-04-01.
+2024-10-16 18:14:24.654 MediaFileHandler: Missing file .env
+2024-10-17 03:21:26.725 MediaFileHandler: Missing file .env
+2024-10-17 03:41:22.669 MediaFileHandler: Missing file .env
+2024-10-17 04:54:01.698 Uncaught app exception
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 600, in _run_script
+    exec(code, module.__dict__)
+  File "/home/ubuntu/dataanalysis/test.py", line 714, in <module>
+    user_dashboard3()
+  File "/home/ubuntu/dataanalysis/test.py", line 693, in user_dashboard3
+    if recipient_email:
+  File "missing.pyx", line 392, in pandas._libs.missing.NAType.__bool__
+TypeError: boolean value of NA is ambiguous
+2024-10-17 05:10:23.369 Please replace `st.experimental_rerun` with `st.rerun`.
+
+`st.experimental_rerun` will be removed after 2024-04-01.

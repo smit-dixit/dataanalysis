@@ -4,6 +4,22 @@ cookie:
   name: random_cookie_name
 credentials:
   usernames:
+    op3522728e:
+      email: maingateparlour
+      failed_login_attempts: 0
+      forgot_password: true
+      isactive: true
+      logged_in: null
+      name: evening
+      password: '654321'
+    op3522728m:
+      email: maingateparlour
+      failed_login_attempts: 0
+      forgot_password: true
+      isactive: true
+      logged_in: null
+      name: morning
+      password: '123456'
     admin:
       email: admin@gmail.com
       failed_login_attempts: 0
@@ -44,6 +60,14 @@ credentials:
       logged_in: null
       name: sarvagna
       password: $2b$12$ySgIxyZNb4fwhxlvaazjtunfJGLN7wFsrd1NXipTGf3wSLONbdCUC
+    post:
+      email: post@test.com
+      failed_login_attempts: 0
+      forgot_password: null
+      isactive: null
+      logged_in: null
+      name: test4
+      password: $2b$12$xRfOk0t..fqQsXB2WCs9gewFpJ44541QMjD64gbeng/yn.2FXmYOS
     timekeeper:
       email: secondtimekeeper@mail.com
       failed_login_attempts: 0
@@ -51,7 +75,7 @@ credentials:
       isactive: true
       logged_in: null
       name: Test
-      password: def
+      password: $2b$12$24gkmB2.ZzUTfr7tmmm9WOnDIHAuEpOIkIfSptNIqceYymd.7Y4xy
     timekeeper2:
       email: test@mil.com
       failed_login_attempts: 0

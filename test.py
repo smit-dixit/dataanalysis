@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import numpy as np
 from io import BytesIO
@@ -565,7 +566,7 @@ def send_email(recipient_email, otp, employee_name, bill_details):
     msg = MIMEText(body)
     msg['Subject'] = subject
     msg['From'] = sender_email
-    msg['To'] = "smitdixit96@gmail.com"
+    msg['To'] = recipient_email
 
     # Sending the email
     with smtplib.SMTP(smtp_server, smtp_port) as server:
@@ -689,7 +690,7 @@ def user_dashboard3():
     st.write(f"**Total Price:** ₹{total_bill_price:.2f}")
 
     if st.button('Generate OTP'):
-        if recipient_email:
+        if not pd.isna(recipient_email) and recipient_email:
             otp = random.randint(1000000, 9999999)  # Generate a 7-digit OTP
             bill_details = f"**Bill Details:**\n{bill_details}\n**Total Price:** ₹{total_bill_price:.2f}"
             send_email(recipient_email, otp, employee_name, bill_details)
