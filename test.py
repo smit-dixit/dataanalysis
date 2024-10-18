@@ -505,15 +505,16 @@ def user2_dashboard():
             otp_details = sweet_filtered.iloc[0]
             redeemed_status = otp_details['redeemed']
 
-            if not redeemed_status:
+            if redeemed_status:
+                st.warning("Coupon already redeemed from sweet_records.")
+            else redeemed_status:
                 sweet_index = sweet_filtered.index[0]
                 st.write(f"Employee Name: {otp_details['employee_name']}")
                 st.write(f"Bill Details: {otp_details['bill_details']}")
                 sweet_records_df.at[sweet_index, 'redeemed'] = True
                 sweet_records_df.to_pickle('sweet_records.pkl')
                 st.success('Coupon Redeemed')
-            else:
-                st.warning("Coupon already redeemed from sweet_records.")
+            
             return  # Exit after handling the sweet_records case
 
         # Check for OTP in coupons_df
