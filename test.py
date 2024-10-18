@@ -581,13 +581,14 @@ def save_email_details(employee_name, otp, bill_details):
         records_df = pd.read_pickle(filename)
     else:
         # Create a new DataFrame if the file doesn't exist
-        records_df = pd.DataFrame(columns=['employee_name', 'otp', 'bill_details'])
+        records_df = pd.DataFrame(columns=['employee_name', 'otp', 'bill_details','redeemed'])
 
     # Create a new record
     new_record = pd.DataFrame({
         'employee_name': [employee_name],
         'otp': [otp],
-        'bill_details': [bill_details]
+        'bill_details': [bill_details],
+        'redeemed': False
     })
 
     # Append the new record
