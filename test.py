@@ -148,6 +148,56 @@ def generate_pdf_report(start_date=None, end_date=None, summ=False):
     
     return pdf_bytes
 
+def generate_pdf():
+    s_df = pd.read_pickle('sweet_records.pkl')
+    
+    s_df = s_df.drop(columns=['otp'])
+
+    c_df = c_df[c_df['redeemed'] == True]
+
+    title = "Madhur Dairy Sweet Report"
+
+    # Prepare data for the table
+    table_data = [[Paragraph(str(val), getSampleStyleSheet()["BodyText"]) for val in s_df.columns]]  # Header row
+    for _, row in s_df.iterrows():
+        table_data.append([Paragraph(str(val), getSampleStyleSheet()["BodyText"]) for val in row])
+
+    # Calculate totals
+    price_total = s_df.iloc[:, -2].sum()  # Assuming 'Rupees of Item' is the second-last column
+    total_row = ['Total:', '', '', '', '', '', price_total]  # Add empty strings for other columns
+
+    # Add total row to table data
+    table_data.append([Paragraph(str(val), getSampleStyleSheet()["BodyText"]) for val in total_row])
+
+    # Create a PDF document
+    pdf_buffer = BytesIO()
+    pdf = SimpleDocTemplate(pdf_buffer, pagesize=letter)
+    
+    # Create title paragraph
+    styles = getSampleStyleSheet()
+    title_style = styles["Title"]
+    title_paragraph = Paragraph(title, title_style)
+
+    # Create the table
+    table = Table(table_data)
+    style = TableStyle([('BACKGROUND', (0,0), (-1,0), colors.grey),
+                        ('TEXTCOLOR', (0,0), (-1,0), colors.whitesmoke),
+                        ('ALIGN', (0,0), (-1,-1), 'CENTER'),
+                        ('FONTNAME', (0,0), (-1,0), 'Helvetica-Bold'),
+                        ('BOTTOMPADDING', (0,0), (-1,0), 12),
+                        ('BACKGROUND', (0,1), (-1,-2), colors.beige),  # Exclude total row from background color
+                        ('GRID', (0,0), (-1,-1), 1, colors.black)])
+    table.setStyle(style)
+
+    # Add title and table to PDF
+    elements = [title_paragraph, Spacer(1, 20), table]
+    pdf.build(elements)
+    
+    pdf_bytes = pdf_buffer.getvalue()
+    pdf_buffer.close()
+    
+    return pdf_bytes
+
 coupons_df = pd.read_pickle('coupon.pkl')
 
 def company_header():
@@ -261,7 +311,7 @@ def admin_dashboard():
         
     if st.sidebar.button("Generate Sweets Report"):
     
-        pdf_bytes = generate_pdf_report(start_date=start_date, end_date=end_date, summ = False)
+        pdf_bytes = generate_pdf()
         st.sidebar.download_button(label="Download PDF", data=pdf_bytes, file_name="report.pdf", mime="application/pdf")
         st.sidebar.success("PDF report generated successfully!")
     
@@ -572,23 +622,28 @@ def send_email(recipient_email, otp, employee_name, bill_details):
         server.login(sender_email, sender_password)
         server.send_message(msg)
 
-def save_email_details(employee_name, otp, bill_details):
+def save_email_details(employee_name, otp, bill_details, price):
     filename = 'sweet_records.pkl'
     
     # Check if the file exists
     if os.path.exists(filename):
         # Load existing records
         records_df = pd.read_pickle(filename)
+
+        # Check if the 'price' column exists, and add it if not
+        if 'price' not in records_df.columns:
+            records_df['price'] = pd.NA  # Add the 'price' column with missing values
     else:
         # Create a new DataFrame if the file doesn't exist
-        records_df = pd.DataFrame(columns=['employee_name', 'otp', 'bill_details','redeemed'])
+        records_df = pd.DataFrame(columns=['employee_name', 'otp', 'bill_details', 'price', 'redeemed'])
 
     # Create a new record
     new_record = pd.DataFrame({
         'employee_name': [employee_name],
         'otp': [otp],
         'bill_details': [bill_details],
-        'redeemed': False
+        'price': [price],  # Add price field
+        'redeemed': [False]  # Boolean flag for redemption status
     })
 
     # Append the new record
@@ -693,7 +748,7 @@ def user_dashboard3():
             otp = random.randint(1000000, 9999999)  # Generate a 7-digit OTP
             bill_details = f"**Bill Details:**\n{bill_details}\n**Total Price:** ₹{total_bill_price:.2f}"
             send_email(recipient_email, otp, employee_name, bill_details)
-            save_email_details(employee_name, otp, bill_details)
+            save_email_details(employee_name, otp, bill_details, total_bill_price)
             st.success(f"OTP has been sent.")
         else:
             st.error("No email address found for the selected employee.")
