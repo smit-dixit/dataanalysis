@@ -562,8 +562,8 @@ def user2_dashboard():
                 st.warning("Coupon already redeemed from sweet_records.")
             else:
                 sweet_index = sweet_filtered.index[0]
-                st.write(f"Employee Name: {otp_details['employee_name']}")
-                st.write(f"Bill Details: {otp_details['bill_details']}")
+                st.write(f"Employee Name: {otp_details['Employee Name']}")
+                st.write(f"Bill Details: {otp_details['Bill Items']}")
                 sweet_records_df.at[sweet_index, 'redeemed'] = True
                 sweet_records_df.to_pickle('sweet_records2.pkl')
                 st.success('Coupon Redeemed')
