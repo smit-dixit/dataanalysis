@@ -560,7 +560,7 @@ def user2_dashboard():
 
             if redeemed_status:
                 st.warning("Coupon already redeemed from sweet_records.")
-            else redeemed_status:
+            else:
                 sweet_index = sweet_filtered.index[0]
                 st.write(f"Employee Name: {otp_details['employee_name']}")
                 st.write(f"Bill Details: {otp_details['bill_details']}")
