@@ -166,7 +166,7 @@ def generate_pdf():
 
     # Calculate totals for the 'Total Price' column
     total_price = s_df['Total Price'].sum()
-    total_row = ['Total:', '', '', '', '', '', total_price]  # Add empty strings for other columns
+    total_row = ['Total:', '', '', '', '', '', '', total_price]  # Add empty strings for other columns
 
     # Add total row to table data
     table_data.append([Paragraph(str(val), getSampleStyleSheet()["BodyText"]) for val in total_row])
@@ -189,6 +189,8 @@ def generate_pdf():
                         ('BOTTOMPADDING', (0,0), (-1,0), 12),
                         ('BACKGROUND', (0,1), (-1,-2), colors.beige),  # Exclude total row from background color
                         ('GRID', (0,0), (-1,-1), 1, colors.black)])
+                        ('FONTSIZE', (0, 0), (-1, -1), 8),  # Set font size to 8 for all cells
+                        ('WORDWRAP', (0, 0), (-1, -1), 'ON'),  # Enable word wrap
     table.setStyle(style)
 
     # Add title and table to PDF elements
