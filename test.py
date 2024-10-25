@@ -638,7 +638,7 @@ def save_email_details(employee_number, employee_name, bill_items, mrp, discount
                                            'Bill Items', 'MRP', 'Discount', 'Total Price', 'otp', 'redeemed'])
 
     # Get the current date and time
-    current_date = datetime.date.today().strftime('%Y-%m-%d')
+    current_date = datetime.today().strftime('%Y-%m-%d')
     current_time = datetime.datetime.now().strftime('%H:%M:%S')
 
     # Create a new record
