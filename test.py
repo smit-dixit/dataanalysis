@@ -153,8 +153,8 @@ def generate_pdf():
     s_df = pd.read_pickle('sweet_records2.pkl')
 
     # Remove the 'otp' column and filter for redeemed records only
-    s_df = s_df.drop(columns=['OTP'])
-    s_df = s_df[s_df['Redeemed'] == True]
+    s_df = s_df.drop(columns=['otp'])
+    s_df = s_df[s_df['redeemed'] == True]
 
     # Define title for the report
     title = "Madhur Dairy Sweet Report"
