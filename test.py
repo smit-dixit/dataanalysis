@@ -189,7 +189,7 @@ def generate_pdf():
                         ('BOTTOMPADDING', (0,0), (-1,0), 12),
                         ('BACKGROUND', (0,1), (-1,-2), colors.beige),  # Exclude total row from background color
                         ('GRID', (0,0), (-1,-1), 1, colors.black),
-                        ('FONTSIZE', (0, 0), (-1, -1), 8),  # Set font size to 8 for all cells
+                        ('FONTSIZE', (0, 0), (-1, -1), 6),  # Set font size to 8 for all cells
                         ('WORDWRAP', (0, 0), (-1, -1), 'ON')])  # Enable word wrap
     table.setStyle(style)
 
