@@ -155,6 +155,7 @@ def generate_pdf():
     # Remove the 'otp' column and filter for redeemed records only
     s_df = s_df.drop(columns=['otp'])
     s_df = s_df[s_df['redeemed'] == True]
+    s_df = s_df.drop(columns=['redeemed'])
 
     # Define title for the report
     title = "Madhur Dairy Sweet Report"
