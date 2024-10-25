@@ -565,7 +565,7 @@ def user2_dashboard():
                 st.write(f"Employee Name: {otp_details['employee_name']}")
                 st.write(f"Bill Details: {otp_details['bill_details']}")
                 sweet_records_df.at[sweet_index, 'redeemed'] = True
-                sweet_records_df.to_pickle('sweet_records.pkl')
+                sweet_records_df.to_pickle('sweet_records2.pkl')
                 st.success('Coupon Redeemed')
             
             return  # Exit after handling the sweet_records case
@@ -596,10 +596,10 @@ def user2_dashboard():
         
 def send_email(recipient_email, otp, employee_name, bill_details):
     # Set your SMTP server details
-    smtp_server = "smtp.mailersend.net"
+    smtp_server = "madhurdairy.icewarpcloud.in"
     smtp_port = 587
-    sender_email = "MS_MMGyDX@trial-z3m5jgr22wxldpyo.mlsender.net"
-    sender_password = "MiHcFp255Blyz2wy"  # Use environment variables in production
+    sender_email = "info@madhurdairy.org"
+    sender_password = "Madhur@123"  # Use environment variables in production
 
     # Create email content
     subject = "Madhur Dairy Sweets OTP"
