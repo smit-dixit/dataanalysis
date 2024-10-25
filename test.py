@@ -150,7 +150,7 @@ def generate_pdf_report(start_date=None, end_date=None, summ=False):
 
 def generate_pdf():
     # Load the DataFrame from the pickle file
-    s_df = pd.read_pickle('sweet_records.pkl')
+    s_df = pd.read_pickle('sweet_records2.pkl')
 
     # Remove the 'otp' column and filter for redeemed records only
     s_df = s_df.drop(columns=['OTP'])
