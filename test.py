@@ -188,9 +188,9 @@ def generate_pdf():
                         ('FONTNAME', (0,0), (-1,0), 'Helvetica-Bold'),
                         ('BOTTOMPADDING', (0,0), (-1,0), 12),
                         ('BACKGROUND', (0,1), (-1,-2), colors.beige),  # Exclude total row from background color
-                        ('GRID', (0,0), (-1,-1), 1, colors.black)]),
+                        ('GRID', (0,0), (-1,-1), 1, colors.black),
                         ('FONTSIZE', (0, 0), (-1, -1), 8),  # Set font size to 8 for all cells
-                        ('WORDWRAP', (0, 0), (-1, -1), 'ON')  # Enable word wrap
+                        ('WORDWRAP', (0, 0), (-1, -1), 'ON')])  # Enable word wrap
     table.setStyle(style)
 
     # Add title and table to PDF elements
