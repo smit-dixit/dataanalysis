@@ -639,7 +639,7 @@ def save_email_details(employee_number, employee_name, bill_items, mrp, discount
 
     # Get the current date and time
     current_date = datetime.today().strftime('%Y-%m-%d')
-    current_time = datetime.datetime.now().strftime('%H:%M:%S')
+    current_time = datetime.now().strftime('%H:%M:%S')
 
     # Create a new record
     new_record = pd.DataFrame({
