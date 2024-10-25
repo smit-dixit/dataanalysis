@@ -149,12 +149,14 @@ def generate_pdf_report(start_date=None, end_date=None, summ=False):
     return pdf_bytes
 
 def generate_pdf():
+    # Load the DataFrame from the pickle file
     s_df = pd.read_pickle('sweet_records.pkl')
-    
-    s_df = s_df.drop(columns=['otp'])
 
-    c_df = c_df[c_df['redeemed'] == True]
+    # Remove the 'otp' column and filter for redeemed records only
+    s_df = s_df.drop(columns=['OTP'])
+    s_df = s_df[s_df['Redeemed'] == True]
 
+    # Define title for the report
     title = "Madhur Dairy Sweet Report"
 
     # Prepare data for the table
@@ -162,9 +164,9 @@ def generate_pdf():
     for _, row in s_df.iterrows():
         table_data.append([Paragraph(str(val), getSampleStyleSheet()["BodyText"]) for val in row])
 
-    # Calculate totals
-    price_total = s_df.iloc[:, -2].sum()  # Assuming 'Rupees of Item' is the second-last column
-    total_row = ['Total:', '', '', '', '', '', price_total]  # Add empty strings for other columns
+    # Calculate totals for the 'Total Price' column
+    total_price = s_df['Total Price'].sum()
+    total_row = ['Total:', '', '', '', '', '', total_price]  # Add empty strings for other columns
 
     # Add total row to table data
     table_data.append([Paragraph(str(val), getSampleStyleSheet()["BodyText"]) for val in total_row])
@@ -172,13 +174,13 @@ def generate_pdf():
     # Create a PDF document
     pdf_buffer = BytesIO()
     pdf = SimpleDocTemplate(pdf_buffer, pagesize=letter)
-    
+
     # Create title paragraph
     styles = getSampleStyleSheet()
     title_style = styles["Title"]
     title_paragraph = Paragraph(title, title_style)
 
-    # Create the table
+    # Create the table with styling
     table = Table(table_data)
     style = TableStyle([('BACKGROUND', (0,0), (-1,0), colors.grey),
                         ('TEXTCOLOR', (0,0), (-1,0), colors.whitesmoke),
@@ -189,10 +191,11 @@ def generate_pdf():
                         ('GRID', (0,0), (-1,-1), 1, colors.black)])
     table.setStyle(style)
 
-    # Add title and table to PDF
+    # Add title and table to PDF elements
     elements = [title_paragraph, Spacer(1, 20), table]
     pdf.build(elements)
     
+    # Get PDF bytes and close the buffer
     pdf_bytes = pdf_buffer.getvalue()
     pdf_buffer.close()
     
