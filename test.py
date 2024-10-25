@@ -538,7 +538,7 @@ def user_dashboard():
 
     
 def user2_dashboard():
-    sweet_records_df = pd.read_pickle('sweet_records.pkl')
+    sweet_records_df = pd.read_pickle('sweet_records2.pkl')
     coupons_df = pd.read_pickle('coupon.pkl')  # Load coupons DataFrame
 
     st.write("Welcome to Operator Dashboard")
@@ -622,28 +622,34 @@ def send_email(recipient_email, otp, employee_name, bill_details):
         server.login(sender_email, sender_password)
         server.send_message(msg)
 
-def save_email_details(employee_name, otp, bill_details, price):
-    filename = 'sweet_records.pkl'
+def save_email_details(employee_number, employee_name, bill_items, mrp, discount, total_price, otp):
+    filename = 'sweet_records2.pkl'
     
     # Check if the file exists
     if os.path.exists(filename):
         # Load existing records
         records_df = pd.read_pickle(filename)
-
-        # Check if the 'price' column exists, and add it if not
-        if 'price' not in records_df.columns:
-            records_df['price'] = pd.NA  # Add the 'price' column with missing values
     else:
         # Create a new DataFrame if the file doesn't exist
-        records_df = pd.DataFrame(columns=['employee_name', 'otp', 'bill_details', 'price', 'redeemed'])
+        records_df = pd.DataFrame(columns=['Date', 'Time', 'Employee Number', 'Employee Name', 
+                                           'Bill Items', 'MRP', 'Discount', 'Total Price', 'otp', 'redeemed'])
+
+    # Get the current date and time
+    current_date = datetime.date.today().strftime('%Y-%m-%d')
+    current_time = datetime.datetime.now().strftime('%H:%M:%S')
 
     # Create a new record
     new_record = pd.DataFrame({
-        'employee_name': [employee_name],
+        'Date': [current_date],
+        'Time': [current_time],
+        'Employee Number': [employee_number],
+        'Employee Name': [employee_name],
+        'Bill Items': [bill_items],  # List of items
+        'MRP': [mrp],  # Total MRP for the items
+        'Discount': [discount],  # Total discount applied
+        'Total Price': [total_price],  # Total price after discount
         'otp': [otp],
-        'bill_details': [bill_details],
-        'price': [price],  # Add price field
-        'redeemed': [False]  # Boolean flag for redemption status
+        'redeemed': [False]# The generated OTP
     })
 
     # Append the new record
@@ -682,17 +688,19 @@ def user_dashboard3():
     if not employee_info.empty:
         employee_name = employee_info.iloc[0]['EMPLOYEE NAME.']
         recipient_email = employee_info.iloc[0]['Email Id ']
+        employee_number = employee_info.iloc[0]['Personal No']
     else:
         employee_name = "Not Found"
+        employee_number = None
 
     # Menu items selection with quantity input
     selected_items = st.selectbox("Select items from the menu:", menu_df['Material Description'].tolist())
+    
     # Enhanced layout for quantity input
     col1, col2 = st.columns([1, 2])
     with col1:
         quantity = st.number_input("Quantity: ", min_value=1, value=1)
         
-
     # Initialize bill in session state
     if 'bill' not in st.session_state:
         st.session_state.bill = []
@@ -710,7 +718,7 @@ def user_dashboard3():
             total_price = discounted_price * quantity
             
             # Check if adding this item exceeds the weight limit
-            if total_weight + (weight * quantity) > 5000:
+            if total_weight + (weight * quantity) > 10000:
                 st.error("Adding this item would exceed the weight limit of 5000 grams.")
             else:
                 st.session_state.bill.append({
@@ -727,7 +735,11 @@ def user_dashboard3():
     st.write(f"**Employee Name:** {employee_name}")  # Show the employee name
     if st.session_state.bill:
         bill_details = ""
+        total_mrp = 0
+        total_discount = 0
         for idx, bill_item in enumerate(st.session_state.bill):
+            total_mrp += bill_item['mrp'] * bill_item['quantity']
+            total_discount += (bill_item['mrp'] - bill_item['discounted']) * bill_item['quantity']
             bill_details += f"- {bill_item['quantity']} x **{bill_item['item']}**: ~~₹{bill_item['mrp']:.2f}~~ ₹{bill_item['discounted']:.2f} (Total: ₹{bill_item['total_price']:.2f})\n"
             col_a, col_b = st.columns([3, 1])  # Create two columns for item details and remove button
             with col_a:
@@ -743,16 +755,18 @@ def user_dashboard3():
     total_bill_price = sum(item['total_price'] for item in st.session_state.bill)
     st.write(f"**Total Price:** ₹{total_bill_price:.2f}")
 
+    # Generate OTP and Save Transaction
     if st.button('Generate OTP'):
         if not pd.isna(recipient_email) and recipient_email:
             otp = random.randint(1000000, 9999999)  # Generate a 7-digit OTP
-            bill_details = f"**Bill Details:**\n{bill_details}\n**Total Price:** ₹{total_bill_price:.2f}"
-            send_email(recipient_email, otp, employee_name, bill_details)
-            save_email_details(employee_name, otp, bill_details, total_bill_price)
+            bill_items = ', '.join([f"{bill_item['quantity']}x {bill_item['item']}" for bill_item in st.session_state.bill])  # List of items
+            send_email(recipient_email, otp, employee_name, bill_details)  # Send OTP via email
+            
+            # Save the bill details along with the OTP in the pickle file
+            save_email_details(employee_number, employee_name, bill_items, total_mrp, total_discount, total_bill_price, otp)
             st.success(f"OTP has been sent.")
         else:
             st.error("No email address found for the selected employee.")
-
 # Display dashboard if authenticated
 if authentication_status:
     company_header()
