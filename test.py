@@ -549,6 +549,17 @@ def user2_dashboard():
 
     st.write("Welcome to Operator Dashboard")
 
+    st.sidebar.title("Generate Report")
+    start_date = st.sidebar.date_input("Start Date")
+    end_date = st.sidebar.date_input("End Date")
+
+    # Button to generate PDF report
+    if st.sidebar.button("Generate Sweets Report"):
+    
+        pdf_bytes = generate_pdf()
+        st.sidebar.download_button(label="Download PDF", data=pdf_bytes, file_name="report.pdf", mime="application/pdf")
+        st.sidebar.success("PDF report generated successfully!")
+
     otp_input = st.text_input("Enter OTP/Temporary Code")
 
     if st.button("Redeem", key="unique8"):
@@ -673,13 +684,9 @@ def user_dashboard3():
     end_date = st.sidebar.date_input("End Date")
 
     # Button to generate PDF report
-    if st.sidebar.button("Generate Full Report"):
-        pdf_bytes = generate_pdf_report(start_date=start_date, end_date=end_date, summ=False)
-        st.sidebar.download_button(label="Download PDF", data=pdf_bytes, file_name="report.pdf", mime="application/pdf")
-        st.sidebar.success("PDF report generated successfully!")
-
-    if st.sidebar.button("Generate Summary"):
-        pdf_bytes = generate_pdf_report(start_date=start_date, end_date=end_date, summ=True)
+    if st.sidebar.button("Generate Sweets Report"):
+    
+        pdf_bytes = generate_pdf()
         st.sidebar.download_button(label="Download PDF", data=pdf_bytes, file_name="report.pdf", mime="application/pdf")
         st.sidebar.success("PDF report generated successfully!")
 
