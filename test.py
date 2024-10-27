@@ -165,6 +165,8 @@ def generate_pdf():
     time_delta = pd.to_timedelta('5:30:00')
     s_df['Time'] = (pd.to_datetime(s_df['Time'], format='%H:%M:%S') + time_delta).dt.time
 
+    s_df['Discount'] = s_df['Discount'].round()
+
     # Define title for the report
     title = "Madhur Dairy Sweet Report"
 
