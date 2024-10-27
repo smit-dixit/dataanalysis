@@ -148,9 +148,17 @@ def generate_pdf_report(start_date=None, end_date=None, summ=False):
     
     return pdf_bytes
 
-def generate_pdf():
+def generate_pdf(start_date=None, end_date=None):
     # Load the DataFrame from the pickle file
     s_df = pd.read_pickle('sweet_records2.pkl')
+
+    # Convert the input start and end dates to datetime
+    start_date = pd.to_datetime(start_date)
+    end_date = pd.to_datetime(end_date)
+
+    # Convert the "Date" column to datetime and filter between start_date and end_date
+    s_df['Date'] = pd.to_datetime(s_df['Date'], errors='coerce')
+    s_df = s_df[(s_df['Date'] >= start_date) & (s_df['Date'] <= end_date)]
 
     # Remove the 'otp' column and filter for redeemed records only
     s_df = s_df.drop(columns=['otp'])
@@ -327,7 +335,7 @@ def admin_dashboard():
         
     if st.sidebar.button("Generate Sweets Report"):
     
-        pdf_bytes = generate_pdf()
+        pdf_bytes = generate_pdf(start_date=start_date, end_date=end_date)
         st.sidebar.download_button(label="Download PDF", data=pdf_bytes, file_name="report.pdf", mime="application/pdf")
         st.sidebar.success("PDF report generated successfully!")
     
@@ -566,7 +574,7 @@ def user2_dashboard():
     # Button to generate PDF report
     if st.sidebar.button("Generate Sweets Report"):
     
-        pdf_bytes = generate_pdf()
+        pdf_bytes = generate_pdf(start_date=start_date, end_date=end_date)
         st.sidebar.download_button(label="Download PDF", data=pdf_bytes, file_name="report.pdf", mime="application/pdf")
         st.sidebar.success("PDF report generated successfully!")
 
@@ -696,7 +704,7 @@ def user_dashboard3():
     # Button to generate PDF report
     if st.sidebar.button("Generate Sweets Report"):
     
-        pdf_bytes = generate_pdf()
+        pdf_bytes = generate_pdf(start_date=start_date, end_date=end_date)
         st.sidebar.download_button(label="Download PDF", data=pdf_bytes, file_name="report.pdf", mime="application/pdf")
         st.sidebar.success("PDF report generated successfully!")
 
@@ -742,7 +750,7 @@ def user_dashboard3():
             
             # Check if adding this item exceeds the weight limit
             if total_weight + (weight * quantity) > 10000:
-                st.error("Adding this item would exceed the weight limit of 5000 grams.")
+                st.error("Adding this item would exceed the weight limit of 10kgs.")
             else:
                 st.session_state.bill.append({
                     'item': selected_items,
