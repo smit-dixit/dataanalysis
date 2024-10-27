@@ -157,6 +157,14 @@ def generate_pdf():
     s_df = s_df[s_df['redeemed'] == True]
     s_df = s_df.drop(columns=['redeemed'])
 
+    # Convert "Employee Number" to integer and remove rows with Employee Number 101
+    s_df['Employee Number'] = s_df['Employee Number'].astype(int)
+    s_df = s_df[s_df['Employee Number'] != 101]
+
+    # Adjust "Time" column by adding 5 hours and 30 minutes
+    time_delta = pd.to_timedelta('5:30:00')
+    s_df['Time'] = (pd.to_datetime(s_df['Time'], format='%H:%M:%S') + time_delta).dt.time
+
     # Define title for the report
     title = "Madhur Dairy Sweet Report"
 
