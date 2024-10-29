@@ -175,23 +175,48 @@ def generate_pdf(start_date=None, end_date=None):
 
     s_df['Discount'] = s_df['Discount'].round()
 
-    # Format "Bill Items" as sub-rows by joining items with line breaks
-    s_df['Bill Items'] = s_df['Bill Items'].str.split(',').apply(lambda items: '\n'.join([item.strip() for item in items]))
-
     # Define title for the report
     title = "Madhur Dairy Sweet Report"
 
-    # Prepare data for the table
-    table_data = [[Paragraph(str(val), getSampleStyleSheet()["BodyText"]) for val in s_df.columns]]  # Header row
-    for _, row in s_df.iterrows():
-        table_data.append([Paragraph(str(val), getSampleStyleSheet()["BodyText"]) for val in row])
+    # Create table header
+    header = ["Sr. No.", "Date", "Time", "Employee Number", "Employee Name", "Bill Details", "MRP", "Discount", "Total Price"]
+    table_data = [[Paragraph(col, getSampleStyleSheet()["BodyText"]) for col in header]]
 
-    # Calculate totals for the 'Total Price' column
-    total_price = s_df['Total Price'].sum()
-    total_row = ['Total:', '', '', '', '', '', '', total_price]  # Add empty strings for other columns
+    # Populate table data
+    for index, row in s_df.iterrows():
+        # Define main row details
+        main_row = [
+            Paragraph(str(index + 1), getSampleStyleSheet()["BodyText"]),
+            Paragraph(str(row['Date'].date()), getSampleStyleSheet()["BodyText"]),
+            Paragraph(str(row['Time']), getSampleStyleSheet()["BodyText"]),
+            Paragraph(str(row['Employee Number']), getSampleStyleSheet()["BodyText"]),
+            Paragraph(row['Employee Name'], getSampleStyleSheet()["BodyText"]),
+        ]
 
-    # Add total row to table data
-    table_data.append([Paragraph(str(val), getSampleStyleSheet()["BodyText"]) for val in total_row])
+        # Create sub-rows only for "Bill Details"
+        bill_items = row['Bill Items'].split(',')
+
+        # Prepare nested table data for bill details
+        bill_details_data = [[Paragraph(item.strip(), getSampleStyleSheet()["BodyText"])] for item in bill_items]
+
+        # Create a nested table for the "Bill Details"
+        bill_details_table = Table(bill_details_data, colWidths=[150])
+        bill_details_table.setStyle(TableStyle([
+            ('GRID', (0, 0), (-1, -1), 1, colors.black),
+            ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
+            ('FONTNAME', (0, 0), (-1, -1), 'Helvetica'),
+            ('FONTSIZE', (0, 0), (-1, -1), 8)
+        ]))
+
+        # Add fixed columns "MRP Price", "Discount Price", and "Payable Discount Price"
+        main_row += [
+            Paragraph(str(row['MRP']), getSampleStyleSheet()["BodyText"]),
+            Paragraph(str(row['Discount']), getSampleStyleSheet()["BodyText"]),
+            Paragraph(str(row['Total Price']), getSampleStyleSheet()["BodyText"])
+        ]
+
+        # Add the main row details and nested table to the table data
+        table_data.append(main_row + [bill_details_table])
 
     # Create a PDF document
     pdf_buffer = BytesIO()
@@ -202,21 +227,20 @@ def generate_pdf(start_date=None, end_date=None):
     title_style = styles["Title"]
     title_paragraph = Paragraph(title, title_style)
 
-    # Create the table with styling
-    table = Table(table_data)
-    style = TableStyle([('BACKGROUND', (0,0), (-1,0), colors.grey),
-                        ('TEXTCOLOR', (0,0), (-1,0), colors.whitesmoke),
-                        ('ALIGN', (0,0), (-1,-1), 'CENTER'),
-                        ('FONTNAME', (0,0), (-1,0), 'Helvetica-Bold'),
-                        ('BOTTOMPADDING', (0,0), (-1,0), 12),
-                        ('BACKGROUND', (0,1), (-1,-2), colors.beige),  # Exclude total row from background color
-                        ('GRID', (0,0), (-1,-1), 1, colors.black),
-                        ('FONTSIZE', (0, 0), (-1, -1), 6),  # Set font size to 8 for all cells
-                        ('WORDWRAP', (0, 0), (-1, -1), 'ON')])  # Enable word wrap
-    table.setStyle(style)
+    # Create the main table with styling
+    main_table = Table(table_data, colWidths=[30, 60, 50, 80, 120, 150, 60, 60, 80])
+    main_table.setStyle(TableStyle([
+        ('BACKGROUND', (0, 0), (-1, 0), colors.grey),
+        ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
+        ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
+        ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+        ('BOTTOMPADDING', (0, 0), (-1, 0), 12),
+        ('GRID', (0, 0), (-1, -1), 1, colors.black),
+        ('FONTSIZE', (0, 0), (-1, -1), 8)
+    ]))
 
     # Add title and table to PDF elements
-    elements = [title_paragraph, Spacer(1, 20), table]
+    elements = [title_paragraph, Spacer(1, 20), main_table]
     pdf.build(elements)
     
     # Get PDF bytes and close the buffer
