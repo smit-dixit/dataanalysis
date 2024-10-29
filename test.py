@@ -179,14 +179,13 @@ def generate_pdf(start_date=None, end_date=None):
     title = "Madhur Dairy Sweet Report"
 
     # Create table header
-    header = ["Sr. No.", "Date", "Time", "Employee Number", "Employee Name", "Bill Details", "MRP", "Discount", "Total Price"]
+    header = ["Date", "Time", "Employee Number", "Employee Name", "Bill Details", "MRP", "Discount", "Total Price"]
     table_data = [[Paragraph(col, getSampleStyleSheet()["BodyText"]) for col in header]]
 
     # Populate table data
     for index, row in s_df.iterrows():
         # Define main row details
         main_row = [
-            Paragraph(str(index + 1), getSampleStyleSheet()["BodyText"]),
             Paragraph(str(row['Date'].date()), getSampleStyleSheet()["BodyText"]),
             Paragraph(str(row['Time']), getSampleStyleSheet()["BodyText"]),
             Paragraph(str(row['Employee Number']), getSampleStyleSheet()["BodyText"]),
@@ -200,7 +199,7 @@ def generate_pdf(start_date=None, end_date=None):
         bill_details_data = [[Paragraph(item.strip(), getSampleStyleSheet()["BodyText"])] for item in bill_items]
 
         # Create a nested table for the "Bill Details"
-        bill_details_table = Table(bill_details_data, colWidths=[150])
+        bill_details_table = Table(bill_details_data, colWidths=[120])
         bill_details_table.setStyle(TableStyle([
             ('GRID', (0, 0), (-1, -1), 1, colors.black),
             ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
@@ -220,7 +219,7 @@ def generate_pdf(start_date=None, end_date=None):
 
     # Create a PDF document
     pdf_buffer = BytesIO()
-    pdf = SimpleDocTemplate(pdf_buffer, pagesize=letter)
+    pdf = SimpleDocTemplate(pdf_buffer, pagesize=letter, rightMargin=10, leftMargin=10, topMargin=10, bottomMargin=10)
 
     # Create title paragraph
     styles = getSampleStyleSheet()
@@ -228,7 +227,7 @@ def generate_pdf(start_date=None, end_date=None):
     title_paragraph = Paragraph(title, title_style)
 
     # Create the main table with styling
-    main_table = Table(table_data, colWidths=[30, 60, 50, 80, 120, 150, 60, 60, 80])
+    main_table = Table(table_data, colWidths=[60, 50, 80, 120, 120, 60, 60, 80])
     main_table.setStyle(TableStyle([
         ('BACKGROUND', (0, 0), (-1, 0), colors.grey),
         ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
