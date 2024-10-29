@@ -199,7 +199,7 @@ def generate_pdf(start_date=None, end_date=None):
         bill_details_data = [[Paragraph(item.strip(), getSampleStyleSheet()["BodyText"])] for item in bill_items]
 
         # Create a nested table for the "Bill Details"
-        bill_details_table = Table(bill_details_data, colWidths=[120])
+        bill_details_table = Table(bill_details_data, colWidths=[200])
         bill_details_table.setStyle(TableStyle([
             ('GRID', (0, 0), (-1, -1), 1, colors.black),
             ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
@@ -227,7 +227,7 @@ def generate_pdf(start_date=None, end_date=None):
     title_paragraph = Paragraph(title, title_style)
 
     # Create the main table with styling
-    main_table = Table(table_data, colWidths=[60, 50, 80, 120, 120, 60, 60, 80])
+    main_table = Table(table_data, colWidths=[60, 50, 80, 120, 200, 40, 40, 60])
     main_table.setStyle(TableStyle([
         ('BACKGROUND', (0, 0), (-1, 0), colors.grey),
         ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
