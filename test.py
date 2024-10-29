@@ -157,7 +157,7 @@ def generate_pdf(start_date=None, end_date=None):
     end_date = pd.to_datetime(end_date)
 
     # Convert the "Date" column to datetime and filter between start_date and end_date
-    s_df['Date'] = pd.to_datetime(s_df['Date'], errors='coerce').date()
+    s_df['Date'] = pd.to_datetime(s_df['Date'], errors='coerce')
     s_df = s_df[(s_df['Date'] >= start_date) & (s_df['Date'] <= end_date)]
 
     # Remove the 'otp' column and filter for redeemed records only
