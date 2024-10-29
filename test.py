@@ -175,6 +175,10 @@ def generate_pdf(start_date=None, end_date=None):
 
     s_df['Discount'] = s_df['Discount'].round()
 
+    # Split "Bill Items" by commas and create sub-rows
+    s_df = s_df.assign(**{"Bill Items": s_df["Bill Items"].str.split(",")}).explode("Bill Items")
+    s_df["Bill Items"] = s_df["Bill Items"].str.strip()  # Remove extra spaces
+
     # Define title for the report
     title = "Madhur Dairy Sweet Report"
 
