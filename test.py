@@ -205,7 +205,7 @@ def generate_pdf(start_date=None, end_date=None):
         ]
 
         # Add the main row details and nested table to the table data
-        table_data.append(main_row + [bill_details_table])
+        table_data.append(main_row)
 
     # Create a PDF document
     pdf_buffer = BytesIO()
