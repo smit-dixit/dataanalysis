@@ -200,7 +200,7 @@ def generate_pdf(start_date=None, end_date=None):
     title_paragraph = Paragraph(title, title_style)
 
     # Create the table with styling
-    table = Table(table_data, colWidths=[60, 50, 80, 120, 200, 40, 40, 60])
+    table = Table(table_data, colWidths=[50, 50, 80, 100, 180, 40, 40, 60])
     style = TableStyle([('BACKGROUND', (0,0), (-1,0), colors.grey),
                         ('TEXTCOLOR', (0,0), (-1,0), colors.whitesmoke),
                         ('ALIGN', (0,0), (-1,-1), 'CENTER'),
