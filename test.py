@@ -192,22 +192,12 @@ def generate_pdf(start_date=None, end_date=None):
             Paragraph(row['Employee Name'], getSampleStyleSheet()["BodyText"]),
         ]
 
-        # Create sub-rows only for "Bill Details"
-        bill_items = row['Bill Items'].split(',')
-
-        # Prepare nested table data for bill details
-        bill_details_data = [[Paragraph(item.strip(), getSampleStyleSheet()["BodyText"])] for item in bill_items]
-
-        # Create a nested table for the "Bill Details"
-        bill_details_table = Table(bill_details_data, colWidths=[200])
-        bill_details_table.setStyle(TableStyle([
-            ('GRID', (0, 0), (-1, -1), 1, colors.black),
-            ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
-            ('FONTNAME', (0, 0), (-1, -1), 'Helvetica'),
-            ('FONTSIZE', (0, 0), (-1, -1), 8)
-        ]))
+         # Format "Bill Details" items compactly with ';' separator
+        bill_items = "; ".join(item.strip() for item in row['Bill Items'].split(','))
+        bill_details_paragraph = Paragraph(bill_items, getSampleStyleSheet()["BodyText"])
 
         # Add fixed columns "MRP Price", "Discount Price", and "Payable Discount Price"
+        main_row.append(bill_details_paragraph)
         main_row += [
             Paragraph(str(row['MRP']), getSampleStyleSheet()["BodyText"]),
             Paragraph(str(row['Discount']), getSampleStyleSheet()["BodyText"]),
