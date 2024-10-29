@@ -157,7 +157,7 @@ def generate_pdf(start_date=None, end_date=None):
     end_date = pd.to_datetime(end_date)
 
     # Convert the "Date" column to datetime and filter between start_date and end_date
-    s_df['Date'] = pd.to_datetime(s_df['Date'], errors='coerce')
+    s_df['Date'] = pd.to_datetime(s_df['Date'], errors='coerce').date()
     s_df = s_df[(s_df['Date'] >= start_date) & (s_df['Date'] <= end_date)]
 
     # Remove the 'otp' column and filter for redeemed records only
@@ -200,7 +200,7 @@ def generate_pdf(start_date=None, end_date=None):
     title_paragraph = Paragraph(title, title_style)
 
     # Create the table with styling
-    table = Table(table_data)
+    table = Table(table_data, colWidths=[60, 50, 80, 120, 200, 40, 40, 60])
     style = TableStyle([('BACKGROUND', (0,0), (-1,0), colors.grey),
                         ('TEXTCOLOR', (0,0), (-1,0), colors.whitesmoke),
                         ('ALIGN', (0,0), (-1,-1), 'CENTER'),
