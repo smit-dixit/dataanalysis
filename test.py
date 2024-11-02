@@ -21,6 +21,7 @@ from reportlab.platypus import Paragraph
 from reportlab.lib.styles import getSampleStyleSheet
 import smtplib
 from email.mime.text import MIMEText
+import re
 
 
 
@@ -76,6 +77,20 @@ def reset_password(username):
 # Login
 name, authentication_status, username = authenticator.login()
 
+def parse_bill_items(bill_items_str):
+    # Split items based on the comma separator
+    items = bill_items_str.split(',')
+    parsed_items = []
+
+    for item in items:
+        # Use regex to extract quantity and item name
+        match = re.match(r'(\d+)x\s+(MADHUR .+)', item.strip())
+        if match:
+            quantity = int(match.group(1))
+            item_name = match.group(2).strip()
+            parsed_items.append((item_name, quantity))
+
+    return parsed_items
 
 def generate_pdf_report(start_date=None, end_date=None, summ=False):
     c_df = pd.read_pickle('coupon.pkl')
@@ -147,7 +162,104 @@ def generate_pdf_report(start_date=None, end_date=None, summ=False):
     pdf_buffer.close()
     
     return pdf_bytes
+
+def generate_summary_pdf(start_date, end_date):
+    # Load the DataFrames from the pickle files
+    s_df = pd.read_pickle('sweet_records2.pkl')
+    price_df = pd.read_pickle('price.pkl')
+
+    # Convert the input start and end dates to datetime
+    start_date = pd.to_datetime(start_date)
+    end_date = pd.to_datetime(end_date)
+
+    # Convert the "Date" column to datetime and filter between start_date and end_date
+    s_df['Date'] = pd.to_datetime(s_df['Date'], errors='coerce')
+    s_df = s_df[(s_df['Date'] >= start_date) & (s_df['Date'] <= end_date)]
+
+    # Parse the 'Bill Items' column using parse_bill function
+    parsed_data = []
+    for _, row in s_df.iterrows():
+        bill_items = parse_bill_items(row['Bill Items'])
+        for item_name, quantity in bill_items:
+            # Retrieve the Item Amount by matching item_name with Material Description in price_df
+            item_price = price_df.loc[price_df['Material Description'] == item_name, 'Price'].values
+            item_amount = item_price[0] if len(item_price) > 0 else 0  # Use 0 if no match is found
+            parsed_data.append({
+                'Type of Sweet': item_name,
+                'Box Count': quantity,
+                'Item Amount': item_amount,
+                'Total Amount': item_amount * quantity
+            })
+
+    # Convert parsed data into a DataFrame for summary
+    summary_df = pd.DataFrame(parsed_data)
+    # Group by 'Type of Sweet' and sum up the quantities and total amounts
+    summary_df = summary_df.groupby('Type of Sweet').agg(
+        Box_Count=('Box Count', 'sum'),
+        Item_Amount=('Item Amount', 'first'),  # assuming consistent pricing for each item
+        Total_Amount=('Total Amount', 'sum')
+    ).reset_index()
+
+    # Calculate grand total
+    grand_total = summary_df['Total_Amount'].sum()
+
+    # Create the title and date range
+    title = "Madhur Dairy Sweet Report Summary"
+    date_range_text = f"Date range: {start_date.strftime('%Y-%m-%d')} to {end_date.strftime('%Y-%m-%d')}"
+
+    # Define table header
+    header = ["Type of sweet", "Box count", "Item amount", "Total Amount"]
+    table_data = [[Paragraph(col, getSampleStyleSheet()["BodyText"]) for col in header]]
+
+    # Populate table data
+    for _, row in summary_df.iterrows():
+        row_data = [
+            Paragraph(row['Type of Sweet'], getSampleStyleSheet()["BodyText"]),
+            Paragraph(str(row['Box_Count']), getSampleStyleSheet()["BodyText"]),
+            Paragraph(str(row['Item_Amount']), getSampleStyleSheet()["BodyText"]),
+            Paragraph(str(row['Total_Amount']), getSampleStyleSheet()["BodyText"])
+        ]
+        table_data.append(row_data)
+
+    # Add grand total row
+    table_data.append([
+        Paragraph("Grand total", getSampleStyleSheet()["BodyText"]),
+        "", "", Paragraph(str(grand_total), getSampleStyleSheet()["BodyText"])
+    ])
+
+    # Create a PDF document
+    pdf_buffer = BytesIO()
+    pdf = SimpleDocTemplate(pdf_buffer, pagesize=letter, rightMargin=20, leftMargin=20, topMargin=20, bottomMargin=20)
+
+    # Create title paragraph
+    styles = getSampleStyleSheet()
+    title_paragraph = Paragraph(title, styles["Title"])
+    date_range_paragraph = Paragraph(date_range_text, styles["BodyText"])
+
+    # Define table style
+    summary_table = Table(table_data, colWidths=[200, 80, 80, 80])
+    summary_table.setStyle(TableStyle([
+        ('BACKGROUND', (0, 0), (-1, 0), colors.grey),
+        ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
+        ('ALIGN', (1, 1), (-1, -1), 'CENTER'),
+        ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+        ('BOTTOMPADDING', (0, 0), (-1, 0), 12),
+        ('GRID', (0, 0), (-1, -1), 1, colors.black),
+        ('FONTSIZE', (0, 0), (-1, -1), 10),
+        ('SPAN', (0, -1), (2, -1)),  # Span the Grand total label across three columns
+        ('ALIGN', (0, -1), (0, -1), 'RIGHT')  # Align Grand total text to the right
+    ]))
+
+    # Add title, date range, and table to PDF elements
+    elements = [title_paragraph, Spacer(1, 10), date_range_paragraph, Spacer(1, 10), summary_table]
+    pdf.build(elements)
     
+    # Get PDF bytes and close the buffer
+    pdf_bytes = pdf_buffer.getvalue()
+    pdf_buffer.close()
+    
+    return pdf_bytes
+
 def generate_pdf(start_date=None, end_date=None):
     # Load the DataFrame from the pickle file
     s_df = pd.read_pickle('sweet_records2.pkl')
@@ -336,6 +448,12 @@ def admin_dashboard():
     if st.sidebar.button("Generate Sweets Report"):
     
         pdf_bytes = generate_pdf(start_date=start_date, end_date=end_date)
+        st.sidebar.download_button(label="Download PDF", data=pdf_bytes, file_name="report.pdf", mime="application/pdf")
+        st.sidebar.success("PDF report generated successfully!")
+
+    if st.sidebar.button("Generate Sweets Summary"):
+    
+        pdf_bytes = generate_summary_pdf(start_date=start_date, end_date=end_date)
         st.sidebar.download_button(label="Download PDF", data=pdf_bytes, file_name="report.pdf", mime="application/pdf")
         st.sidebar.success("PDF report generated successfully!")
     
