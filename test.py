@@ -696,6 +696,12 @@ def user2_dashboard():
         st.sidebar.download_button(label="Download PDF", data=pdf_bytes, file_name="report.pdf", mime="application/pdf")
         st.sidebar.success("PDF report generated successfully!")
 
+    if st.sidebar.button("Generate Sweets Summary"):
+    
+        pdf_bytes = generate_summary_pdf(start_date=start_date, end_date=end_date)
+        st.sidebar.download_button(label="Download PDF", data=pdf_bytes, file_name="report.pdf", mime="application/pdf")
+        st.sidebar.success("PDF report generated successfully!")
+
     otp_input = st.text_input("Enter OTP/Temporary Code")
 
     if st.button("Redeem", key="unique8"):
@@ -824,6 +830,12 @@ def user_dashboard3():
     if st.sidebar.button("Generate Sweets Report"):
     
         pdf_bytes = generate_pdf(start_date=start_date, end_date=end_date)
+        st.sidebar.download_button(label="Download PDF", data=pdf_bytes, file_name="report.pdf", mime="application/pdf")
+        st.sidebar.success("PDF report generated successfully!")
+
+    if st.sidebar.button("Generate Sweets Summary"):
+    
+        pdf_bytes = generate_summary_pdf(start_date=start_date, end_date=end_date)
         st.sidebar.download_button(label="Download PDF", data=pdf_bytes, file_name="report.pdf", mime="application/pdf")
         st.sidebar.success("PDF report generated successfully!")
 
