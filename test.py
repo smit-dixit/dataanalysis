@@ -201,7 +201,7 @@ def generate_summary_pdf(start_date, end_date):
     ).reset_index()
 
     # Calculate grand total
-    grand_total = summary_df['Total_Amount'].sum()
+    grand_total = round(summary_df['Total_Amount'].sum(), 2)
 
     # Create the title and date range
     title = "Madhur Dairy Sweet Report Summary"
