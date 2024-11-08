@@ -390,6 +390,7 @@ def admin_dashboard_home():
     
     with col1:
         st.write("## Coupons Overview")
+        st.write(coupons_df)
         coupons_df['Date'] = pd.to_datetime(coupons_df['Date'])
 
         # Calculate the start and end dates of the last week
