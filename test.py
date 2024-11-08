@@ -390,7 +390,7 @@ def admin_dashboard_home():
     
     with col1:
         st.write("## Coupons Overview")
-        st.write(coupons_df)
+        
         coupons_df['Date'] = pd.to_datetime(coupons_df['Date'])
 
         # Calculate the start and end dates of the last week
@@ -498,8 +498,6 @@ def admin_dashboard():
     elif page == "Employee Management":
         st.title("Employee Management")
         dfm = pd.read_pickle('employee.pkl')
-        
-        
         
         edited_df = st.data_editor(dfm, 
                            num_rows="dynamic", 
@@ -685,6 +683,8 @@ def user2_dashboard():
     coupons_df = pd.read_pickle('coupon.pkl')  # Load coupons DataFrame
 
     st.write("Welcome to Operator Dashboard")
+
+    e_df = st.data_editor(coupons_df)
 
     st.sidebar.title("Generate Report")
     start_date = st.sidebar.date_input("Start Date")
