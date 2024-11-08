@@ -684,8 +684,6 @@ def user2_dashboard():
 
     st.write("Welcome to Operator Dashboard")
 
-    e_df = st.data_editor(coupons_df)
-
     st.sidebar.title("Generate Report")
     start_date = st.sidebar.date_input("Start Date")
     end_date = st.sidebar.date_input("End Date")
