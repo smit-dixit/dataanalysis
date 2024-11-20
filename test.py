@@ -826,15 +826,15 @@ def user_dashboard3():
     end_date = st.sidebar.date_input("End Date")
 
     # Button to generate PDF report
-    if st.sidebar.button("Generate Sweets Report"):
+    if st.sidebar.button("Generate Full Report"):
     
-        pdf_bytes = generate_pdf(start_date=start_date, end_date=end_date)
+        pdf_bytes = generate_pdf_report(start_date=start_date, end_date=end_date, summ = False)
         st.sidebar.download_button(label="Download PDF", data=pdf_bytes, file_name="report.pdf", mime="application/pdf")
         st.sidebar.success("PDF report generated successfully!")
-
-    if st.sidebar.button("Generate Sweets Summary"):
+        
+    if st.sidebar.button("Generate Summary"):
     
-        pdf_bytes = generate_summary_pdf(start_date=start_date, end_date=end_date)
+        pdf_bytes = generate_pdf_report(start_date=start_date, end_date=end_date, summ = True)
         st.sidebar.download_button(label="Download PDF", data=pdf_bytes, file_name="report.pdf", mime="application/pdf")
         st.sidebar.success("PDF report generated successfully!")
 
