@@ -726,8 +726,22 @@ def user2_dashboard():
             
             return  # Exit after handling the sweet_records case
 
-        # Check for OTP in coupons_df
-        coupon_filtered = coupons_df[(coupons_df['OTP'] == otp_input_str) | (coupons_df['Coupon unique code no.'] == otp_input_str)]
+        # Ensure 'Date' column is in datetime format
+        coupons_df['Date'] = pd.to_datetime(coupons_df['Date'], errors='coerce', format='%Y-%m-%d')
+        
+        # Get today's date and calculate the date range for the last week
+        today = datetime.now()
+        last_week_start = today - timedelta(days=7)
+        
+        # Filter for rows where the 'Date' is within the last week
+        last_week_coupons = coupons_df[coupons_df['Date'] >= last_week_start]
+        
+        # Apply the existing filter for 'OTP' or 'Coupon unique code no.'
+        coupon_filtered = last_week_coupons[
+            (last_week_coupons['OTP'] == otp_input_str) | 
+            (last_week_coupons['Coupon unique code no.'] == otp_input_str)
+        ]
+        
 
         if not coupon_filtered.empty:
             otp_details = coupon_filtered.iloc[0]
