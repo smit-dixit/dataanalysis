@@ -335,7 +335,7 @@ def generate_pdf(start_date=None, end_date=None):
     
     return pdf_bytes
 
-def safe_load_or_new_df_with_log(file_path, log_file='pickle_load_errors.txt'):
+def safe_load_or_new_df_with_log(file_path, new_entry=None, log_file='pickle_load_errors.txt'):
     # On first use, clear/create the log file
     if not os.path.exists(log_file):
         with open(log_file, 'w') as log_f:
@@ -346,24 +346,51 @@ def safe_load_or_new_df_with_log(file_path, log_file='pickle_load_errors.txt'):
         with open(log_file, 'a') as log_f:
             log_f.write(message + '\n')
 
+    df = None
     try:
         with open(file_path, 'rb') as f:
-            return pickle.load(f)
+            df = pickle.load(f)
     except Exception as e1:
         log_error(f"Default pickle load failed: {e1}")
 
+    if df is None:
+        try:
+            with open(file_path, 'rb') as f:
+                df = pickle.load(f, encoding='latin1')
+        except Exception as e2:
+            log_error(f"latin1 pickle load failed: {e2}")
+            log_error("All loading attempts failed—returning empty DataFrame.")
+            df = pd.DataFrame()
+
+    # Append the new entry if provided
+    if new_entry is not None:
+        if not isinstance(df, pd.DataFrame):
+            df = pd.DataFrame()
+        df = pd.concat([df, pd.DataFrame([new_entry])], ignore_index=True)
+
+    # Save the DataFrame back to pickle
     try:
-        with open(file_path, 'rb') as f:
-            return pickle.load(f, encoding='latin1')
-    except Exception as e2:
-        log_error(f"latin1 pickle load failed: {e2}")
+        with open(file_path, 'wb') as f:
+            pickle.dump(df, f)
+    except Exception as e:
+        log_error(f"Failed to save DataFrame: {e}")
 
+    return df
 
-    log_error("All loading attempts failed—returning empty DataFrame.")
-    return pd.DataFrame()
+# Example usage with new entry
+new_entry = {
+    'Coupon unique code no.': 'XYZ123',
+    'Date': '2025-10-04',
+    'Time': '13:14',
+    'Employee code': 'E123',
+    'Employee name': 'John Doe',
+    'Type of dish': 'Pizza',
+    'Rupees of items': 250,
+    'OTP': '456789',
+    'Redeemed': False
+}
 
-# Usage
-coupons_df = safe_load_or_new_df_with_log('coupon.pkl')
+coupons_df = safe_load_or_new_df_with_log('coupon.pkl', new_entry=new_entry)
 
 def company_header():
     st.markdown(
