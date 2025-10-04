@@ -5,6 +5,7 @@ from io import BytesIO
 import matplotlib.pyplot as plt
 from pandas import json_normalize
 import streamlit as st
+import pickle
 import streamlit_authenticator as stauth
 import yaml
 from yaml.loader import SafeLoader
@@ -334,7 +335,8 @@ def generate_pdf(start_date=None, end_date=None):
     
     return pdf_bytes
 
-coupons_df = pd.read_pickle('coupon.pkl', encoding='latin1')
+with open('coupon.pkl', 'rb') as f:
+    coupons_df = pickle.load(f, encoding='latin1')
 
 def company_header():
     st.markdown(
