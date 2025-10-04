@@ -335,8 +335,35 @@ def generate_pdf(start_date=None, end_date=None):
     
     return pdf_bytes
 
-with open('coupon.pkl', 'rb') as f:
-    coupons_df = pickle.load(f, encoding='latin1')
+def safe_load_or_new_df_with_log(file_path, log_file='pickle_load_errors.txt'):
+    # On first use, clear/create the log file
+    if not os.path.exists(log_file):
+        with open(log_file, 'w') as log_f:
+            log_f.write("Pickle load error log\n")
+            log_f.write("====================\n")
+
+    def log_error(message):
+        with open(log_file, 'a') as log_f:
+            log_f.write(message + '\n')
+
+    try:
+        with open(file_path, 'rb') as f:
+            return pickle.load(f)
+    except Exception as e1:
+        log_error(f"Default pickle load failed: {e1}")
+
+    try:
+        with open(file_path, 'rb') as f:
+            return pickle.load(f, encoding='latin1')
+    except Exception as e2:
+        log_error(f"latin1 pickle load failed: {e2}")
+
+
+    log_error("All loading attempts failed—returning empty DataFrame.")
+    return pd.DataFrame()
+
+# Usage
+coupons_df = safe_load_or_new_df_with_log('coupon.pkl')
 
 def company_header():
     st.markdown(
