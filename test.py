@@ -334,7 +334,7 @@ def generate_pdf(start_date=None, end_date=None):
     
     return pdf_bytes
 
-coupons_df = pd.read_pickle('coupon.pkl')
+coupons_df = pd.read_pickle('coupon.pkl', encoding='latin1')
 
 def company_header():
     st.markdown(
