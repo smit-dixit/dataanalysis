@@ -686,7 +686,10 @@ def user_dashboard():
         
         # Increment the coupon unique code number
         last_coupon_code = c_df['Coupon unique code no.'].iloc[-1]
-        last_coupon_num = int(last_coupon_code[1:])
+        try:
+            last_coupon_num = int(last_coupon_code[1:])
+        except (ValueError, IndexError):
+            last_coupon_num = 0  # fallback value or handle differently
         new_coupon_num = last_coupon_num + 1
         new_coupon_code = ''.join(str(random.randint(0, 9)) for _ in range(5))
         
