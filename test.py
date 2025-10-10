@@ -166,7 +166,7 @@ def generate_pdf_report(start_date=None, end_date=None, summ=False):
 
 def generate_summary_pdf(start_date, end_date):
     # Load the DataFrames from the pickle files
-    s_df = pd.read_pickle('sweet_records2.pkl')
+    s_df = pd.read_pickle('sweet_records.pkl')
     price_df = pd.read_pickle('price.pkl')
 
     # Convert the input start and end dates to datetime
@@ -263,7 +263,7 @@ def generate_summary_pdf(start_date, end_date):
 
 def generate_pdf(start_date=None, end_date=None):
     # Load the DataFrame from the pickle file
-    s_df = pd.read_pickle('sweet_records2.pkl')
+    s_df = pd.read_pickle('sweet_records.pkl')
 
     # Convert the input start and end dates to datetime
     start_date = pd.to_datetime(start_date)
@@ -738,7 +738,7 @@ def user_dashboard():
 
     
 def user2_dashboard():
-    sweet_records_df = pd.read_pickle('sweet_records2.pkl')
+    sweet_records_df = pd.read_pickle('sweet_records.pkl')
     coupons_df = pd.read_pickle('coupon.pkl')  # Load coupons DataFrame
 
     st.write("Welcome to Operator Dashboard")
@@ -780,7 +780,7 @@ def user2_dashboard():
                 st.write(f"Bill Details: {otp_details['Bill Items']}")
                 st.write(f"Total Price: {otp_details['Total Price']}")
                 sweet_records_df.at[sweet_index, 'redeemed'] = True
-                sweet_records_df.to_pickle('sweet_records2.pkl')
+                sweet_records_df.to_pickle('sweet_records.pkl')
                 st.success('Coupon Redeemed')
             
             return  # Exit after handling the sweet_records case
@@ -855,7 +855,7 @@ def send_email(recipient_email, otp, employee_name, bill_details):
         server.send_message(msg)
 
 def save_email_details(employee_number, employee_name, bill_items, mrp, discount, total_price, otp):
-    filename = 'sweet_records2.pkl'
+    filename = 'sweet_records.pkl'
     
     # Check if the file exists
     if os.path.exists(filename):
