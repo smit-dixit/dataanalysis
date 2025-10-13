@@ -93,6 +93,18 @@ def parse_bill_items(bill_items_str):
 
     return parsed_items
 
+s_df = pd.read_pickle('sweet_records.pkl')
+
+# Add 'Date' column if missing
+if 'Date' not in s_df.columns:
+    s_df['Date'] = pd.NaT
+
+# Ensure correct datetime format
+s_df['Date'] = pd.to_datetime(s_df['Date'], errors='coerce')
+
+# Overwrite the pickle file with the corrected DataFrame
+s_df.to_pickle('sweet_records.pkl')
+
 def generate_pdf_report(start_date=None, end_date=None, summ=False):
     c_df = pd.read_pickle('coupon.pkl')
     
@@ -827,7 +839,7 @@ def send_email(recipient_email, otp, employee_name, bill_details):
     # Set your SMTP server details
     smtp_server = "madhurdairy.icewarpcloud.in"
     smtp_port = 587
-    sender_email = "info@madhurdairy.org"
+    sender_email = "sales@madhurdairy.org"
     sender_password = "Madhur@123"  # Use environment variables in production
 
     # Create email content
