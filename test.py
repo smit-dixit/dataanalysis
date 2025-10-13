@@ -114,7 +114,7 @@ s_df['Time'] = pd.to_datetime(s_df['Time'], format='%H:%M:%S', errors='coerce').
 # Ensure correct datetime format
 s_df['Date'] = pd.to_datetime(s_df['Date'], errors='coerce')
 
-if 'Discount' not in s_df.colimns:
+if 'Discount' not in s_df.columns:
     s_df['Discount'] = 0
 
 # Overwrite the pickle file with the corrected DataFrame
