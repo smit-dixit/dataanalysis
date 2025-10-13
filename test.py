@@ -105,6 +105,12 @@ if 'redeemed' not in s_df.columns:
 if 'Employee Number' not in s_df.columns:
     s_df['Employee Number'] = 0  # or other default integer value
 
+if 'Time' not in s_df.columns:
+    s_df['Time'] = pd.NaT
+
+# Convert 'Time' column to datetime.time using the specified format, coerce errors
+s_df['Time'] = pd.to_datetime(s_df['Time'], format='%H:%M:%S', errors='coerce').dt.time
+
 # Ensure correct datetime format
 s_df['Date'] = pd.to_datetime(s_df['Date'], errors='coerce')
 
