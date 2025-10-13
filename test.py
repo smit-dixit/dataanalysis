@@ -102,6 +102,9 @@ if 'Date' not in s_df.columns:
 if 'redeemed' not in s_df.columns:
     s_df['redeemed'] = False
 
+if 'Employee Number' not in s_df.columns:
+    s_df['Employee Number'] = 0  # or other default integer value
+
 # Ensure correct datetime format
 s_df['Date'] = pd.to_datetime(s_df['Date'], errors='coerce')
 
