@@ -117,6 +117,9 @@ s_df['Date'] = pd.to_datetime(s_df['Date'], errors='coerce')
 if 'Discount' not in s_df.columns:
     s_df['Discount'] = 0
 
+if 'Total Price' not in s_df.columns:
+    s_df['Total Price'] = 0
+
 # Overwrite the pickle file with the corrected DataFrame
 s_df.to_pickle('sweet_records.pkl')
 
