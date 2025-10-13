@@ -99,6 +99,9 @@ s_df = pd.read_pickle('sweet_records.pkl')
 if 'Date' not in s_df.columns:
     s_df['Date'] = pd.NaT
 
+if 'redeemed' not in s_df.columns:
+    s_df['redeemed'] = False
+
 # Ensure correct datetime format
 s_df['Date'] = pd.to_datetime(s_df['Date'], errors='coerce')
 
