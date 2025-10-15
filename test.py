@@ -305,7 +305,8 @@ def generate_pdf(start_date=None, end_date=None):
 
     # Remove the 'otp' column and filter for redeemed records only
     s_df = s_df.drop(columns=['otp'])
-    s_df = s_df[s_df['redeemed'] == True]
+    s_df['redeemed'] = s_df['redeemed'].astype(bool)
+    s_df = s_df[s_df['redeemed']]
     s_df = s_df.drop(columns=['redeemed'])
 
     # Convert "Employee Number" to integer and remove rows with Employee Number 101
