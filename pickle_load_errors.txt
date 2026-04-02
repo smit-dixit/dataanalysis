@@ -1,0 +1,64 @@
+Pickle load error log
+====================
+Default pickle load failed: 'utf-8' codec can't decode byte 0x95 in position 5: invalid start byte
+latin1 pickle load failed: 'utf-8' codec can't decode byte 0x95 in position 5: invalid start byte
+All loading attempts failed—returning empty DataFrame.
+Default pickle load failed: Ran out of input
+latin1 pickle load failed: Ran out of input
+All loading attempts failed—returning empty DataFrame.
+Default pickle load failed: pickle data was truncated
+latin1 pickle load failed: Ran out of input
+All loading attempts failed—returning empty DataFrame.
+Default pickle load failed: pickle data was truncated
+Default pickle load failed: pickle data was truncated
+latin1 pickle load failed: Ran out of input
+All loading attempts failed—returning empty DataFrame.
+Default pickle load failed: pickle data was truncated
+Default pickle load failed: pickle data was truncated
+Default pickle load failed: pickle data was truncated
+latin1 pickle load failed: Ran out of input
+All loading attempts failed—returning empty DataFrame.
+Default pickle load failed: pickle data was truncated
+latin1 pickle load failed: Ran out of input
+All loading attempts failed—returning empty DataFrame.
+Default pickle load failed: '_cython_3_0_5.cython_function_or_method' object has no attribute 'append'
+Default pickle load failed: Ran out of input
+latin1 pickle load failed: Ran out of input
+All loading attempts failed—returning empty DataFrame.
+Default pickle load failed: pickle data was truncated
+Default pickle load failed: pickle data was truncated
+Default pickle load failed: pickle data was truncated
+latin1 pickle load failed: Ran out of input
+All loading attempts failed—returning empty DataFrame.
+Default pickle load failed: Ran out of input
+latin1 pickle load failed: Ran out of input
+All loading attempts failed—returning empty DataFrame.
+Default pickle load failed: pickle data was truncated
+latin1 pickle load failed: Ran out of input
+All loading attempts failed—returning empty DataFrame.
+Default pickle load failed: invalid load key, '\x05'.
+Default pickle load failed: pickle data was truncated
+latin1 pickle load failed: Ran out of input
+All loading attempts failed—returning empty DataFrame.
+Default pickle load failed: Ran out of input
+latin1 pickle load failed: Ran out of input
+All loading attempts failed—returning empty DataFrame.
+Default pickle load failed: pickle data was truncated
+latin1 pickle load failed: Ran out of input
+All loading attempts failed—returning empty DataFrame.
+Default pickle load failed: invalid load key, '\x00'.
+latin1 pickle load failed: invalid load key, '\x00'.
+All loading attempts failed—returning empty DataFrame.
+Default pickle load failed: pickle data was truncated
+Default pickle load failed: pickle data was truncated
+latin1 pickle load failed: Ran out of input
+All loading attempts failed—returning empty DataFrame.
+Default pickle load failed: pickle data was truncated
+latin1 pickle load failed: Ran out of input
+All loading attempts failed—returning empty DataFrame.
+Default pickle load failed: pickle data was truncated
+latin1 pickle load failed: Ran out of input
+All loading attempts failed—returning empty DataFrame.
+Default pickle load failed: Ran out of input
+latin1 pickle load failed: Ran out of input
+All loading attempts failed—returning empty DataFrame.
