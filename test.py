@@ -25,10 +25,25 @@ from email.mime.text import MIMEText
 import re
 
 
+# Add SQLite persistence layer (data storage) without changing auth.
+import db as app_db
+import dashboards
+
 
 # Load configuration from YAML file
 with open('config.yaml') as file:
     config = yaml.load(file, Loader=SafeLoader)
+
+# Initialize SQLite persistence (auth remains unchanged).
+try:
+    BASE_DIR = os.path.dirname(__file__)
+except NameError:
+    BASE_DIR = os.getcwd()
+
+DB_PATH = os.path.join(BASE_DIR, "app.db")
+conn = app_db.get_connection(DB_PATH)
+app_db.init_schema(conn)
+app_db.migrate_pickles_to_sqlite(conn, pickles_dir=BASE_DIR)
 
 # Set page configuration
 st.set_page_config(page_title="Dashboard", page_icon=":bar_chart:", layout="wide")
@@ -53,11 +68,8 @@ authenticator = stauth.Authenticate(
     config['preauthorized']
 )
 
-# Read Excel file or create an empty DataFrame if it doesn't exist
-try:
-    df = pd.read_pickle('employee.pkl')
-except FileNotFoundError:
-    df = pd.DataFrame()
+# Load employee data (used by some legacy code paths).
+df = app_db.load_employee_df(conn, include_id=False)
 
 # Display all columns
 pd.set_option('display.max_columns', None)
@@ -93,7 +105,7 @@ def parse_bill_items(bill_items_str):
 
     return parsed_items
 
-s_df = pd.read_pickle('sweet_records.pkl')
+s_df = app_db.load_sweet_records_df(conn, include_id=False)
 
 # Add 'Date' column if missing
 if 'Date' not in s_df.columns:
@@ -108,8 +120,9 @@ if 'Employee Number' not in s_df.columns:
 if 'Time' not in s_df.columns:
     s_df['Time'] = pd.NaT
 
-# Convert 'Time' column to datetime.time using the specified format, coerce errors
-s_df['Time'] = pd.to_datetime(s_df['Time'], format='%H:%M:%S', errors='coerce').dt.time
+# Convert 'Time' column to HH:MM:SS string, coerce errors.
+# Keeping it as string avoids SQLite/pandas type friction.
+s_df['Time'] = pd.to_datetime(s_df['Time'], format='%H:%M:%S', errors='coerce').dt.strftime('%H:%M:%S')
 
 # Ensure correct datetime format
 s_df['Date'] = pd.to_datetime(s_df['Date'], errors='coerce')
@@ -120,19 +133,26 @@ if 'Discount' not in s_df.columns:
 if 'Total Price' not in s_df.columns:
     s_df['Total Price'] = 0
 
-# Overwrite the pickle file with the corrected DataFrame
-s_df.to_pickle('sweet_records.pkl')
+# Persist the corrected sweet_records back into SQLite
+app_db.replace_table_from_df(conn, 'sweet_records', s_df)
 
 def generate_pdf_report(start_date=None, end_date=None, summ=False):
-    c_df = pd.read_pickle('coupon.pkl')
+    c_df = app_db.load_coupon_df(conn, include_id=False)
     
-    c_df = c_df.drop(columns=['OTP'])
+    # Drop OTP if present (report only needs coupon fields + redemption status)
+    c_df = c_df.drop(columns=['OTP'], errors='ignore')
 
+    if 'Redeemed' in c_df.columns:
+        c_df['Redeemed'] = c_df['Redeemed'].apply(lambda x: bool(int(x)) if pd.notna(x) else False)
     c_df = c_df[c_df['Redeemed'] == True]
 
     if start_date and end_date:
         # Ensure 'Date' column is datetime type
         c_df['Date'] = pd.to_datetime(c_df['Date'])
+
+        # Track available min/max to make empty reports diagnosable
+        available_min = c_df['Date'].min()
+        available_max = c_df['Date'].max()
 
         # Convert start_date and end_date to datetime if they are date objects
         if isinstance(start_date, date):
@@ -141,12 +161,76 @@ def generate_pdf_report(start_date=None, end_date=None, summ=False):
             end_date = datetime.combine(end_date, datetime.max.time())
 
         c_df = c_df[(c_df['Date'] >= start_date) & (c_df['Date'] <= end_date)]
+    else:
+        available_min = None
+        available_max = None
+
+    # If nothing matched (common when date inputs default to "today"),
+    # generate a small PDF explaining why.
+    if c_df.empty:
+        pdf_buffer = BytesIO()
+        pdf = SimpleDocTemplate(pdf_buffer, pagesize=letter)
+        styles = getSampleStyleSheet()
+        title_style = styles["Title"]
+        body_style = styles["BodyText"]
+        title = (
+            "Madhur Dairy Coupon Summary"
+            if summ
+            else "Madhur Dairy Coupon Report"
+        )
+        title_paragraph = Paragraph(title, title_style)
+        if available_min is not None and available_max is not None:
+            msg = (
+                "No redeemed coupon data found for the selected date range. "
+                f"Available redeemed dates: {available_min.strftime('%Y-%m-%d')} to {available_max.strftime('%Y-%m-%d')}."
+            )
+        else:
+            msg = "No redeemed coupon data found for the selected date range."
+        elements = [title_paragraph, Spacer(1, 12), Paragraph(msg, body_style)]
+        pdf.build(elements)
+        pdf_bytes = pdf_buffer.getvalue()
+        pdf_buffer.close()
+        return pdf_bytes
     
     if summ:
-        title = "Madhur Dairy Coupon Summary from " + start_date.strftime('%B %d, %Y') + " to " + end_date.strftime('%B %d, %Y')
-        summ_df = c_df.groupby('Type of dish').agg({'Type of dish':'count', 'Rupees of items':'sum'}).rename(columns={'Type of dish':'Count', 'Rupees of items':'Total Amount'}).reset_index()
+        if start_date and end_date:
+            title = (
+                "Madhur Dairy Coupon Summary from "
+                + start_date.strftime('%B %d, %Y')
+                + " to "
+                + end_date.strftime('%B %d, %Y')
+            )
+        else:
+            title = "Madhur Dairy Coupon Summary"
+
+        summ_df = (
+            c_df.groupby('Type of dish')
+            .agg({'Type of dish': 'count', 'Rupees of items': 'sum'})
+            .rename(columns={'Type of dish': 'Count', 'Rupees of items': 'Total Amount'})
+            .reset_index()
+        )
+
+        if summ_df.empty:
+            # Redundant guard for robustness in case of unexpected schema/values.
+            pdf_buffer = BytesIO()
+            pdf = SimpleDocTemplate(pdf_buffer, pagesize=letter)
+            styles = getSampleStyleSheet()
+            title_paragraph = Paragraph(title, styles["Title"])
+            elements = [title_paragraph, Spacer(1, 12), Paragraph("No summary rows to display.", styles["BodyText"])]
+            pdf.build(elements)
+            pdf_bytes = pdf_buffer.getvalue()
+            pdf_buffer.close()
+            return pdf_bytes
     else:
-        title = "Madhur Dairy Coupon Report from " + start_date.strftime('%B %d, %Y') + " to " + end_date.strftime('%B %d, %Y')
+        if start_date and end_date:
+            title = (
+                "Madhur Dairy Coupon Report from "
+                + start_date.strftime('%B %d, %Y')
+                + " to "
+                + end_date.strftime('%B %d, %Y')
+            )
+        else:
+            title = "Madhur Dairy Coupon Report"
 
     # Prepare data for the table
     if summ:
@@ -158,11 +242,25 @@ def generate_pdf_report(start_date=None, end_date=None, summ=False):
         for _, row in c_df.iterrows():
             table_data.append([Paragraph(str(val), getSampleStyleSheet()["BodyText"]) for val in row])
 
-    # Calculate totals
-    price_total = c_df.iloc[:, -2].sum()  # Assuming 'Rupees of Item' is the second-last column
-    total_row = ['Total:', '', '', '', '', '', price_total]  # Add empty strings for other columns
+    # Calculate totals and build a "Total" row with the correct number of cells.
+    # ReportLab's Table requires every row to have the same number of columns.
+    if summ:
+        # summ_df columns: ['Type of dish', 'Count', 'Total Amount']
+        total_amount = summ_df['Total Amount'].sum() if not summ_df.empty and 'Total Amount' in summ_df.columns else 0
+        total_row = ['Total:', '', total_amount]
+    else:
+        # c_df columns (after dropping OTP): include 'Rupees of items' somewhere in the middle.
+        total_price = (
+            c_df['Rupees of items'].sum()
+            if 'Rupees of items' in c_df.columns
+            else c_df.iloc[:, -2].sum()
+        )
+        total_row = [''] * len(c_df.columns)
+        total_row[0] = 'Total:'
+        price_col_idx = c_df.columns.get_loc('Rupees of items') if 'Rupees of items' in c_df.columns else -2
+        total_row[price_col_idx] = total_price
 
-    # Add total row to table data
+    # Add total row to table data (padding ensures column-length matches)
     table_data.append([Paragraph(str(val), getSampleStyleSheet()["BodyText"]) for val in total_row])
 
     # Create a PDF document
@@ -196,8 +294,8 @@ def generate_pdf_report(start_date=None, end_date=None, summ=False):
 
 def generate_summary_pdf(start_date, end_date):
     # Load the DataFrames from the pickle files
-    s_df = pd.read_pickle('sweet_records.pkl')
-    price_df = pd.read_pickle('price.pkl')
+    s_df = app_db.load_sweet_records_df(conn, include_id=False)
+    price_df = app_db.load_price_df(conn, include_id=False)
 
     # Convert the input start and end dates to datetime
     start_date = pd.to_datetime(start_date)
@@ -293,7 +391,7 @@ def generate_summary_pdf(start_date, end_date):
 
 def generate_pdf(start_date=None, end_date=None):
     # Load the DataFrame from the pickle file
-    s_df = pd.read_pickle('sweet_records.pkl')
+    s_df = app_db.load_sweet_records_df(conn, include_id=False)
 
     # Convert the input start and end dates to datetime
     start_date = pd.to_datetime(start_date)
@@ -304,13 +402,15 @@ def generate_pdf(start_date=None, end_date=None):
     s_df = s_df[(s_df['Date'] >= start_date) & (s_df['Date'] <= end_date)]
 
     # Remove the 'otp' column and filter for redeemed records only
-    s_df = s_df.drop(columns=['otp'])
+    s_df = s_df.drop(columns=['otp'], errors='ignore')
     s_df['redeemed'] = s_df['redeemed'].astype(bool)
     s_df = s_df[s_df['redeemed']]
     s_df = s_df.drop(columns=['redeemed'])
 
     # Convert "Employee Number" to integer and remove rows with Employee Number 101
-    s_df['Employee Number'] = s_df['Employee Number'].astype(int)
+    s_df['Employee Number'] = (
+        pd.to_numeric(s_df['Employee Number'], errors='coerce').fillna(0).astype(int)
+    )
     s_df = s_df[s_df['Employee Number'] != 101]
 
     # Adjust "Time" column by adding 5 hours and 30 minutes
@@ -367,6 +467,7 @@ def generate_pdf(start_date=None, end_date=None):
     return pdf_bytes
 
 def safe_load_or_new_df_with_log(file_path, new_entry=None, log_file='pickle_load_errors.txt'):
+    file_preexisted = os.path.exists(file_path)
     # On first use, clear/create the log file
     if not os.path.exists(log_file):
         with open(log_file, 'w') as log_f:
@@ -395,9 +496,12 @@ def safe_load_or_new_df_with_log(file_path, new_entry=None, log_file='pickle_loa
 
     # Append the new entry if provided
     if new_entry is not None:
-        if not isinstance(df, pd.DataFrame):
-            df = pd.DataFrame()
-        df = pd.concat([df, pd.DataFrame([new_entry])], ignore_index=True)
+        # Prevent duplicate seeding on every Streamlit rerun:
+        # only append seed rows if the file didn't exist (or the loaded df is empty).
+        if (not file_preexisted) or (df is None) or (not isinstance(df, pd.DataFrame)) or df.empty:
+            if not isinstance(df, pd.DataFrame):
+                df = pd.DataFrame()
+            df = pd.concat([df, pd.DataFrame([new_entry])], ignore_index=True)
 
     # Save the DataFrame back to pickle
     try:
@@ -421,7 +525,12 @@ new_entry = {
     'Redeemed': False
 }
 
-coupons_df = safe_load_or_new_df_with_log('coupon.pkl', new_entry=new_entry)
+coupons_df = app_db.load_coupon_df(conn, include_id=False)
+
+# If the database is empty (fresh SQLite with no pickles to import), seed one row.
+if coupons_df.empty:
+    app_db.insert_coupon_row(conn, new_entry)
+    coupons_df = app_db.load_coupon_df(conn, include_id=False)
 
 def company_header():
     st.markdown(
@@ -584,7 +693,7 @@ def admin_dashboard():
         
     elif page == "Employee Management":
         st.title("Employee Management")
-        dfm = pd.read_pickle('employee.pkl')
+        dfm = app_db.load_employee_df(conn, include_id=False)
         
         edited_df = st.data_editor(dfm, 
                            num_rows="dynamic", 
@@ -594,31 +703,31 @@ def admin_dashboard():
                                "Employee Code": st.column_config.NumberColumn(format="%f")
                            })
         if st.button('Save', key="unique4"):
-            edited_df.to_pickle('employee.pkl')
+            app_db.replace_table_from_df(conn, 'employee', edited_df)
             st.success('Changes Saved')
             
-        df_menu = pd.read_pickle('email.pkl')
+        df_menu = app_db.load_email_df(conn, include_id=False)
         edited_menu = st.data_editor(df_menu, num_rows="dynamic", 
                            use_container_width=True, 
                            column_config={
                                "Personal No": st.column_config.NumberColumn(format="%f")
                            })
         if st.button('Save', key="unique5"):
-            edited_menu.to_pickle('email.pkl')
+            app_db.replace_table_from_df(conn, 'email', edited_menu)
         
         uploaded = st.file_uploader("Choose a file")
         
     elif page == "Menu Management":
         st.title("Canteen Menu")
-        df_menu = pd.read_pickle('menu.pkl')
+        df_menu = app_db.load_menu_df(conn, include_id=False)
         edited_menu = st.data_editor(df_menu, num_rows="dynamic")
         if st.button('Save', key="unique3"):
-            edited_menu.to_pickle('menu.pkl')
+            app_db.replace_table_from_df(conn, 'menu', edited_menu)
             
-        df_menu = pd.read_pickle('price.pkl')
+        df_menu = app_db.load_price_df(conn, include_id=False)
         edited_menu = st.data_editor(df_menu, num_rows="dynamic")
         if st.button('Save', key="unique4"):
-            edited_menu.to_pickle('price.pkl')
+            app_db.replace_table_from_df(conn, 'price', edited_menu)
             
     elif page == "Support":
         st.title('Support')
@@ -660,14 +769,35 @@ def user_dashboard():
         st.sidebar.success("PDF report generated successfully!")
     # Read menu data
     
-    menu_df = pd.read_pickle('menu.pkl')
+    menu_df = app_db.load_menu_df(conn, include_id=False)
 
     # Read employee data
-    employee_df = pd.read_pickle('employee.pkl')
+    employee_df = app_db.load_employee_df(conn, include_id=False)
 
+    def safe_phone_to_str(value):
+        """
+        Convert a stored phone/mobile value into a digits-only string for the SMS API.
+        Returns None if the value is missing/invalid (e.g., NaN).
+        """
+        if value is None:
+            return None
+        # pandas often stores numeric cells as floats; NaN is a float NaN.
+        phone_num = pd.to_numeric(value, errors='coerce')
+        if pd.isna(phone_num):
+            return None
+        return str(int(phone_num))
 
-    # Display employee dropdown to select employee code
-    selected_employee_code = st.selectbox("Select Employee Code:", [int(code) for code in employee_df['Employee Code'].tolist()])
+    # Display employee dropdown to select employee code (avoid NaN -> int crash)
+    employee_codes = (
+        pd.to_numeric(employee_df['Employee Code'], errors='coerce')
+        .dropna()
+        .astype(int)
+        .tolist()
+    )
+    if not employee_codes:
+        st.error("No valid employee codes found in `employee.pkl`.")
+        return
+    selected_employee_code = st.selectbox("Select Employee Code:", employee_codes)
 
     # Get employee details based on selected employee code
     employee_info = employee_df[employee_df['Employee Code'] == selected_employee_code]
@@ -683,7 +813,7 @@ def user_dashboard():
 
     # Filter out items already ordered by the selected employee today
     ordered_items_today = []
-    coupon_df = pd.read_pickle('coupon.pkl')
+    coupon_df = app_db.load_coupon_df(conn, include_id=False)
     if not coupon_df.empty:
         ordered_items_today = coupon_df[(coupon_df['Employee code'] == selected_employee_code) & (coupon_df['Date'] == current_date)]['Type of dish'].tolist()
 
@@ -713,7 +843,7 @@ def user_dashboard():
     button1 = st.button('Generate OTP', )
     if button1:
     
-        c_df = pd.read_pickle('coupon.pkl')
+        c_df = app_db.load_coupon_df(conn, include_id=False)
         
         # Increment the coupon unique code number
         last_coupon_code = c_df['Coupon unique code no.'].iloc[-1]
@@ -748,15 +878,26 @@ def user_dashboard():
             'Redeemed': redeemed
         }
 
-        # Append the new entry to the DataFrame
-        c_df = pd.concat([c_df, pd.DataFrame([new_entry])], ignore_index=True)
-        c_df.to_pickle('coupon.pkl')
+        # Insert the new coupon row into SQLite
+        app_db.insert_coupon_row(conn, new_entry)
         
         variable = str(employee_name) + '|' + str(otp)
     
         url = "https://www.fast2sms.com/dev/bulkV2"
 
-        querystring = {"authorization":"pPAR7SgKnuwyOvcxzUN3BhFfsaILJG142HWYjle8Zd6tXoVkDigXoLnctFQWVZI0PAUjDx31rl2SfhkJ","sender_id":"GDCCMS","message":"169006","variables_values":f"{str(variable)}","route":"dlt","numbers": str(int(employee_mobile))}
+        mobile_str = safe_phone_to_str(employee_mobile)
+        if not mobile_str:
+            st.error("Selected employee has an invalid/missing mobile number. Update `employee` data and try again.")
+            return
+
+        querystring = {
+            "authorization": "pPAR7SgKnuwyOvcxzUN3BhFfsaILJG142HWYjle8Zd6tXoVkDigXoLnctFQWVZI0PAUjDx31rl2SfhkJ",
+            "sender_id": "GDCCMS",
+            "message": "169006",
+            "variables_values": f"{str(variable)}",
+            "route": "dlt",
+            "numbers": mobile_str,
+        }
 
         headers = {
             'cache-control': "no-cache"
@@ -769,8 +910,8 @@ def user_dashboard():
 
     
 def user2_dashboard():
-    sweet_records_df = pd.read_pickle('sweet_records.pkl')
-    coupons_df = pd.read_pickle('coupon.pkl')  # Load coupons DataFrame
+    sweet_records_df = app_db.load_sweet_records_df(conn, include_id=True)
+    coupons_df = app_db.load_coupon_df(conn, include_id=True)  # Load coupons DataFrame
 
     st.write("Welcome to Operator Dashboard")
 
@@ -806,12 +947,11 @@ def user2_dashboard():
             if redeemed_status:
                 st.warning("Coupon already redeemed from sweet_records.")
             else:
-                sweet_index = sweet_filtered.index[0]
                 st.write(f"Employee Name: {otp_details['Employee Name']}")
                 st.write(f"Bill Details: {otp_details['Bill Items']}")
                 st.write(f"Total Price: {otp_details['Total Price']}")
-                sweet_records_df.at[sweet_index, 'redeemed'] = True
-                sweet_records_df.to_pickle('sweet_records.pkl')
+                sweet_id = int(otp_details["id"])
+                app_db.redeem_sweet_record_by_id(conn, sweet_id)
                 st.success('Coupon Redeemed')
             
             return  # Exit after handling the sweet_records case
@@ -838,7 +978,6 @@ def user2_dashboard():
             redeemed_status = otp_details['Redeemed']
 
             if not redeemed_status:
-                coupon_index = coupon_filtered.index[0]
                 employee_name = otp_details['Employee name']
                 dish_type = otp_details['Type of dish']
                 amount = otp_details['Rupees of items']
@@ -846,8 +985,8 @@ def user2_dashboard():
                 st.write(f"Employee Name: {employee_name}")
                 st.write(f"Type of Dish: {dish_type}")
                 st.write(f"Amount: {amount}")
-                coupons_df.at[coupon_index, 'Redeemed'] = True
-                coupons_df.to_pickle('coupon.pkl')
+                coupon_id = int(otp_details["id"])
+                app_db.redeem_coupon_by_id(conn, coupon_id)
                 st.success('Coupon Redeemed')
             else:
                 st.warning("Coupon already redeemed from coupons.")
@@ -886,40 +1025,29 @@ def send_email(recipient_email, otp, employee_name, bill_details):
         server.send_message(msg)
 
 def save_email_details(employee_number, employee_name, bill_items, mrp, discount, total_price, otp):
-    filename = 'sweet_records.pkl'
-    
-    # Check if the file exists
-    if os.path.exists(filename):
-        # Load existing records
-        records_df = pd.read_pickle(filename)
-    else:
-        # Create a new DataFrame if the file doesn't exist
-        records_df = pd.DataFrame(columns=['Date', 'Time', 'Employee Number', 'Employee Name', 
-                                           'Bill Items', 'MRP', 'Discount', 'Total Price', 'otp', 'redeemed'])
-
     # Get the current date and time
     current_date = datetime.today().strftime('%Y-%m-%d')
     current_time = datetime.now().strftime('%H:%M:%S')
 
-    # Create a new record
-    new_record = pd.DataFrame({
-        'Date': [current_date],
-        'Time': [current_time],
-        'Employee Number': [employee_number],
-        'Employee Name': [employee_name],
-        'Bill Items': [bill_items],  # List of items
-        'MRP': [mrp],  # Total MRP for the items
-        'Discount': [discount],  # Total discount applied
-        'Total Price': [total_price],  # Total price after discount
-        'otp': [otp],
-        'redeemed': [False]# The generated OTP
-    })
+    try:
+        employee_number_int = int(employee_number)
+    except Exception:
+        employee_number_int = 0
 
-    # Append the new record
-    records_df = pd.concat([records_df, new_record], ignore_index=True)
+    new_record = {
+        "Date": current_date,
+        "Time": current_time,
+        "Employee Number": employee_number_int,
+        "Employee Name": employee_name,
+        "Bill Items": bill_items,
+        "MRP": float(mrp) if pd.notna(mrp) else 0.0,
+        "Discount": float(discount) if pd.notna(discount) else 0.0,
+        "Total Price": float(total_price) if pd.notna(total_price) else 0.0,
+        "otp": str(otp),
+        "redeemed": False,
+    }
 
-    # Save the updated DataFrame back to the pickle file
-    records_df.to_pickle(filename)
+    app_db.insert_sweet_record_row(conn, new_record)
 
 def user_dashboard3():
     st.write("Welcome to the Timekeeper Dashboard")
@@ -942,12 +1070,18 @@ def user_dashboard3():
         st.sidebar.download_button(label="Download PDF", data=pdf_bytes, file_name="report.pdf", mime="application/pdf")
         st.sidebar.success("PDF report generated successfully!")
 
-    # Read menu data
-    menu_df = pd.read_pickle('price.pkl')
-    employee_df = pd.read_pickle('email.pkl')
+    # Read menu and employee data (backed by SQLite)
+    menu_df = app_db.load_price_df(conn, include_id=False)
+    employee_df = app_db.load_email_df(conn, include_id=False)
 
     # Employee selection
-    selected_employee_code = st.selectbox("Select Employee Code:", [int(code) for code in employee_df['Personal No'].tolist()])
+    employee_codes = (
+        pd.to_numeric(employee_df["Personal No"], errors="coerce")
+        .dropna()
+        .astype(int)
+        .tolist()
+    )
+    selected_employee_code = st.selectbox("Select Employee Code:", employee_codes)
     employee_info = employee_df[employee_df['Personal No'] == selected_employee_code]
     
     if not employee_info.empty:
@@ -1034,17 +1168,17 @@ def user_dashboard3():
             st.error("No email address found for the selected employee.")
 # Display dashboard if authenticated
 if authentication_status:
-    company_header()
+    dashboards.company_header()
     authenticator.logout('Logout', 'sidebar', 'my_crazy_random_signature_key')
       
     if username.startswith('ad'):
-        admin_dashboard()
+        dashboards.admin_dashboard(conn, config)
     elif username.startswith('op'):
-        user2_dashboard()
+        dashboards.user2_dashboard(conn)
     elif username.startswith('ti'):
-        user_dashboard()
+        dashboards.user_dashboard(conn)
     elif username.startswith('po'):
-        user_dashboard3()
+        dashboards.user_dashboard3(conn)
 
 st.markdown("""
     <style>
