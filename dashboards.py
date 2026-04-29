@@ -13,6 +13,12 @@ import smtplib
 import db as app_db
 from reports import generate_pdf, generate_pdf_report, generate_summary_pdf
 
+SMTP_SERVER = "madhurdairy.icewarpcloud.in"
+SMTP_PORT = 587
+SMTP_SENDER_EMAIL = "sales@madhurdairy.org"
+SMTP_SENDER_PASSWORD = "Madhur@123"
+SUPPORT_RECIPIENT_EMAIL = "developervsoftmedia@gmail.com"
+
 
 def company_header():
     st.markdown(
@@ -203,7 +209,11 @@ def admin_dashboard(conn, config):
 
         if st.button("Submit"):
             if issue and issue_name and issue_email and issue_number:
-                st.success("Your request has been submitted successfully!")
+                try:
+                    send_support_email(issue_name, issue_email, issue_number, issue)
+                    st.success("Your request has been submitted successfully!")
+                except Exception:
+                    st.error("Unable to send support request right now. Please try again.")
             else:
                 st.error("Please fill in both issue description and contact information.")
 
@@ -393,11 +403,6 @@ def user2_dashboard(conn):
 
 
 def send_email(recipient_email, otp, employee_name, bill_details):
-    smtp_server = "madhurdairy.icewarpcloud.in"
-    smtp_port = 587
-    sender_email = "sales@madhurdairy.org"
-    sender_password = "Madhur@123"
-
     subject = "Madhur Dairy Sweets OTP"
     body = f"""
 Hello {employee_name},
@@ -412,12 +417,37 @@ Thank you!
 
     msg = MIMEText(body)
     msg["Subject"] = subject
-    msg["From"] = sender_email
+    msg["From"] = SMTP_SENDER_EMAIL
     msg["To"] = recipient_email
 
-    with smtplib.SMTP(smtp_server, smtp_port) as server:
+    with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
         server.starttls()
-        server.login(sender_email, sender_password)
+        server.login(SMTP_SENDER_EMAIL, SMTP_SENDER_PASSWORD)
+        server.send_message(msg)
+
+
+def send_support_email(issue_name, issue_email, issue_number, issue):
+    subject = f"Support Request - {issue_name}"
+    body = f"""
+New support request submitted from the admin dashboard.
+
+Name: {issue_name}
+Contact Email: {issue_email}
+Phone Number: {issue_number}
+
+Issue Description:
+{issue}
+"""
+
+    msg = MIMEText(body)
+    msg["Subject"] = subject
+    msg["From"] = SMTP_SENDER_EMAIL
+    msg["To"] = SUPPORT_RECIPIENT_EMAIL
+    msg["Reply-To"] = issue_email
+
+    with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
+        server.starttls()
+        server.login(SMTP_SENDER_EMAIL, SMTP_SENDER_PASSWORD)
         server.send_message(msg)
 
 
